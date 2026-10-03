@@ -16,3 +16,8 @@ recordings
 *.wav
 .DS_Store
 .pgdata
+.neon
+.mcp.json
+
+.vercel
+.env*
