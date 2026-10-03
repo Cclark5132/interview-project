@@ -24,7 +24,7 @@ Last updated 2026-10-03.
 - **Live grading** and **live transcription** have not been run against the real APIs (no keys in this environment). Provider code is covered by controlled tests only. Verify the configured `ANTHROPIC_MODEL` id and the OpenAI transcription model against current provider docs when adding keys.
 - **Microphone capture** was not exercised end-to-end (no microphone/permission in the test pane); the permission-denied, unsupported and not-configured paths are implemented but only partly exercised.
 - No Playwright suite; browser checks were manual via the built-in browser pane.
-- GitHub: `gh` was not installed/authenticated in this environment; see the final summary for remote status.
+- GitHub: private repo `Cclark5132/interview-project` created and pushed.
 - Frontend Design plugin / Context7 were not available in this session; the visual direction was applied manually (warm neutrals, one muted teal accent, serif display type, tokens in `globals.css`).
 
 ## Next (not Mark 1)
