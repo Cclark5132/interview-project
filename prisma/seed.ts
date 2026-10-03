@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { randomBytes } from "node:crypto";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import { PrismaPg } from "@prisma/adapter-pg";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { SEED_QUESTIONS, buildRubric } from "../src/content/seed-questions";
@@ -10,19 +10,35 @@ const DEMO_USER_EMAIL = "demo@interview-project.local";
 const DEMO_ADMIN_EMAIL = "admin@interview-project.local";
 
 async function main() {
-  if (process.env.NODE_ENV === "production") {
-    throw new Error("Refusing to seed demo accounts in production.");
+  // `--production` bootstraps a real deployment: taxonomy, draft questions, and ONE owner/admin account from
+  // ADMIN_EMAIL + ADMIN_PASSWORD. Demo accounts are local development only and are never created in production.
+  const production = process.argv.includes("--production");
+  if (process.env.NODE_ENV === "production" && !production) {
+    throw new Error("Refusing to create demo accounts in production. Use `npm run db:bootstrap`.");
   }
-  const db = new PrismaClient({ adapter: new PrismaBetterSqlite3({ url: process.env.DATABASE_URL ?? "file:./dev.db" }) });
+  const connectionString = process.env.DATABASE_URL ?? "postgresql://postgres:postgres@localhost:5433/interview";
+  const db = new PrismaClient({ adapter: new PrismaPg({ connectionString }) });
   try {
     await syncTaxonomy(db);
 
     // Demo accounts: local development only. Passwords come from env or are generated and printed once.
     const printed: string[] = [];
-    for (const [email, name, role, envKey] of [
-      [DEMO_USER_EMAIL, "Demo User", "USER", "DEMO_USER_PASSWORD"],
-      [DEMO_ADMIN_EMAIL, "Demo Admin (owner)", "ADMIN", "DEMO_ADMIN_PASSWORD"],
-    ] as const) {
+    if (production) {
+      const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+      const password = process.env.ADMIN_PASSWORD;
+      if (!email || !password || password.length < 12) throw new Error("Set ADMIN_EMAIL and ADMIN_PASSWORD (12+ characters) to bootstrap the owner account.");
+      const passwordHash = await bcrypt.hash(password, 12);
+      const existing = await db.user.findUnique({ where: { email } });
+      if (existing) await db.user.update({ where: { email }, data: { passwordHash, role: "ADMIN" } });
+      else await db.user.create({ data: { email, name: "Owner", role: "ADMIN", passwordHash } });
+      console.log(`Owner account ready: ${email}`);
+    }
+    for (const [email, name, role, envKey] of production
+      ? []
+      : ([
+          [DEMO_USER_EMAIL, "Demo User", "USER", "DEMO_USER_PASSWORD"],
+          [DEMO_ADMIN_EMAIL, "Demo Admin (owner)", "ADMIN", "DEMO_ADMIN_PASSWORD"],
+        ] as const)) {
       const existing = await db.user.findUnique({ where: { email } });
       if (existing && !process.argv.includes("--reset-demo-passwords")) continue;
       const password = process.env[envKey] || randomBytes(9).toString("base64url");
@@ -64,7 +80,7 @@ async function main() {
     if (printed.length) {
       console.log("\nLocal demo accounts (development only; shown once):");
       for (const p of printed) console.log("  " + p);
-    } else {
+    } else if (!production) {
       console.log("Demo accounts already exist; passwords unchanged.");
     }
     console.log("\nAll sample questions are drafts. Sign in as the admin and approve them in /admin to publish.");

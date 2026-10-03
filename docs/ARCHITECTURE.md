@@ -2,7 +2,7 @@
 
 ```
 browser ──► Next.js (App Router)
-             ├─ pages (server components) ── src/server/* ──► Prisma ──► SQLite
+             ├─ pages (server components) ── src/server/* ──► Prisma ──► Postgres
              ├─ /api/* route handlers (thin) ─┘
              └─ client components: answer workspace, recorder, onboarding, admin editor
 src/lib/*    pure logic: ranking, rubric/grading validation, JD parsing, import, transcription adapter
@@ -27,7 +27,7 @@ Without `ANTHROPIC_API_KEY` the `DemonstrationProvider` (keyword overlap) is use
 `src/lib/ranking.ts` — deterministic weights (discipline 30, role 15, reviewed company 10/15, topic overlap up to 20, difficulty fit 10/5, weak topic up to ~12, unanswered +5, repeat penalty, topic-diversity penalty). Each recommendation carries up to three plain-language reasons.
 
 ## Speech
-`/api/transcribe` accepts a ≤10 MB audio blob, calls the OpenAI transcription API (configurable model), returns text, and discards the audio. The browser lets users edit the transcript before submitting. Not configured ⇒ the UI says so and typed answers work normally.
+`/api/transcribe` accepts a ≤4 MB (Vercel request limit) audio blob, calls the OpenAI transcription API (configurable model), returns text, and discards the audio. The browser lets users edit the transcript before submitting. Not configured ⇒ the UI says so and typed answers work normally.
 
-## Deployment prerequisites (not done in Mark 1)
-Swap SQLite for a hosted database (change the Prisma datasource/adapter), set `NEXTAUTH_SECRET`/`NEXTAUTH_URL`, provide API keys as server env vars, move rate limiting/login throttle to a shared store, add email verification/password reset, and do not run the demo seed.
+## Deployment (see DEPLOY.md)
+Hosted Postgres (Neon), set `NEXTAUTH_SECRET`/`NEXTAUTH_URL`, provide API keys as server env vars, move rate limiting/login throttle to a shared store, add email verification/password reset, and do not run the demo seed.

@@ -2,16 +2,19 @@
 
 # Interview Project (working name — see `src/lib/brand.ts`)
 
-Curated, owner-reviewed interview question bank with rubric-based automated grading. Mark 1 scope only: no billing, no public deploy, no mock interviews, no code sandbox, no finance/business content yet.
+Curated, owner-reviewed interview question bank with rubric-based automated grading. Scope: no billing, no mock interviews, no code sandbox, no finance/business content yet.
 
 ## Commands
+- `npm run db:dev` — local Postgres (keep running)
 - `npm run setup` — prisma generate, migrate, seed (taxonomy, 34 DRAFT sample questions, local demo accounts)
 - `npm run dev` / `npm run build`
-- `npm run lint` · `npm run typecheck` · `npm test` (vitest; integration tests use a throwaway `test.db` built from real migrations)
+- `npm run lint` · `npm run typecheck` · `npm test` (vitest; integration tests start a throwaway embedded Postgres built from real migrations)
+- `npm run db:bootstrap` — production bootstrap (ADMIN_EMAIL/ADMIN_PASSWORD; no demo accounts)
+- Deploy: `docs/DEPLOY.md` (Vercel `vercel-build` runs migrations)
 - `npm run demo:reset-passwords` — regenerate local demo passwords (prints once)
 
 ## Decisions
-- Next.js App Router + TS + Tailwind 4, Prisma 7 + SQLite via `@prisma/adapter-better-sqlite3`, next-auth v4 credentials (JWT), zod.
+- Next.js App Router + TS + Tailwind 4, Prisma 7 + Postgres via `@prisma/adapter-pg` (Neon in production; embedded Postgres locally via `npm run db:dev` and in tests), next-auth v4 credentials (JWT), zod.
 - Prisma client is generated to `src/generated/prisma` (gitignored; `npm run build`/`setup` regenerate it).
 - Taxonomy (disciplines, topics, roles, companies) is table-driven; source of truth for seeding is `src/content/taxonomy.ts`.
 - Business logic lives in `src/server/*` (pure functions taking a user id / `Actor`); route handlers in `src/app/api` are thin wrappers (`withActor`). Test the services, not the routes.

@@ -196,7 +196,7 @@ export async function listAdminQuestions(actor: Actor, f: AdminFilters) {
     where: {
       ...(f.status ? { status: f.status } : {}),
       ...(f.disciplineId ? { disciplineId: f.disciplineId } : {}),
-      ...(f.q ? { OR: [{ title: { contains: f.q } }, { prompt: { contains: f.q } }] } : {}),
+      ...(f.q ? { OR: [{ title: { contains: f.q, mode: "insensitive" } }, { prompt: { contains: f.q, mode: "insensitive" } }] } : {}),
     },
     include: { discipline: true, topics: { include: { topic: true } } },
     orderBy: [{ status: "asc" }, { updatedAt: "desc" }],

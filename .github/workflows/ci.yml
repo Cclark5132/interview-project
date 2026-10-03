@@ -9,7 +9,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: file:./ci.db
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5433/interview
       NEXTAUTH_SECRET: ci-only-secret-not-used-in-production
       NEXTAUTH_URL: http://localhost:3000
     steps:

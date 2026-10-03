@@ -2,7 +2,7 @@
 
 *Working name — change it in `src/lib/brand.ts`.* Targeted practice for engineering and computing interviews: a curated, owner-reviewed question bank, ranked for your discipline, role, company and level, with rubric-based evaluation of typed or spoken answers.
 
-Mark 1 is a local, free build. Out of scope: billing, public deployment, resumes, mock interviews, code execution, finance/business content.
+Out of scope: billing, resumes, mock interviews, code execution, finance/business content.
 
 ## Quick start
 
@@ -11,11 +11,12 @@ Requires Node ≥ 22.12 (developed on Node 26) and npm ≥ 11.
 ```bash
 npm install
 cp .env.example .env        # then set NEXTAUTH_SECRET (see the file)
-npm run setup               # generate client, migrate, seed; prints local demo logins once
+npm run db:dev              # terminal 1: local Postgres (leave running)
+npm run setup               # terminal 2: generate client, migrate, seed; prints local demo logins once
 npm run dev                 # http://localhost:3000
 ```
 
-`npm run setup` creates a SQLite database (`dev.db`), taxonomy, **34 original sample questions as drafts**, and two local-only accounts (`demo@interview-project.local` as a user and `admin@interview-project.local` as the owner/admin). Passwords come from `DEMO_USER_PASSWORD` / `DEMO_ADMIN_PASSWORD` or are generated and printed once; `npm run demo:reset-passwords` issues new ones. The seed refuses to run when `NODE_ENV=production`.
+`npm run setup` creates the schema in local Postgres, taxonomy, **34 original sample questions as drafts**, and two local-only accounts (`demo@interview-project.local` as a user and `admin@interview-project.local` as the owner/admin). Passwords come from `DEMO_USER_PASSWORD` / `DEMO_ADMIN_PASSWORD` or are generated and printed once; `npm run demo:reset-passwords` issues new ones. The demo seed refuses to run when `NODE_ENV=production`.
 
 **Sample questions are drafts and invisible to users.** Sign in as the admin → *Owner review*, open a question, send it to review, tick the approval confirmation, and publish. Seeds never approve themselves. The public **Demo preview** (`/demo`) is a separate static illustration that never touches the bank or progress.
 
@@ -29,8 +30,11 @@ npm run dev                 # http://localhost:3000
 
 Claude Code subscription access does not provide these API credentials. Keys are read server-side only.
 
+## Deploying
+See [docs/DEPLOY.md](docs/DEPLOY.md) (Vercel + Neon, custom domain, owner bootstrap).
+
 ## Scripts
-`dev`, `build`, `start`, `lint`, `typecheck`, `test`, `setup`, `db:migrate`, `db:seed`, `demo:reset-passwords`.
+`dev`, `build`, `start`, `lint`, `typecheck`, `test`, `setup`, `db:dev`, `db:migrate`, `db:seed`, `db:bootstrap`, `demo:reset-passwords`.
 
 ## What's in Mark 1
 - Target setup with editable job-description extraction (cached, untrusted-text safe)
@@ -48,4 +52,4 @@ npm run lint && npm run typecheck && npm test && npm run build
 CI (`.github/workflows/ci.yml`) runs the same.
 
 ## Limitations
-Local SQLite, in-process rate/login throttling, no email verification or password reset, no public deployment. Coverage is deliberately small: 34 drafts across 11 disciplines, not every role or company. Voice transcription needs a provider key and a browser with `MediaRecorder`. For CS this practices explanations and algorithm reasoning only; it does not replace coding-interview practice.
+Login throttling is per server instance (weak on serverless); no email verification or password reset. Coverage is deliberately small: 34 drafts across 11 disciplines, not every role or company. Voice transcription needs a provider key and a browser with `MediaRecorder`. For CS this practices explanations and algorithm reasoning only; it does not replace coding-interview practice.

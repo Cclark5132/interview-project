@@ -3,6 +3,8 @@ import { z } from "zod";
 import { submitAttempt } from "@/server/attempts";
 import { readJson, withActor } from "@/server/http";
 
+export const maxDuration = 60;
+
 const schema = z.object({
   answer: z.string(),
   inputMode: z.enum(["typed", "transcribed"]).default("typed"),

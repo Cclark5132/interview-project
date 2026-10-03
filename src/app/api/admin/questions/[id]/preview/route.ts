@@ -4,6 +4,8 @@ import { previewGrade } from "@/server/admin";
 import { errorResponse, readJson, withActor } from "@/server/http";
 import { GradingError } from "@/lib/grading";
 
+export const maxDuration = 60;
+
 const schema = z.object({ sampleAnswer: z.string() });
 
 export const POST = withActor(async (actor, req, ctx: { params: Promise<{ id: string }> }) => {

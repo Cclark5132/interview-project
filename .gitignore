@@ -15,3 +15,4 @@ recordings
 *.webm
 *.wav
 .DS_Store
+.pgdata

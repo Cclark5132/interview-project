@@ -203,7 +203,7 @@ describe("transcription adapter", () => {
   });
   it("maps validation and provider failures to clear errors", async () => {
     await expect(transcribeAudio(blob(0), "a", async () => "x")).rejects.toMatchObject({ status: 400 });
-    await expect(transcribeAudio(blob(11 * 1024 * 1024), "a", async () => "x")).rejects.toMatchObject({ status: 413 });
+    await expect(transcribeAudio(blob(5 * 1024 * 1024), "a", async () => "x")).rejects.toMatchObject({ status: 413 });
     await expect(transcribeAudio(blob(10, "video/mp4"), "a", async () => "x")).rejects.toMatchObject({ status: 415 });
     await expect(transcribeAudio(blob(10), "a", async () => "")).rejects.toMatchObject({ status: 422 });
     await expect(transcribeAudio(blob(10), "a", async () => { throw new TranscriptionError("boom"); })).rejects.toThrow("boom");

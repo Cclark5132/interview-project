@@ -1,5 +1,5 @@
 // Speech transcription adapter. One documented provider (OpenAI audio transcriptions); audio is never persisted.
-export const MAX_AUDIO_BYTES = 10 * 1024 * 1024;
+export const MAX_AUDIO_BYTES = 4 * 1024 * 1024;
 export const ALLOWED_AUDIO_TYPES = ["audio/webm", "audio/ogg", "audio/mp4", "audio/mpeg", "audio/wav", "audio/x-wav", "audio/m4a", "audio/x-m4a"];
 
 export class TranscriptionError extends Error {
@@ -44,7 +44,7 @@ export const openAiTranscriber: Transcriber = async (audio, filename) => {
 /** Validates and transcribes; the Blob is dropped afterwards (nothing written to disk or database). */
 export async function transcribeAudio(audio: Blob, filename: string, transcriber: Transcriber = openAiTranscriber): Promise<string> {
   if (audio.size === 0) throw new TranscriptionError("The recording was empty.", 400);
-  if (audio.size > MAX_AUDIO_BYTES) throw new TranscriptionError("Recording is too large (10 MB max).", 413);
+  if (audio.size > MAX_AUDIO_BYTES) throw new TranscriptionError("Recording is too large (4 MB max).", 413);
   const base = audio.type.split(";")[0];
   if (!ALLOWED_AUDIO_TYPES.includes(base)) throw new TranscriptionError("Unsupported audio format.", 415);
   const text = await transcriber(audio, filename);

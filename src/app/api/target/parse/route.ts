@@ -3,6 +3,8 @@ import { z } from "zod";
 import { parseJd } from "@/server/target";
 import { readJson, withActor } from "@/server/http";
 
+export const maxDuration = 60;
+
 const schema = z.object({ text: z.string() });
 
 export const POST = withActor(async (_actor, req) => {
