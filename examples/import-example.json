@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Choosing between a fillet weld and a bolted joint",
+    "prompt": "A bracket must carry a fluctuating shear load and may need to be removed for service. Compare a fillet-welded joint with a bolted joint and say which you would choose and why.",
+    "discipline": "mechanical",
+    "difficulty": "intermediate",
+    "topics": ["fatigue-failure", "design-tolerancing"],
+    "roles": ["design-engineer"],
+    "companies": [{ "company": "tesla", "evidence": "role_relevant" }],
+    "evidenceCategory": "original",
+    "sourceNote": "Original example question written for the import documentation.",
+    "idealAnswer": "Welds give a continuous, stiff joint but create residual stress and heat-affected zones that hurt fatigue life, and they are permanent. Bolted joints allow disassembly, and a properly preloaded joint keeps the load in friction so the bolt sees little cyclic load, which helps fatigue; they need hole tolerances, preload control and anti-loosening measures. For a fluctuating load that needs service access, choose a preloaded bolted joint, and verify slip resistance and bearing stress.",
+    "rubric": [
+      {
+        "id": "technical-accuracy",
+        "name": "Technical accuracy",
+        "weight": 40,
+        "description": "Correctly compares welded and bolted joints for fatigue and serviceability.",
+        "anchors": { "low": "Major errors.", "mid": "Mostly correct.", "high": "Correct and precise." },
+        "expectedConcepts": ["welds create residual stress and heat-affected zones", "preload keeps load in friction and reduces cyclic bolt load"],
+        "alternatives": ["Fatigue-rated weld details can work with post-weld treatment"],
+        "misconceptions": ["Welds are always stronger than bolts"]
+      },
+      {
+        "id": "reasoning",
+        "name": "Reasoning and trade-offs",
+        "weight": 30,
+        "description": "Links the load type and service requirement to the joint choice.",
+        "anchors": { "low": "No trade-offs.", "mid": "Some trade-offs.", "high": "Clear justified decision." },
+        "expectedConcepts": ["fluctuating load drives the fatigue concern", "removability favors bolts"],
+        "alternatives": [],
+        "misconceptions": []
+      },
+      {
+        "id": "completeness",
+        "name": "Completeness",
+        "weight": 20,
+        "description": "Mentions verification checks and practical details.",
+        "anchors": { "low": "Misses most.", "mid": "About half.", "high": "Covers all." },
+        "expectedConcepts": ["check slip resistance and bearing stress", "anti-loosening and preload control"],
+        "alternatives": [],
+        "misconceptions": []
+      },
+      {
+        "id": "clarity",
+        "name": "Clarity and structure",
+        "weight": 10,
+        "description": "Direct, ordered answer.",
+        "anchors": { "low": "Hard to follow.", "mid": "Understandable.", "high": "Clear and ordered." },
+        "expectedConcepts": ["states a recommendation first"],
+        "alternatives": [],
+        "misconceptions": []
+      }
+    ]
+  },
+  {
+    "title": "Explaining eventual consistency to a product manager",
+    "prompt": "A product manager asks why a profile update sometimes takes a few seconds to appear on another device. Explain eventual consistency in plain terms and describe one way to hide it in the user experience.",
+    "discipline": "computer-science",
+    "difficulty": 1,
+    "topics": ["systems-design", "databases"],
+    "roles": ["software-engineer"],
+    "evidenceCategory": "original",
+    "sourceNote": "Original example question; no rubric or ideal answer yet, so it cannot be published until completed in the admin panel."
+  }
+]

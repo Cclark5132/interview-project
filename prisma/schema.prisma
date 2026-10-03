@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Taxonomy is table-driven so investment banking / business can be added later
+// as a new Discipline.family without schema changes.
+model Discipline {
+  id        String     @id // slug, e.g. "mechanical"
+  name      String
+  family    String     @default("engineering") // engineering | computing | (future) finance | business
+  topics    Topic[]
+  questions Question[]
+}
+
+model Topic {
+  id           String          @id // slug, e.g. "heat-transfer"
+  name         String
+  disciplineId String
+  discipline   Discipline      @relation(fields: [disciplineId], references: [id])
+  questions    QuestionTopic[]
+}
+
+model Role {
+  id        String         @id // slug, e.g. "thermal-engineer"
+  name      String
+  questions QuestionRole[]
+}
+
+model Company {
+  id        String            @id // slug, e.g. "spacex"
+  name      String
+  questions QuestionCompany[]
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  name         String?
+  passwordHash String
+  role         String        @default("USER") // USER | ADMIN
+  createdAt    DateTime      @default(now())
+  target       UserTarget?
+  attempts     Attempt[]
+  bookmarks    Bookmark[]
+  reveals      IdealReveal[]
+}
+
+model UserTarget {
+  userId       String   @id
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  disciplineId String
+  companyId    String?
+  roleId       String?
+  level        String // intern | entry | mid | senior
+  skills       String   @default("[]") // JSON string[] of topic slugs / free-text skills
+  focusTopics  String   @default("[]") // JSON string[] of topic slugs
+  updatedAt    DateTime @updatedAt
+}
+
+model JobParseCache {
+  hash      String   @id // sha256 of normalized description
+  result    String // JSON, validated on read
+  source    String // "heuristic" | "ai"
+  createdAt DateTime @default(now())
+}
+
+model Question {
+  id               String            @id @default(cuid())
+  title            String
+  prompt           String
+  disciplineId     String
+  discipline       Discipline        @relation(fields: [disciplineId], references: [id])
+  difficulty       Int // 1 introductory, 2 intermediate, 3 advanced
+  responseMode     String            @default("text_or_speech")
+  evidenceCategory String            @default("original") // original | role_relevant | company_reported
+  sourceNote       String            @default("")
+  sourceUrl        String?
+  idealAnswer      String            @default("")
+  status           String            @default("draft") // draft | in_review | approved | archived
+  rubricVersion    Int               @default(1)
+  approvedAt       DateTime?
+  approvedById     String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  topics           QuestionTopic[]
+  roles            QuestionRole[]
+  companies        QuestionCompany[]
+  rubrics          Rubric[]
+  attempts         Attempt[]
+  bookmarks        Bookmark[]
+  reveals          IdealReveal[]
+
+  @@index([status, disciplineId])
+}
+
+model QuestionTopic {
+  questionId String
+  topicId    String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  topic      Topic    @relation(fields: [topicId], references: [id])
+
+  @@id([questionId, topicId])
+}
+
+model QuestionRole {
+  questionId String
+  roleId     String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  role       Role     @relation(fields: [roleId], references: [id])
+
+  @@id([questionId, roleId])
+}
+
+// Company relevance is NOT proof the company asked the question; evidence says how strong the claim is.
+model QuestionCompany {
+  questionId String
+  companyId  String
+  evidence   String   @default("role_relevant") // role_relevant | company_reported
+  reviewed   Boolean  @default(false) // owner-reviewed association
+  sourceUrl  String?
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  company    Company  @relation(fields: [companyId], references: [id])
+
+  @@id([questionId, companyId])
+}
+
+model Rubric {
+  id         String   @id @default(cuid())
+  questionId String
+  version    Int
+  criteria   String // JSON: RubricCriterion[] (weights total 100)
+  createdAt  DateTime @default(now())
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([questionId, version])
+}
+
+model Attempt {
+  id            String   @id @default(cuid())
+  userId        String
+  questionId    String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question      Question @relation(fields: [questionId], references: [id])
+  answerText    String
+  inputMode     String   @default("typed") // typed | transcribed
+  assisted      Boolean  @default(false) // submitted after the ideal answer was revealed
+  status        String   @default("graded") // graded | error
+  overallScore  Float?
+  summary       String?
+  breakdown     String? // JSON GradeResult incl. criterion weights as used
+  rubricVersion Int
+  gradingMode   String? // live | demonstration
+  gradingModel  String?
+  errorMessage  String?
+  requestKey    String?
+  createdAt     DateTime @default(now())
+
+  @@unique([userId, requestKey])
+  @@index([userId, questionId, createdAt])
+}
+
+model Bookmark {
+  userId     String
+  questionId String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@id([userId, questionId])
+}
+
+model IdealReveal {
+  userId     String
+  questionId String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@id([userId, questionId])
+}

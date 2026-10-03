@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+*.db
+*.db-journal
+.env
+.env.*
+!.env.example
+src/generated
+*.tsbuildinfo
+next-env.d.ts
+playwright-report
+test-results
+recordings
+*.webm
+*.wav
+.DS_Store
