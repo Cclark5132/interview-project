@@ -25,7 +25,7 @@ export default async function HomePage() {
       <OnboardingForm
         hasTarget={Boolean(target)}
         counts={counts}
-        disciplines={tax.disciplines.map((d) => ({ id: d.id, name: d.name }))}
+        disciplines={tax.disciplines.map((d) => ({ id: d.id, name: d.name, family: d.family }))}
         topics={tax.topics.map((t) => ({ id: t.id, name: t.name, disciplineId: t.disciplineId }))}
         roles={tax.roles.map((r) => ({ id: r.id, name: r.name, disciplineIds: r.disciplineIds }))}
         companies={tax.companies.map((c) => ({ id: c.id, name: c.name, disciplineIds: c.disciplineIds }))}
