@@ -20,6 +20,7 @@ import { ibPart1 } from "./parts/ib-1";
 import { ibPart2 } from "./parts/ib-2";
 import { consultingPart1 } from "./parts/consulting-1";
 import { consultingPart2 } from "./parts/consulting-2";
+import { CASE_SEEDS } from "../cases";
 import { topupEnvironmental, topupBiomedical } from "./parts/topup-env-bio";
 import { topupIndustrial, topupComputerEngineering, topupMaterials, topupChemical, topupCivil } from "./parts/topup-rest";
 
@@ -40,4 +41,4 @@ const SOURCES: [string, Q[]][] = [
   ["computer-science", [...computerScience, ...computerScienceDrills()]],
 ];
 
-export const BANK: SeedQuestion[] = SOURCES.flatMap(([d, qs]) => qs.map((q) => toSeed(d, q)));
+export const BANK: SeedQuestion[] = [...SOURCES.flatMap(([d, qs]) => qs.map((q) => toSeed(d, q))), ...CASE_SEEDS];

@@ -48,6 +48,7 @@ model User {
   attempts     Attempt[]
   bookmarks    Bookmark[]
   reveals      IdealReveal[]
+  caseRuns     CaseRun[]
 }
 
 model UserTarget {
@@ -81,6 +82,7 @@ model Question {
   sourceNote       String            @default("")
   sourceUrl        String?
   idealAnswer      String            @default("")
+  caseData         String? // JSON CaseStage[] for staged case questions
   status           String            @default("draft") // draft | in_review | approved | archived
   rubricVersion    Int               @default(1)
   approvedAt       DateTime?
@@ -94,6 +96,7 @@ model Question {
   attempts         Attempt[]
   bookmarks        Bookmark[]
   reveals          IdealReveal[]
+  caseRuns         CaseRun[]
 
   @@index([status, disciplineId])
 }
@@ -182,4 +185,21 @@ model IdealReveal {
   question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@id([userId, questionId])
+}
+
+model CaseRun {
+  id           String    @id @default(cuid())
+  userId       String
+  questionId   String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question     Question  @relation(fields: [questionId], references: [id])
+  stageIndex   Int       @default(0)
+  revealed     String    @default("[]") // JSON: "stage:item" keys the candidate asked for
+  results      String    @default("[]") // JSON: per-stage {stage, attemptId, score}
+  status       String    @default("active") // active | complete
+  overallScore Float?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([userId, questionId, createdAt])
 }

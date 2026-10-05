@@ -16,6 +16,8 @@ export type SeedQuestion = {
   complete: string[];
   misconceptions: string[];
   alternatives?: string[];
+  /** JSON CaseStage[]: present for staged case questions */
+  caseData?: string;
   /** accuracy, reasoning, completeness, clarity — must total 100 */
   weights: [number, number, number, number];
 };

@@ -6,7 +6,11 @@ import { LEVELS } from "@/lib/ranking";
 
 type Opt = { id: string; name: string };
 type Disc = Opt & { family: string };
-const FAMILIES: [string, string][] = [["all", "All"], ["engineering", "Engineering"], ["computing", "Computing"], ["finance", "Finance"], ["business", "Consulting"]];
+const FIELDS: { id: string; name: string; blurb: string; families: string[] }[] = [
+  { id: "engineering", name: "Engineering", blurb: "Mechanical, electrical, civil, chemical and more. Fundamentals, design and troubleshooting.", families: ["engineering"] },
+  { id: "computing", name: "Computing", blurb: "Algorithms, systems design, databases and the software interview loop.", families: ["computing"] },
+  { id: "business", name: "Business & finance", blurb: "Investment banking technicals, consulting cases, market sizing and fit.", families: ["finance", "business"] },
+];
 type Fit = Opt & { disciplineIds: string[] };
 type Topic = Opt & { disciplineId: string };
 export type TargetValue = { disciplineId: string; companyId: string; roleId: string; level: string; topicIds: string[] };
@@ -46,7 +50,8 @@ export function OnboardingForm({
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [q, setQ] = useState("");
-  const [fam, setFam] = useState("all");
+  const fieldOf = (id: string) => FIELDS.find((f) => f.families.includes(disciplines.find((d) => d.id === id)?.family ?? ""))?.id ?? "";
+  const [field, setField] = useState(fieldOf(initial.disciplineId));
   const [match, setMatch] = useState<{ inDiscipline: number; matching: number } | null>(null);
 
   // Options narrow to the chosen discipline. A value already selected (e.g. from a pasted posting) stays listed.
@@ -54,7 +59,8 @@ export function OnboardingForm({
   const roleOptions = fits(roles, v.roleId);
   const companyOptions = fits(companies, v.companyId);
   const visibleTopics = topics.filter((t) => t.disciplineId === v.disciplineId || v.topicIds.includes(t.id));
-  const shown = disciplines.filter((d) => (fam === "all" || d.family === fam) && d.name.toLowerCase().includes(q.trim().toLowerCase())).sort((a, b) => FAMILIES.findIndex((x) => x[0] === a.family) - FAMILIES.findIndex((x) => x[0] === b.family));
+  const fieldDef = FIELDS.find((f) => f.id === field);
+  const shown = disciplines.filter((d) => fieldDef?.families.includes(d.family) && d.name.toLowerCase().includes(q.trim().toLowerCase()));
   const chosen = disciplines.find((d) => d.id === v.disciplineId);
 
   // Live count of published questions for the draft target.
@@ -77,6 +83,16 @@ export function OnboardingForm({
       ctl.abort();
     };
   }, [v.disciplineId, v.roleId, v.topicIds]);
+
+  function chooseField(id: string) {
+    setField(id);
+    setQ("");
+    const inField = disciplines.filter((d) => FIELDS.find((f) => f.id === id)?.families.includes(d.family));
+    if (!inField.some((d) => d.id === v.disciplineId)) {
+      if (inField.length === 1) chooseDiscipline(inField[0].id);
+      else setV((s) => ({ ...s, disciplineId: "", roleId: "", companyId: "", topicIds: [] }));
+    }
+  }
 
   function chooseDiscipline(disciplineId: string) {
     setV((s) => ({
@@ -128,54 +144,62 @@ export function OnboardingForm({
     <div className="grid items-start gap-8 lg:grid-cols-[1fr_21rem]">
       <div className="space-y-10">
         <section aria-labelledby="disc-h">
-          <h2 id="disc-h" className="label !mb-3">1 · Your major or track</h2>
-          <div className="overflow-hidden rounded-[10px] border border-line bg-surface">
-            <div className="flex flex-wrap items-center gap-3 border-b border-line p-2.5">
-              <input
-                type="search"
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
-                placeholder="Search majors: mechanical, banking, consulting..."
-                aria-label="Search majors"
-                className="input !h-9 min-w-0 flex-1 basis-56"
-              />
-              <div className="flex flex-wrap gap-1" role="tablist" aria-label="Filter by field">
-                {FAMILIES.map(([id, label]) => (
-                  <button key={id} type="button" role="tab" aria-selected={fam === id} onClick={() => setFam(id)} className={`rounded-[6px] px-2.5 py-1 text-[12px] transition-colors ${fam === id ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}>
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <ul role="radiogroup" aria-labelledby="disc-h" className="grid max-h-[22rem] overflow-y-auto sm:grid-cols-2">
-              {shown.map((d) => {
-                const on = d.id === v.disciplineId;
-                return (
-                  <li key={d.id} className="border-b border-line sm:odd:border-r">
-                    <button
-                      type="button"
-                      role="radio"
-                      aria-checked={on}
-                      onClick={() => chooseDiscipline(d.id)}
-                      className={`flex w-full items-center gap-3 px-4 py-3 text-left transition-colors ${on ? "bg-accent-soft" : "hover:bg-surface-2"}`}
-                    >
-                      <span aria-hidden className={`grid size-4 shrink-0 place-items-center rounded-full border ${on ? "border-accent bg-accent" : "border-strong"}`}>
-                        {on && <span className="size-1.5 rounded-full bg-bg" />}
-                      </span>
-                      <span className="min-w-0 flex-1 truncate text-[14px] font-medium">{d.name}</span>
-                      <span className="shrink-0 font-mono text-[11px] text-muted">{counts[d.id] ?? 0}</span>
-                    </button>
-                  </li>
-                );
-              })}
-              {shown.length === 0 && <li className="col-span-full px-4 py-6 text-sm text-muted">No match. Try a different word or clear the filter.</li>}
-            </ul>
+          <h2 id="field-h" className="label !mb-3">1 · What are you interviewing in?</h2>
+          <div className="grid gap-2.5 sm:grid-cols-3" role="radiogroup" aria-labelledby="field-h">
+            {FIELDS.map((f, i) => {
+              const on = field === f.id;
+              const total = disciplines.filter((d) => f.families.includes(d.family)).reduce((n, d) => n + (counts[d.id] ?? 0), 0);
+              return (
+                <button
+                  key={f.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={on}
+                  onClick={() => chooseField(f.id)}
+                  style={{ "--i": i } as React.CSSProperties}
+                  className={`rise relative rounded-[10px] border p-5 text-left transition-all duration-200 ${on ? "border-accent bg-accent-soft" : "border-line bg-surface hover:-translate-y-0.5 hover:border-strong hover:bg-surface-2"}`}
+                >
+                  <span className="block font-display text-[22px] font-semibold leading-tight">{f.name}</span>
+                  <span className="mt-2 block text-[13px] leading-snug text-muted">{f.blurb}</span>
+                  <span className="mt-3 block font-mono text-[11px] text-muted">{total} questions</span>
+                  <span aria-hidden className={`absolute right-4 top-4 size-2 rounded-full transition-colors ${on ? "bg-accent" : "bg-strong"}`} />
+                </button>
+              );
+            })}
           </div>
         </section>
 
+        {field && (
+          <section key={field} aria-labelledby="disc-h" className="rise">
+            <h2 id="disc-h" className="label !mb-3">2 · {field === "business" ? "Your track" : "Your major"}</h2>
+            <div className="overflow-hidden rounded-[10px] border border-line bg-surface">
+              {shown.length > 6 && (
+                <div className="border-b border-line p-2.5">
+                  <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search majors..." aria-label="Search majors" className="input !h-9 w-full" />
+                </div>
+              )}
+              <ul role="radiogroup" aria-labelledby="disc-h" className="grid sm:grid-cols-2">
+                {shown.map((d) => {
+                  const on = d.id === v.disciplineId;
+                  return (
+                    <li key={d.id} className="border-b border-line sm:odd:border-r">
+                      <button type="button" role="radio" aria-checked={on} onClick={() => chooseDiscipline(d.id)} className={`flex w-full items-center gap-3 px-4 py-3 text-left transition-colors ${on ? "bg-accent-soft" : "hover:bg-surface-2"}`}>
+                        <span aria-hidden className={`grid size-4 shrink-0 place-items-center rounded-full border ${on ? "border-accent bg-accent" : "border-strong"}`}>{on && <span className="size-1.5 rounded-full bg-bg" />}</span>
+                        <span className="min-w-0 flex-1 truncate text-[14px] font-medium">{d.name}</span>
+                        <span className="shrink-0 font-mono text-[11px] text-muted">{counts[d.id] ?? 0}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+                {shown.length === 0 && <li className="col-span-full px-4 py-6 text-sm text-muted">No match. Clear the search.</li>}
+              </ul>
+            </div>
+          </section>
+        )}
+
         {v.disciplineId && (
           <section key={v.disciplineId} aria-labelledby="refine-h" className="rise space-y-7">
-            <h2 id="refine-h" className="label !mb-0">2 · Narrow it down <span className="normal-case tracking-normal text-muted/70">(all optional)</span></h2>
+            <h2 id="refine-h" className="label !mb-0">3 · Narrow it down <span className="normal-case tracking-normal text-muted/70">(all optional)</span></h2>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>

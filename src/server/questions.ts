@@ -34,6 +34,7 @@ export type QuestionSummary = {
   attemptCount: number;
   bestScore: number | null;
   bookmarked: boolean;
+  isCase: boolean;
   reasons: string[];
   score?: number;
 };
@@ -117,6 +118,7 @@ async function summarize(rows: Row[], userId: string, extra?: Map<string, { scor
       attemptCount: mine.length,
       bestScore: graded.length ? Math.max(...graded.map((a) => a.overallScore!)) : null,
       bookmarked: marked.has(r.id),
+      isCase: r.caseData != null,
       reasons: extra?.get(r.id)?.reasons ?? [],
       score: extra?.get(r.id)?.score,
     };

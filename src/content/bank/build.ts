@@ -2,7 +2,7 @@ import type { SeedQuestion } from "../seed-questions";
 import type { Q } from "./types";
 
 // Sensible default roles per topic so role filters and ranking work for the bank without per-question tagging.
-const TOPIC_ROLES: Record<string, string[]> = {
+export const TOPIC_ROLES: Record<string, string[]> = {
   "heat-transfer": ["thermal-engineer"],
   thermodynamics: ["thermal-engineer", "design-engineer"],
   "fluid-mechanics": ["design-engineer", "process-engineer"],

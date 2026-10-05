@@ -27,6 +27,7 @@ export function QuestionCard({ q, highlight = false, index }: { q: QuestionSumma
         </Link>
         <p className="mt-0.5 line-clamp-1 text-[13.5px] text-muted">{q.prompt}</p>
         <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+          {q.isCase && <span className="badge badge-accent">Staged case</span>}
           <span className="badge">{q.disciplineName}</span>
           {q.topics.map((t) => (
             <span key={t.id} className="badge">{t.name}</span>

@@ -71,6 +71,7 @@ async function main() {
           evidenceCategory: "original",
           sourceNote: "Original practice question drafted for this project with AI assistance. Not owner-reviewed. Not company-reported material.",
           idealAnswer: q.ideal,
+          caseData: q.caseData ?? null,
           status: "draft",
           topics: { create: q.topics.map((topicId) => ({ topicId })) },
           roles: { create: q.roles.map((roleId) => ({ roleId })) },

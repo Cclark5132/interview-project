@@ -4,7 +4,7 @@ import { gradeAnswer, GradingError, getProvider, type GradeProvider, type GradeR
 import { loadRubric } from "./questions";
 import { HttpError } from "./access";
 
-export const LIMITS = { minChars: 20, maxChars: 6000, windowMs: 10 * 60_000, maxPerWindow: 12 };
+export const LIMITS = { minChars: 20, maxChars: 6000, windowMs: 10 * 60_000, maxPerWindow: 24 };
 
 // Per-process guard against double-click / parallel submissions for the same user + question.
 const inFlight = new Set<string>();
@@ -64,6 +64,7 @@ export async function submitAttempt(
     include: { topics: { include: { topic: true } } },
   });
   if (!question) throw new HttpError(404, "Question not found");
+  if (question.caseData) throw new HttpError(400, "This is a staged case. Answer it stage by stage in case mode.");
 
   if (requestKey) {
     const existing = await db.attempt.findUnique({ where: { userId_requestKey: { userId, requestKey } } });
