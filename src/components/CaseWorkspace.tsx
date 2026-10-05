@@ -19,7 +19,7 @@ async function post(url: string, body: unknown): Promise<{ view?: CaseView; erro
   }
 }
 
-export function CaseWorkspace({ questionId, title, opening, outline, initialView }: { questionId: string; title: string; opening: string; outline: string[]; initialView: CaseView | null }) {
+export function CaseWorkspace({ questionId, title, outline, initialView }: { questionId: string; title: string; outline: string[]; initialView: CaseView | null }) {
   const [view, setView] = useState<CaseView | null>(initialView);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
@@ -107,11 +107,6 @@ export function CaseWorkspace({ questionId, title, opening, outline, initialView
           );
         })}
       </nav>
-
-      <div className="rounded-[10px] border border-line bg-surface-2 p-5">
-        <div className="label !mb-2">Interviewer</div>
-        <p className="whitespace-pre-wrap text-[17px] leading-relaxed">{opening}</p>
-      </div>
 
       {view.stages.map((st) => {
         const open = !st.done;

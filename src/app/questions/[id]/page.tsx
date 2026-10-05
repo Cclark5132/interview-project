@@ -77,7 +77,7 @@ export default async function QuestionPage({ params }: { params: Promise<{ id: s
       )}
 
       {outline ? (
-        <CaseWorkspace questionId={q.id} title={q.title} opening={q.prompt} outline={outline} initialView={caseView} />
+        <CaseWorkspace questionId={q.id} title={q.title} outline={outline} initialView={caseView} />
       ) : (
         <AnswerWorkspace questionId={q.id} initialAttempts={attempts} initialIdeal={ideal} initialBookmarked={q.bookmarked} />
       )}
