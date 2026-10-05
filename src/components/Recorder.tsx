@@ -105,7 +105,7 @@ export function Recorder({ onTranscript, disabled }: { onTranscript: (text: stri
         {state === "recording" && (
           <>
             <span className="inline-flex items-center gap-2 text-sm text-danger" role="status">
-              <span className="inline-block size-2.5 animate-pulse rounded-full bg-danger" aria-hidden /> Recording {Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2, "0")}
+              <span className="inline-block size-2.5 animate-pulse bg-danger" aria-hidden /> Recording {Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2, "0")}
             </span>
             <button type="button" className="btn btn-primary" onClick={stop}>Stop and transcribe</button>
             <button type="button" className="btn" onClick={cancel}>Cancel</button>
@@ -116,7 +116,7 @@ export function Recorder({ onTranscript, disabled }: { onTranscript: (text: stri
       {available === false && state === "idle" && (
         <p className="text-sm text-muted">Speech transcription isn’t configured on this server, so recording is unavailable. Please type your answer.</p>
       )}
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
     </div>
   );
 }

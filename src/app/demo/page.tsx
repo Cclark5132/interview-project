@@ -7,7 +7,7 @@ export const metadata = { title: "Demo preview" };
 export default function DemoPage() {
   return (
     <div className="space-y-8">
-      <div className="rounded-md bg-warn-soft px-4 py-3 text-sm text-warn" role="note">
+      <div className="rounded-[4px] bg-warn-soft px-4 py-3 text-sm text-warn" role="note">
         <strong>Demo preview.</strong> This page is a static illustration of the interface. Nothing here is saved, it is not part of the reviewed question bank, and it never affects your progress.
       </div>
       <div>
@@ -23,7 +23,7 @@ export default function DemoPage() {
       </section>
       <section className="card p-5">
         <h2 className="text-xl">Sample answer</h2>
-        <p className="mt-2 rounded-md bg-bg p-3">{DEMO_ANSWER}</p>
+        <p className="mt-2 rounded-[4px] bg-bg p-3">{DEMO_ANSWER}</p>
       </section>
       <section className="space-y-3">
         <h2 className="text-xl">Sample evaluation</h2>

@@ -44,7 +44,7 @@ export function TransitionBar({ id, status, problems }: { id: string; status: st
         <span className="text-muted">draft → in review → approved → archived. Only you can approve; generated content never publishes itself.</span>
       </p>
       {status !== "approved" && status !== "archived" && problems.length > 0 && (
-        <div className="rounded-md bg-warn-soft px-3 py-2 text-sm text-warn">
+        <div className="rounded-[4px] bg-warn-soft px-3 py-2 text-sm text-warn">
           <p className="font-medium">Not ready to publish:</p>
           <ul className="list-disc pl-5">{problems.map((p) => <li key={p}>{p}</li>)}</ul>
         </div>
@@ -55,7 +55,7 @@ export function TransitionBar({ id, status, problems }: { id: string; status: st
           <span>I have reviewed this question, its rubric, ideal answer and provenance, and I approve publishing it. Approving also marks its company associations as reviewed.</span>
         </label>
       )}
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
       <div className="flex flex-wrap gap-2">
         {NEXT[status]?.map((n) => (
           <button key={n.to} className={`btn ${n.to === "approved" ? "btn-primary" : ""}`} disabled={busy || (n.to === "approved" && !confirm)} onClick={() => go(n.to)}>
@@ -89,7 +89,7 @@ export function GradingPreview({ id }: { id: string }) {
       <p className="text-sm text-muted">Grades a sample answer against the saved rubric. Not stored and not attached to any user. Save edits first.</p>
       <textarea aria-label="Sample answer" className="input" rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste a sample answer (strong, weak, or tricky)" />
       <button className="btn" disabled={busy || text.trim().length < 10} onClick={run}>{busy ? "Grading…" : "Preview grading"}</button>
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
       {result && <EvaluationCard result={result} heading="Preview" />}
     </section>
   );

@@ -88,7 +88,7 @@ export function AnswerWorkspace({
           </button>
         </div>
         {ideal && attempts.length > 0 && (
-          <p className="mt-2 rounded-md bg-warn-soft px-3 py-2 text-sm text-warn">
+          <p className="mt-2 rounded-[4px] bg-warn-soft px-3 py-2 text-sm text-warn">
             You have revealed the ideal answer, so new attempts are marked as assisted and kept separate from your independent progress.
           </p>
         )}
@@ -116,7 +116,7 @@ export function AnswerWorkspace({
             }}
           />
         </div>
-        {error && <p role="alert" className="mt-3 rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+        {error && <p role="alert" className="mt-3 rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <button type="button" className="btn btn-primary" disabled={!canSubmit} onClick={submit}>
             {busy ? "Evaluating…" : "Submit answer"}
@@ -132,7 +132,7 @@ export function AnswerWorkspace({
         </section>
       )}
       {latest && latest.status === "error" && (
-        <p className="rounded-md bg-danger-soft px-4 py-3 text-sm text-danger">Attempt {attempts.length} was saved but could not be graded: {latest.errorMessage}</p>
+        <p className="rounded-[4px] bg-danger-soft px-4 py-3 text-sm text-danger">Attempt {attempts.length} was saved but could not be graded: {latest.errorMessage}</p>
       )}
 
       {attempts.length > 0 && (
@@ -156,7 +156,7 @@ export function AnswerWorkspace({
                     {a.inputMode === "transcribed" && <span className="badge">Spoken</span>}
                     <span className="badge">Rubric v{a.rubricVersion}</span>
                   </summary>
-                  <p className="mt-3 whitespace-pre-wrap rounded-md bg-bg p-3">{a.answerText}</p>
+                  <p className="mt-3 whitespace-pre-wrap rounded-[4px] bg-bg p-3">{a.answerText}</p>
                   {a.result && (
                     <div className="mt-3">
                       <EvaluationCard result={a.result} rubricVersion={a.rubricVersion} assisted={a.assisted} heading={`Attempt ${attempts.length - i}`} />
@@ -176,7 +176,7 @@ export function AnswerWorkspace({
             <p className="mt-3 whitespace-pre-wrap">{ideal}</p>
           ) : confirming ? (
             <div className="mt-3 space-y-3">
-              <p className="rounded-md bg-warn-soft px-3 py-2 text-sm text-warn">
+              <p className="rounded-[4px] bg-warn-soft px-3 py-2 text-sm text-warn">
                 Revealing the ideal answer is useful for studying, but any attempt you submit afterwards will be marked as assisted and kept separate from your independent progress. You can retry as many times as you like first.
               </p>
               <div className="flex gap-2">

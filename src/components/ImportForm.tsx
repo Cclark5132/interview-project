@@ -47,12 +47,12 @@ export function ImportForm() {
         <textarea id="content" className="input font-mono text-xs" rows={12} value={content} onChange={(e) => setContent(e.target.value)} />
       </div>
       <button className="btn btn-primary" disabled={busy || !content.trim()} onClick={run}>{busy ? "Importing…" : "Import as drafts"}</button>
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
       {result && (
         <div role="status" className="space-y-2 text-sm">
-          <p className="rounded-md bg-accent-soft px-3 py-2 text-accent">{result.created} question{result.created === 1 ? "" : "s"} imported as drafts.</p>
+          <p className="rounded-[4px] bg-accent-soft px-3 py-2 text-accent">{result.created} question{result.created === 1 ? "" : "s"} imported as drafts.</p>
           {result.errors.length > 0 && (
-            <div className="rounded-md bg-danger-soft px-3 py-2 text-danger">
+            <div className="rounded-[4px] bg-danger-soft px-3 py-2 text-danger">
               <p className="font-medium">{result.errors.length} row{result.errors.length === 1 ? "" : "s"} skipped:</p>
               <ul className="list-disc pl-5">{result.errors.map((e, i) => <li key={i}>Row {e.index}: {e.message}</li>)}</ul>
             </div>

@@ -36,8 +36,8 @@ export default async function ProgressPage() {
             {p.topics.map((t) => (
               <li key={t.id} className="flex flex-wrap items-center gap-3 p-4">
                 <div className="min-w-40 flex-1 font-medium">{t.name}</div>
-                <div className="h-2 w-40 rounded-full bg-bg" role="img" aria-label={`${t.name} average ${t.avg} out of 100`}>
-                  <div className="h-2 rounded-full bg-accent" style={{ width: `${t.avg}%` }} />
+                <div className="h-[3px] w-40 bg-line" role="img" aria-label={`${t.name} average ${t.avg} out of 100`}>
+                  <div className="h-[3px] bg-accent" style={{ width: `${t.avg}%` }} />
                 </div>
                 <div className="w-28 text-right text-sm tabular-nums">{t.avg}/100 <span className="text-muted">· n={t.count}</span></div>
                 {t.count < 3 && <span className="badge">Few samples</span>}

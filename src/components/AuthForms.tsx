@@ -33,7 +33,7 @@ export function LoginForm() {
         <label className="label" htmlFor="password">Password</label>
         <input id="password" name="password" type="password" required autoComplete="current-password" className="input" />
       </div>
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
       <button className="btn btn-primary w-full" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
       <p className="text-sm text-muted">
         New here? <Link href="/register" className="text-accent underline">Create an account</Link>
@@ -79,7 +79,7 @@ export function RegisterForm() {
         <label className="label" htmlFor="password">Password (10+ characters)</label>
         <input id="password" name="password" type="password" required minLength={10} autoComplete="new-password" className="input" />
       </div>
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
       <button className="btn btn-primary w-full" disabled={busy}>{busy ? "Creating…" : "Create account"}</button>
       <p className="text-sm text-muted">
         Already registered? <Link href="/login" className="text-accent underline">Sign in</Link>

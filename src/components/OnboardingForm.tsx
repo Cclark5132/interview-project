@@ -77,7 +77,7 @@ export function OnboardingForm({
         <button type="button" className="btn mt-3" disabled={parsing || jd.trim().length < 40} onClick={extract}>
           {parsing ? "Reading…" : "Extract target"}
         </button>
-        {parsedNote && <p className="mt-3 rounded-md bg-accent-soft px-3 py-2 text-sm text-accent" role="status">{parsedNote}</p>}
+        {parsedNote && <p className="mt-3 rounded-[4px] bg-accent-soft px-3 py-2 text-sm text-accent" role="status">{parsedNote}</p>}
       </section>
 
       <form onSubmit={save} className="card space-y-4 p-5" aria-labelledby="t-h">
@@ -118,7 +118,7 @@ export function OnboardingForm({
           ) : (
             <div className="flex flex-wrap gap-2">
               {visibleTopics.map((t) => (
-                <label key={t.id} className={`cursor-pointer rounded-full border px-3 py-1 text-sm ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
+                <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
                   <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle(t.id)} />
                   {t.name}
                 </label>
@@ -126,7 +126,7 @@ export function OnboardingForm({
             </div>
           )}
         </fieldset>
-        {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+        {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
         <button className="btn btn-primary" disabled={saving || !v.disciplineId}>{saving ? "Saving…" : "Save target"}</button>
         <p className="text-xs text-muted">No resume is needed. Company selection only boosts questions the owner has reviewed for that company, and is not a claim that the company asks them.</p>
       </form>

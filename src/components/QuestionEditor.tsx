@@ -154,7 +154,7 @@ export function QuestionEditor({
           <div className="flex flex-wrap gap-2">
             {visibleTopics.length === 0 && <span className="text-sm text-muted">Choose a discipline first.</span>}
             {visibleTopics.map((t) => (
-              <label key={t.id} className={`cursor-pointer rounded-full border px-3 py-1 text-sm ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
+              <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
                 <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle("topicIds", t.id)} />
                 {t.name}
               </label>
@@ -165,7 +165,7 @@ export function QuestionEditor({
           <legend className="label">Roles</legend>
           <div className="flex flex-wrap gap-2">
             {roles.map((t) => (
-              <label key={t.id} className={`cursor-pointer rounded-full border px-3 py-1 text-sm ${v.roleIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
+              <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.roleIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
                 <input type="checkbox" className="sr-only" checked={v.roleIds.includes(t.id)} onChange={() => toggle("roleIds", t.id)} />
                 {t.name}
               </label>
@@ -217,9 +217,9 @@ export function QuestionEditor({
           <h2 className="text-xl">Rubric</h2>
           <span className={`text-sm font-medium ${total === 100 ? "text-accent" : "text-danger"}`} role="status">Weights total {total} / 100</span>
         </div>
-        {status === "approved" && <p className="rounded-md bg-warn-soft px-3 py-2 text-sm text-warn">This question is published. Changing the rubric creates a new version; past evaluations keep the version they used.</p>}
+        {status === "approved" && <p className="rounded-[4px] bg-warn-soft px-3 py-2 text-sm text-warn">This question is published. Changing the rubric creates a new version; past evaluations keep the version they used.</p>}
         {v.rubric.map((c, i) => (
-          <fieldset key={i} className="space-y-3 rounded-md border border-line p-4">
+          <fieldset key={i} className="space-y-3 rounded-[4px] border border-line p-4">
             <legend className="px-1 text-sm font-semibold">Criterion {i + 1}</legend>
             <div className="grid gap-3 sm:grid-cols-[1fr_2fr_6rem]">
               <div><label className="label">Id (slug)</label><input className="input" value={c.id} onChange={(e) => setCrit(i, { id: e.target.value })} placeholder="technical-accuracy" /></div>
@@ -243,8 +243,8 @@ export function QuestionEditor({
         <button type="button" className="btn" onClick={() => set("rubric", [...v.rubric, emptyCriterion()])}>Add criterion</button>
       </section>
 
-      {error && <p role="alert" className="rounded-md bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
-      {saved && <p role="status" className="rounded-md bg-accent-soft px-3 py-2 text-sm text-accent">{saved}</p>}
+      {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+      {saved && <p role="status" className="rounded-[4px] bg-accent-soft px-3 py-2 text-sm text-accent">{saved}</p>}
       <button className="btn btn-primary" disabled={busy}>{busy ? "Saving…" : id ? "Save changes" : "Create draft"}</button>
     </form>
   );
