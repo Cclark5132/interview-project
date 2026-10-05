@@ -8,14 +8,12 @@ import { SignOutButton } from "./SignOutButton";
 export async function Header() {
   const user = await currentUser();
   const guest = user ? isGuestEmail(user.email) : false;
-  const items = user
-    ? [
-        { href: "/", label: "Library" },
-        { href: "/progress", label: "Progress" },
-        { href: "/onboarding", label: "Target" },
-        ...(user.role === "ADMIN" ? [{ href: "/admin", label: "Owner review" }] : []),
-      ]
-    : [{ href: "/demo", label: "Demo" }];
+  const items = [
+    { href: "/", label: "Target" },
+    { href: "/library", label: "Library" },
+    ...(user ? [{ href: "/progress", label: "Progress" }] : [{ href: "/demo", label: "Demo" }]),
+    ...(user?.role === "ADMIN" ? [{ href: "/admin", label: "Owner review" }] : []),
+  ];
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-surface/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 px-4 sm:px-6">
@@ -37,7 +35,7 @@ export async function Header() {
               </>
             )
           ) : (
-            <Link href="/api/guest?next=/onboarding" className="btn btn-primary !min-h-8">Start practicing</Link>
+            <Link href="/library" className="font-medium text-muted hover:text-ink">Browse library</Link>
           )}
         </div>
       </div>

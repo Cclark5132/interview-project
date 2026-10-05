@@ -28,7 +28,7 @@ export default async function ProgressPage() {
         <h2 id="topics-h" className="mb-3 text-xl">Topic strengths and gaps</h2>
         {p.topics.length === 0 ? (
           <div className="card p-6 text-sm text-muted">
-            No independent evaluated attempts yet. <Link href="/" className="text-accent underline">Answer a question</Link> to start building topic statistics.
+            No independent evaluated attempts yet. <Link href="/library" className="text-accent underline">Answer a question</Link> to start building topic statistics.
             {p.demonstrationExcluded > 0 && " Demonstration-mode scores are not counted."}
           </div>
         ) : (

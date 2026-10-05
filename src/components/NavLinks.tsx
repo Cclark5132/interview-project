@@ -8,7 +8,7 @@ export function NavLinks({ items }: { items: { href: string; label: string }[] }
   return (
     <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-5 gap-y-1">
       {items.map((i) => {
-        const active = i.href === "/" ? path === "/" || path.startsWith("/questions") : path.startsWith(i.href);
+        const active = i.href === "/" ? path === "/" : i.href === "/library" ? path.startsWith("/library") || path.startsWith("/questions") : path.startsWith(i.href);
         return (
           <Link
             key={i.href}

@@ -20,7 +20,7 @@ export default async function QuestionPage({ params }: { params: Promise<{ id: s
   return (
     <div className="mx-auto max-w-3xl space-y-8">
       <div>
-        <Link href="/" className="font-mono text-[11px] uppercase tracking-[0.09em] text-muted hover:text-ink">← Library</Link>
+        <Link href="/library" className="font-mono text-[11px] uppercase tracking-[0.09em] text-muted hover:text-ink">← Library</Link>
         <h1 className="mt-3 text-[40px] leading-[1.05]">{q.title}</h1>
       </div>
 

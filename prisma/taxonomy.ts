@@ -9,5 +9,5 @@ export async function syncTaxonomy(db: PrismaClient) {
     await db.topic.upsert({ where: { id: t.id }, create: { id: t.id, ...data }, update: data });
   }
   for (const r of ROLES) await db.role.upsert({ where: { id: r.id }, create: { id: r.id, name: r.name }, update: { name: r.name } });
-  for (const c of COMPANIES) await db.company.upsert({ where: { id: c.id }, create: c, update: { name: c.name } });
+  for (const c of COMPANIES) await db.company.upsert({ where: { id: c.id }, create: { id: c.id, name: c.name }, update: { name: c.name } });
 }

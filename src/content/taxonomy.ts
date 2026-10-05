@@ -45,31 +45,31 @@ export const TOPICS: { id: string; name: string; disciplineId: string; keywords:
   { id: "networking", name: "Networking", disciplineId: "computer-science", keywords: ["networking", "tcp", "http", "dns", "latency", "protocol"] },
 ];
 
-export const ROLES: { id: string; name: string; keywords: string[] }[] = [
-  { id: "design-engineer", name: "Design engineer", keywords: ["design engineer", "product design", "mechanical design"] },
-  { id: "thermal-engineer", name: "Thermal engineer", keywords: ["thermal engineer", "thermal analyst", "thermal design"] },
-  { id: "propulsion-engineer", name: "Propulsion engineer", keywords: ["propulsion engineer", "engine engineer"] },
-  { id: "gnc-engineer", name: "GNC / controls engineer", keywords: ["gnc", "controls engineer", "guidance"] },
-  { id: "structures-engineer", name: "Structures engineer", keywords: ["structures engineer", "structural engineer", "stress engineer"] },
-  { id: "hardware-engineer", name: "Hardware / electronics engineer", keywords: ["hardware engineer", "electrical engineer", "electronics engineer", "pcb"] },
-  { id: "firmware-engineer", name: "Embedded / firmware engineer", keywords: ["firmware", "embedded"] },
-  { id: "process-engineer", name: "Process engineer", keywords: ["process engineer", "manufacturing engineer", "production engineer"] },
-  { id: "quality-engineer", name: "Quality engineer", keywords: ["quality engineer", "reliability engineer"] },
-  { id: "software-engineer", name: "Software engineer", keywords: ["software engineer", "software developer", "backend", "full stack", "sde"] },
+export const ROLES: { id: string; name: string; keywords: string[]; disciplines: string[] }[] = [
+  { id: "design-engineer", name: "Design engineer", keywords: ["design engineer", "product design", "mechanical design"], disciplines: ["mechanical", "aerospace", "materials", "biomedical", "industrial"] },
+  { id: "thermal-engineer", name: "Thermal engineer", keywords: ["thermal engineer", "thermal analyst", "thermal design"], disciplines: ["mechanical", "aerospace", "electrical", "chemical"] },
+  { id: "propulsion-engineer", name: "Propulsion engineer", keywords: ["propulsion engineer", "engine engineer"], disciplines: ["aerospace", "mechanical"] },
+  { id: "gnc-engineer", name: "GNC / controls engineer", keywords: ["gnc", "controls engineer", "guidance"], disciplines: ["aerospace", "electrical"] },
+  { id: "structures-engineer", name: "Structures engineer", keywords: ["structures engineer", "structural engineer", "stress engineer"], disciplines: ["aerospace", "civil", "mechanical"] },
+  { id: "hardware-engineer", name: "Hardware / electronics engineer", keywords: ["hardware engineer", "electrical engineer", "electronics engineer", "pcb"], disciplines: ["electrical", "computer-engineering"] },
+  { id: "firmware-engineer", name: "Embedded / firmware engineer", keywords: ["firmware", "embedded"], disciplines: ["computer-engineering", "electrical", "computer-science"] },
+  { id: "process-engineer", name: "Process engineer", keywords: ["process engineer", "manufacturing engineer", "production engineer"], disciplines: ["chemical", "industrial", "environmental", "materials"] },
+  { id: "quality-engineer", name: "Quality engineer", keywords: ["quality engineer", "reliability engineer"], disciplines: ["industrial", "mechanical", "biomedical", "materials"] },
+  { id: "software-engineer", name: "Software engineer", keywords: ["software engineer", "software developer", "backend", "full stack", "sde"], disciplines: ["computer-science", "computer-engineering"] },
 ];
 
-export const COMPANIES: { id: string; name: string }[] = [
-  { id: "spacex", name: "SpaceX" },
-  { id: "tesla", name: "Tesla" },
-  { id: "boeing", name: "Boeing" },
-  { id: "lockheed-martin", name: "Lockheed Martin" },
-  { id: "northrop-grumman", name: "Northrop Grumman" },
-  { id: "ge-aerospace", name: "GE Aerospace" },
-  { id: "apple", name: "Apple" },
-  { id: "nvidia", name: "NVIDIA" },
-  { id: "google", name: "Google" },
-  { id: "amazon", name: "Amazon" },
-  { id: "microsoft", name: "Microsoft" },
+export const COMPANIES: { id: string; name: string; disciplines: string[] }[] = [
+  { id: "spacex", name: "SpaceX", disciplines: ["aerospace", "mechanical", "electrical", "computer-engineering", "computer-science", "materials"] },
+  { id: "tesla", name: "Tesla", disciplines: ["mechanical", "electrical", "computer-engineering", "computer-science", "industrial", "materials", "chemical"] },
+  { id: "boeing", name: "Boeing", disciplines: ["aerospace", "mechanical", "materials", "industrial", "electrical"] },
+  { id: "lockheed-martin", name: "Lockheed Martin", disciplines: ["aerospace", "mechanical", "electrical", "computer-engineering", "computer-science"] },
+  { id: "northrop-grumman", name: "Northrop Grumman", disciplines: ["aerospace", "mechanical", "electrical", "computer-engineering", "computer-science"] },
+  { id: "ge-aerospace", name: "GE Aerospace", disciplines: ["aerospace", "mechanical", "materials", "industrial"] },
+  { id: "apple", name: "Apple", disciplines: ["electrical", "computer-engineering", "computer-science", "mechanical", "materials"] },
+  { id: "nvidia", name: "NVIDIA", disciplines: ["electrical", "computer-engineering", "computer-science"] },
+  { id: "google", name: "Google", disciplines: ["computer-science", "computer-engineering", "electrical"] },
+  { id: "amazon", name: "Amazon", disciplines: ["computer-science", "computer-engineering", "industrial"] },
+  { id: "microsoft", name: "Microsoft", disciplines: ["computer-science", "computer-engineering"] },
 ];
 
 export const DIFFICULTIES = [
