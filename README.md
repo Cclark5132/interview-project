@@ -30,6 +30,9 @@ npm run dev                 # http://localhost:3000
 
 Claude Code subscription access does not provide these API credentials. Keys are read server-side only.
 
+## Access model (proof of concept)
+Visitors need no account: `/api/guest` issues an anonymous guest session (cookie, 30 days) so attempts and progress save per browser. There is no public registration. The owner signs in at `/login` (linked in the footer) to reach Owner review. `npm run publish:all` approves every complete question (owner action).
+
 ## Deploying
 See [docs/DEPLOY.md](docs/DEPLOY.md) (Vercel + Neon, custom domain, owner bootstrap).
 

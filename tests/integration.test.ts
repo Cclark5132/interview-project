@@ -276,3 +276,21 @@ describe("onboarding target and recommendations", () => {
     expect((await searchLibrary(bob.id, { q: "no-such-term-zzz" })).length).toBe(0);
   });
 });
+
+describe("guest access (no sign-up)", () => {
+  it("creates unprivileged guests with unusable passwords and can practice", async () => {
+    const { createGuestUser, isGuestEmail } = await import("@/server/guest");
+    const g = await createGuestUser();
+    expect(isGuestEmail(g.email)).toBe(true);
+    const row = await db.user.findUniqueOrThrow({ where: { id: g.id } });
+    expect(row.role).toBe("USER");
+    expect(row.passwordHash.startsWith("$2")).toBe(true);
+    const actor = await loadActor(g.id);
+    await expect(createQuestion(actor, questionInput({ title: "Guest cannot create questions" }))).rejects.toMatchObject({ status: 403 });
+    const id = await approvedQuestion({ title: "Guest practice question title" });
+    const { attempt } = await submitAttempt({ userId: g.id, questionId: id, answer: answerText }, { provider: live(65) });
+    expect(attempt.overallScore).toBe(65);
+    const other = await createGuestUser();
+    expect(await listAttempts(other.id, id)).toHaveLength(0);
+  });
+});

@@ -20,7 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6">{children}</main>
         <footer className="mx-auto max-w-6xl border-t border-line px-4 py-6 font-mono text-[11px] leading-relaxed text-muted sm:px-6">
-          Questions are reviewed by the owner before publishing. Answers are scored automatically against the question&rsquo;s published rubric.
+          <span>Questions are reviewed by the owner before publishing. Answers are scored automatically against the question&rsquo;s published rubric.</span>
+          <a href="/login" className="ml-4 whitespace-nowrap underline-offset-2 hover:text-ink hover:underline">Owner sign in</a>
         </footer>
       </body>
     </html>

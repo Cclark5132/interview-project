@@ -30,7 +30,7 @@ export default function DemoPage() {
         <EvaluationCard result={DEMO_RESULT} rubricVersion={1} />
       </section>
       <p className="text-sm text-muted">
-        <Link href="/register" className="text-accent underline">Create an account</Link> to practice with reviewed questions and save your attempts.
+        <Link href="/api/guest?next=/" className="text-accent underline">Start practicing</Link> with the reviewed questions. No account needed.
       </p>
     </div>
   );

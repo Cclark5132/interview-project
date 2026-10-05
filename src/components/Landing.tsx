@@ -56,9 +56,10 @@ export function Landing() {
               A reviewed bank of technical questions, ranked for your discipline, company, role and level. Answer by typing or speaking and get scored against a rubric you can read.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/register" className="btn btn-primary !min-h-11 !px-5 !text-sm">Create account</Link>
-              <Link href="/demo" className="btn !min-h-11 !px-5 !text-sm">See a scored answer</Link>
+              <Link href="/api/guest?next=/onboarding" className="btn btn-primary !min-h-11 !px-5 !text-sm">Start practicing</Link>
+              <Link href="/api/guest?next=/" className="btn !min-h-11 !px-5 !text-sm">Browse the library</Link>
             </div>
+            <p className="mt-4 font-mono text-[11px] text-muted">No account needed. Your attempts are saved in this browser.</p>
           </div>
           <Specimen />
         </div>

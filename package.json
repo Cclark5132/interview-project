@@ -15,7 +15,8 @@
     "demo:reset-passwords": "tsx prisma/seed.ts --reset-demo-passwords",
     "db:dev": "node scripts/dev-db.mjs",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
-    "db:bootstrap": "tsx prisma/seed.ts --production"
+    "db:bootstrap": "tsx prisma/seed.ts --production",
+    "publish:all": "tsx scripts/publish-all.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

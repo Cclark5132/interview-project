@@ -2,17 +2,18 @@ import Link from "next/link";
 import { brand } from "@/lib/brand";
 import { currentUser } from "@/server/session";
 import { NavLinks } from "./NavLinks";
+import { isGuestEmail } from "@/server/guest";
 import { SignOutButton } from "./SignOutButton";
 
 export async function Header() {
   const user = await currentUser();
+  const guest = user ? isGuestEmail(user.email) : false;
   const items = user
     ? [
         { href: "/", label: "Library" },
         { href: "/progress", label: "Progress" },
         { href: "/onboarding", label: "Target" },
         ...(user.role === "ADMIN" ? [{ href: "/admin", label: "Owner review" }] : []),
-        { href: "/demo", label: "Demo" },
       ]
     : [{ href: "/demo", label: "Demo" }];
   return (
@@ -27,15 +28,16 @@ export async function Header() {
         <NavLinks items={items} />
         <div className="ml-auto flex items-center gap-4 py-2 text-[13px]">
           {user ? (
-            <>
-              <span className="hidden font-mono text-[11px] text-muted sm:inline">{user.email}</span>
-              <SignOutButton />
-            </>
+            guest ? (
+              <span className="font-mono text-[11px] text-muted" title="Your attempts are saved in this browser">Guest · saved in this browser</span>
+            ) : (
+              <>
+                <span className="hidden font-mono text-[11px] text-muted sm:inline">{user.email}</span>
+                <SignOutButton />
+              </>
+            )
           ) : (
-            <>
-              <Link href="/login" className="font-medium text-muted hover:text-ink">Sign in</Link>
-              <Link href="/register" className="btn btn-primary !min-h-8">Create account</Link>
-            </>
+            <Link href="/api/guest?next=/onboarding" className="btn btn-primary !min-h-8">Start practicing</Link>
           )}
         </div>
       </div>

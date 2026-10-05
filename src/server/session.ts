@@ -9,15 +9,17 @@ export async function currentUser() {
   return db.user.findUnique({ where: { id }, select: { id: true, email: true, name: true, role: true } });
 }
 
-export async function requireUser() {
+/** Visitors without a session get an anonymous guest session, then return to `next`. */
+export async function requireUser(next = "/") {
   const u = await currentUser();
-  if (!u) redirect("/login");
+  if (!u) redirect(`/api/guest?next=${encodeURIComponent(next)}`);
   return u;
 }
 
 /** Pages for non-admins respond as if the route does not exist. APIs separately enforce 403. */
 export async function requireAdminPage(): Promise<Actor> {
-  const u = await requireUser();
+  const u = await currentUser();
+  if (!u) redirect("/login");
   const actor = await loadActor(u.id);
   if (actor.role !== "ADMIN") notFound();
   return actor;

@@ -10,8 +10,8 @@ import { getRevealedIdeal, listAttempts } from "@/server/attempts";
 export const metadata = { title: "Question" };
 
 export default async function QuestionPage({ params }: { params: Promise<{ id: string }> }) {
-  const user = await requireUser();
   const { id } = await params;
+  const user = await requireUser(`/questions/${id}`);
   const q = await getPublicQuestion(user.id, id);
   if (!q) notFound();
   const [attempts, ideal] = await Promise.all([listAttempts(user.id, id), getRevealedIdeal(user.id, id)]);

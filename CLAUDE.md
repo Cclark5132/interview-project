@@ -24,6 +24,8 @@ Curated, owner-reviewed interview question bank with rubric-based automated grad
 - Rubric edits on an approved question create a new `Rubric` version; attempts store `rubricVersion` and the full breakdown (weights as used).
 - Seeds are never auto-approved. Company associations from seeds are `role_relevant`, `reviewed=false`; approval by the admin marks them reviewed.
 
+- Access: no public sign-up. Guests (`guest-…@guest.local`, role USER, unusable password) are created by `/api/guest`; only the owner logs in (`/login`). Admin pages redirect to /login when signed out and 404 for guests.
+
 ## Conventions
 - Brand/colors/typography: tokens in `src/app/globals.css` and `src/lib/brand.ts` only.
 - No chat bubbles, avatars, sparkles, "AI" marketing copy; never call it a "phone interview".

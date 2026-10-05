@@ -10,7 +10,7 @@ const MAX_FAILS = 6;
 const DUMMY_HASH = bcrypt.hashSync("not-a-real-password", 12);
 
 export const authOptions: NextAuthOptions = {
-  session: { strategy: "jwt", maxAge: 60 * 60 * 24 * 7 },
+  session: { strategy: "jwt", maxAge: 60 * 60 * 24 * 30 },
   pages: { signIn: "/login" },
   providers: [
     Credentials({

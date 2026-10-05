@@ -2,10 +2,11 @@ import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/AuthForms";
 import { currentUser } from "@/server/session";
 
-export const metadata = { title: "Sign in" };
+export const metadata = { title: "Owner sign in" };
 
 export default async function LoginPage() {
-  if (await currentUser()) redirect("/");
+  const u = await currentUser();
+  if (u?.role === "ADMIN") redirect("/admin");
   return (
     <div className="pt-6">
       <LoginForm />
