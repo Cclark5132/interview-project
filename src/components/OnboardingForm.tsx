@@ -175,7 +175,7 @@ export function OnboardingForm({
 
         {v.disciplineId && (
           <section key={v.disciplineId} aria-labelledby="refine-h" className="rise space-y-7">
-            <h2 id="refine-h" className="label !mb-0">2 �· Narrow it down <span className="normal-case tracking-normal text-muted/70">(all optional)</span></h2>
+            <h2 id="refine-h" className="label !mb-0">2 · Narrow it down <span className="normal-case tracking-normal text-muted/70">(all optional)</span></h2>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
@@ -250,7 +250,7 @@ export function OnboardingForm({
               {chosen.name}
               {v.roleId && `, ${roles.find((r) => r.id === v.roleId)?.name}`}
               {v.companyId && `, ${companies.find((c) => c.id === v.companyId)?.name}`}
-              {` �· ${LEVELS.find((l) => l.id === v.level)?.name}`}
+              {` · ${LEVELS.find((l) => l.id === v.level)?.name}`}
             </p>
           </>
         )}
