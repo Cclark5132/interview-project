@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { EvaluationCard } from "./EvaluationCard";
 import { Recorder } from "./Recorder";
@@ -127,7 +128,10 @@ export function AnswerWorkspace({
 
       {latest && latest.status === "graded" && latest.result && (
         <section aria-labelledby="eval-h" className="space-y-3">
-          <h2 id="eval-h" className="text-xl">Evaluation · attempt {attempts.length}</h2>
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="eval-h" className="text-xl">Evaluation · attempt {attempts.length}</h2>
+            <Link href="/practice" className="btn btn-primary">Next question →</Link>
+          </div>
           <EvaluationCard result={latest.result} rubricVersion={latest.rubricVersion} assisted={latest.assisted} />
         </section>
       )}

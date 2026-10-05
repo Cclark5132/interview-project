@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LEVELS } from "@/lib/ranking";
 
 type Opt = { id: string; name: string };
@@ -21,6 +21,7 @@ async function api(url: string, init: RequestInit): Promise<Response> {
 
 export function OnboardingForm({
   disciplines,
+  counts,
   topics,
   roles,
   companies,
@@ -28,6 +29,7 @@ export function OnboardingForm({
   hasTarget,
 }: {
   disciplines: Opt[];
+  counts: Record<string, number>;
   topics: Topic[];
   roles: Fit[];
   companies: Fit[];
@@ -41,18 +43,40 @@ export function OnboardingForm({
   const [parsedNote, setParsedNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [match, setMatch] = useState<{ inDiscipline: number; matching: number } | null>(null);
 
-  // Dropdowns narrow to the chosen discipline. A value already selected (e.g. from a pasted posting) always stays listed.
+  // Options narrow to the chosen discipline. A value already selected (e.g. from a pasted posting) stays listed.
   const fits = (list: Fit[], current: string) => list.filter((o) => o.disciplineIds.includes(v.disciplineId) || o.id === current);
-  const roleOptions = v.disciplineId ? fits(roles, v.roleId) : [];
-  const companyOptions = v.disciplineId ? fits(companies, v.companyId) : [];
+  const roleOptions = fits(roles, v.roleId);
+  const companyOptions = fits(companies, v.companyId);
   const visibleTopics = topics.filter((t) => t.disciplineId === v.disciplineId || v.topicIds.includes(t.id));
+  const chosen = disciplines.find((d) => d.id === v.disciplineId);
+
+  // Live count of published questions for the draft target.
+  useEffect(() => {
+    if (!v.disciplineId) return;
+    const ctl = new AbortController();
+    const t = setTimeout(async () => {
+      const qs = new URLSearchParams({ discipline: v.disciplineId });
+      if (v.roleId) qs.set("role", v.roleId);
+      if (v.topicIds.length) qs.set("topics", v.topicIds.join(","));
+      try {
+        const r = await fetch(`/api/match?${qs}`, { signal: ctl.signal });
+        if (r.ok) setMatch(await r.json());
+      } catch {
+        /* aborted or offline: keep the last count */
+      }
+    }, 150);
+    return () => {
+      clearTimeout(t);
+      ctl.abort();
+    };
+  }, [v.disciplineId, v.roleId, v.topicIds]);
 
   function chooseDiscipline(disciplineId: string) {
     setV((s) => ({
       ...s,
       disciplineId,
-      // Clear anything that no longer belongs to the new discipline.
       roleId: roles.find((r) => r.id === s.roleId)?.disciplineIds.includes(disciplineId) ? s.roleId : "",
       companyId: companies.find((c) => c.id === s.companyId)?.disciplineIds.includes(disciplineId) ? s.companyId : "",
       topicIds: s.topicIds.filter((id) => topics.find((t) => t.id === id)?.disciplineId === disciplineId),
@@ -70,13 +94,12 @@ export function OnboardingForm({
     setV({ disciplineId: j.disciplineId, companyId: j.companyId ?? "", roleId: j.roleId ?? "", level: j.level, topicIds: j.topicIds ?? [] });
     setParsedNote(
       j.source === "ai"
-        ? "Extracted from the description. Review every field; you can change anything before saving."
-        : "Extracted with simple keyword matching. It may be wrong, so check each field before saving.",
+        ? "Filled from the posting. Check each field and change anything."
+        : "Filled with simple keyword matching. It may be off, so check each field.",
     );
   }
 
-  async function save(e: React.FormEvent) {
-    e.preventDefault();
+  async function start() {
     setSaving(true);
     setError(null);
     const res = await api("/api/target", {
@@ -89,83 +112,128 @@ export function OnboardingForm({
       setSaving(false);
       return setError(j.error ?? "Could not save.");
     }
-    router.push("/library");
-    router.refresh();
+    router.push("/practice");
   }
 
   const toggle = (id: string) => setV((s) => ({ ...s, topicIds: s.topicIds.includes(id) ? s.topicIds.filter((x) => x !== id) : [...s.topicIds, id] }));
-  const pick = "cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] transition-colors";
+  const chip = (on: boolean) =>
+    `cursor-pointer rounded-[6px] border px-3 py-1.5 text-[13px] transition-colors ${on ? "border-accent bg-accent-soft text-accent" : "border-strong bg-surface-2 text-muted hover:border-muted hover:text-ink"}`;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
-      <form onSubmit={save} className="card space-y-6 p-5 sm:p-6" aria-labelledby="t-h">
-        <h2 id="t-h" className="text-2xl">Your target</h2>
-
-        <div>
-          <label className="label" htmlFor="d">1 · Discipline</label>
-          <select id="d" required className="input" value={v.disciplineId} onChange={(e) => chooseDiscipline(e.target.value)}>
-            <option value="" disabled>Choose a discipline…</option>
-            {disciplines.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
-          </select>
-        </div>
-
-        <div className={`grid gap-4 sm:grid-cols-2 ${v.disciplineId ? "" : "opacity-45"}`}>
-          <div>
-            <label className="label" htmlFor="r">2 · Role</label>
-            <select id="r" className="input" disabled={!v.disciplineId} value={v.roleId} onChange={(e) => setV({ ...v, roleId: e.target.value })}>
-              <option value="">{v.disciplineId ? "Any role" : "Pick a discipline first"}</option>
-              {roleOptions.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
-            </select>
+    <div className="grid items-start gap-8 lg:grid-cols-[1fr_21rem]">
+      <div className="space-y-10">
+        <section aria-labelledby="disc-h">
+          <h2 id="disc-h" className="label !mb-3">1 · Your discipline</h2>
+          <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3" role="radiogroup" aria-labelledby="disc-h">
+            {disciplines.map((d, i) => {
+              const on = d.id === v.disciplineId;
+              return (
+                <button
+                  key={d.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={on}
+                  onClick={() => chooseDiscipline(d.id)}
+                  style={{ "--i": i } as React.CSSProperties}
+                  className={`rise group relative rounded-[10px] border p-4 text-left transition-all duration-200 ${on ? "border-accent bg-accent-soft" : "border-line bg-surface hover:-translate-y-0.5 hover:border-strong hover:bg-surface-2"}`}
+                >
+                  <span className={`block font-display text-[17px] font-semibold leading-tight ${on ? "text-ink" : ""}`}>{d.name}</span>
+                  <span className="mt-1.5 block font-mono text-[11px] text-muted">{counts[d.id] ?? 0} questions</span>
+                  <span aria-hidden className={`absolute right-3.5 top-3.5 size-2 rounded-full transition-colors ${on ? "bg-accent" : "bg-strong"}`} />
+                </button>
+              );
+            })}
           </div>
-          <div>
-            <label className="label" htmlFor="c">3 · Company</label>
-            <select id="c" className="input" disabled={!v.disciplineId} value={v.companyId} onChange={(e) => setV({ ...v, companyId: e.target.value })}>
-              <option value="">{v.disciplineId && companyOptions.length === 0 ? "None for this discipline yet" : "No specific company"}</option>
-              {companyOptions.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
-            </select>
-          </div>
-          <div>
-            <label className="label" htmlFor="l">4 · Level</label>
-            <select id="l" className="input" disabled={!v.disciplineId} value={v.level} onChange={(e) => setV({ ...v, level: e.target.value })}>
-              {LEVELS.map((l) => <option key={l.id} value={l.id}>{l.name}</option>)}
-            </select>
-          </div>
-        </div>
+        </section>
 
-        <fieldset disabled={!v.disciplineId} className={v.disciplineId ? "" : "opacity-45"}>
-          <legend className="label">5 · Focus topics</legend>
-          {visibleTopics.length === 0 ? (
-            <p className="text-sm text-muted">Topics for your discipline appear here.</p>
-          ) : (
-            <div className="flex flex-wrap gap-2">
-              {visibleTopics.map((t) => (
-                <label key={t.id} className={`${pick} ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-strong bg-surface text-muted hover:text-ink"}`}>
-                  <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle(t.id)} />
-                  {t.name}
-                </label>
-              ))}
+        {v.disciplineId && (
+          <section key={v.disciplineId} aria-labelledby="refine-h" className="rise space-y-7">
+            <h2 id="refine-h" className="label !mb-0">2 · Narrow it down <span className="normal-case tracking-normal text-muted/70">(all optional)</span></h2>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="label" htmlFor="r">Role</label>
+                <select id="r" className="input" value={v.roleId} onChange={(e) => setV({ ...v, roleId: e.target.value })}>
+                  <option value="">Any role</option>
+                  {roleOptions.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="label" htmlFor="c">Company</label>
+                <select id="c" className="input" value={v.companyId} onChange={(e) => setV({ ...v, companyId: e.target.value })}>
+                  <option value="">{companyOptions.length === 0 ? "None for this discipline yet" : "No specific company"}</option>
+                  {companyOptions.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
+                </select>
+              </div>
             </div>
-          )}
-        </fieldset>
 
-        {error && <p role="alert" className="rounded-[4px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
-        <div className="flex flex-wrap items-center gap-3">
-          <button className="btn btn-primary !min-h-10 !px-5" disabled={saving || !v.disciplineId}>{saving ? "Saving…" : "Save and open library"}</button>
-          {hasTarget && <button type="button" className="btn !min-h-10" onClick={() => router.push("/library")}>Skip to library</button>}
-        </div>
-        <p className="font-mono text-[11px] leading-relaxed text-muted">No account or resume needed. A company only boosts questions the owner has reviewed for it; that is not a claim the company asks them.</p>
-      </form>
+            <fieldset>
+              <legend className="label">Level</legend>
+              <div className="inline-flex flex-wrap gap-2" role="radiogroup">
+                {LEVELS.map((l) => (
+                  <label key={l.id} className={chip(v.level === l.id)}>
+                    <input type="radio" name="level" className="sr-only" checked={v.level === l.id} onChange={() => setV({ ...v, level: l.id })} />
+                    {l.name}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
 
-      <section className="card h-fit p-5 sm:p-6" aria-labelledby="jd-h">
-        <h2 id="jd-h" className="text-xl">Or paste a job posting</h2>
-        <p className="mt-1 text-sm text-muted">Optional. We read a likely discipline, role, company, level and topics into the form so you can correct them. The text is treated as data only.</p>
-        <label className="label mt-4" htmlFor="jd">Job posting</label>
-        <textarea id="jd" value={jd} onChange={(e) => setJd(e.target.value)} rows={9} maxLength={20000} className="input" placeholder="Paste the posting text here" />
-        <button type="button" className="btn mt-3" disabled={parsing || jd.trim().length < 40} onClick={extract}>
-          {parsing ? "Reading…" : "Fill the form from this posting"}
+            <fieldset>
+              <legend className="label">Focus topics</legend>
+              <div className="flex flex-wrap gap-2">
+                {visibleTopics.map((t) => (
+                  <label key={t.id} className={chip(v.topicIds.includes(t.id))}>
+                    <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle(t.id)} />
+                    {t.name}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          </section>
+        )}
+
+        <details className="card group">
+          <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 text-sm font-medium">
+            Have a job posting? Paste it to fill this in
+            <span aria-hidden className="font-mono text-muted transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div className="border-t border-line p-5">
+            <label className="label" htmlFor="jd">Job posting (treated as data only)</label>
+            <textarea id="jd" value={jd} onChange={(e) => setJd(e.target.value)} rows={7} maxLength={20000} className="input" placeholder="Paste the posting text here" />
+            <button type="button" className="btn mt-3" disabled={parsing || jd.trim().length < 40} onClick={extract}>
+              {parsing ? "Reading…" : "Fill the form"}
+            </button>
+            {parsedNote && <p className="mt-3 border-l-2 border-accent bg-accent-soft px-3 py-2 text-sm text-accent" role="status">{parsedNote}</p>}
+          </div>
+        </details>
+      </div>
+
+      <aside className="card rise p-5 lg:sticky lg:top-24" aria-label="Your practice set">
+        <div className="label">Your practice set</div>
+        {!chosen ? (
+          <p className="text-sm leading-relaxed text-muted">Pick a discipline to see how many questions are ready for you.</p>
+        ) : (
+          <>
+            <div className="flex items-end gap-2">
+              <span className="font-display text-[56px] font-semibold leading-none tabular-nums">{match ? match.matching : "–"}</span>
+              <span className="pb-1.5 font-mono text-xs text-muted">{match && (v.roleId || v.topicIds.length) ? `of ${match.inDiscipline} ready` : "questions ready"}</span>
+            </div>
+            <p className="mt-3 text-sm text-muted">
+              {chosen.name}
+              {v.roleId && `, ${roles.find((r) => r.id === v.roleId)?.name}`}
+              {v.companyId && `, ${companies.find((c) => c.id === v.companyId)?.name}`}
+              {` · ${LEVELS.find((l) => l.id === v.level)?.name}`}
+            </p>
+          </>
+        )}
+        {error && <p role="alert" className="mt-4 rounded-[6px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
+        <button className="btn btn-primary mt-5 w-full !min-h-11 !text-sm" disabled={saving || !v.disciplineId} onClick={start}>
+          {saving ? "Starting…" : "Start practicing →"}
         </button>
-        {parsedNote && <p className="mt-3 border-l-2 border-accent bg-accent-soft px-3 py-2 text-sm text-accent" role="status">{parsedNote}</p>}
-      </section>
+        {hasTarget && <button type="button" className="btn mt-2 w-full" onClick={() => router.push("/library")}>Browse the library</button>}
+        <p className="mt-4 font-mono text-[11px] leading-relaxed text-muted">No account needed. Company only boosts questions reviewed for it; that is not a claim the company asks them.</p>
+      </aside>
     </div>
   );
 }

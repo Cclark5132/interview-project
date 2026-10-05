@@ -154,7 +154,7 @@ export function QuestionEditor({
           <div className="flex flex-wrap gap-2">
             {visibleTopics.length === 0 && <span className="text-sm text-muted">Choose a discipline first.</span>}
             {visibleTopics.map((t) => (
-              <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
+              <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.topicIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-muted"}`}>
                 <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle("topicIds", t.id)} />
                 {t.name}
               </label>
@@ -165,7 +165,7 @@ export function QuestionEditor({
           <legend className="label">Roles</legend>
           <div className="flex flex-wrap gap-2">
             {roles.map((t) => (
-              <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.roleIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-white text-muted"}`}>
+              <label key={t.id} className={`cursor-pointer rounded-[3px] border px-2.5 py-1 text-[13px] ${v.roleIds.includes(t.id) ? "border-accent bg-accent-soft text-accent" : "border-line bg-surface text-muted"}`}>
                 <input type="checkbox" className="sr-only" checked={v.roleIds.includes(t.id)} onChange={() => toggle("roleIds", t.id)} />
                 {t.name}
               </label>

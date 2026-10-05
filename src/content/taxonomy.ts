@@ -13,7 +13,9 @@ export const DISCIPLINES = [
   { id: "computer-science", name: "Computer science & software", family: "computing" },
 ] as const;
 
-export const TOPICS: { id: string; name: string; disciplineId: string; keywords: string[] }[] = [
+import { EXTRA_TOPICS } from "./topics-extra";
+
+const BASE_TOPICS: { id: string; name: string; disciplineId: string; keywords: string[] }[] = [
   { id: "heat-transfer", name: "Heat transfer", disciplineId: "mechanical", keywords: ["heat transfer", "thermal", "conduction", "convection", "radiator", "heat sink"] },
   { id: "statics-dynamics", name: "Statics & dynamics", disciplineId: "mechanical", keywords: ["statics", "dynamics", "free body", "vibration", "kinematics"] },
   { id: "fatigue-failure", name: "Fatigue & failure analysis", disciplineId: "mechanical", keywords: ["fatigue", "failure analysis", "fracture", "stress concentration"] },
@@ -44,6 +46,8 @@ export const TOPICS: { id: string; name: string; disciplineId: string; keywords:
   { id: "concurrency-os", name: "Concurrency & operating systems", disciplineId: "computer-science", keywords: ["concurrency", "thread", "mutex", "deadlock", "operating system", "process"] },
   { id: "networking", name: "Networking", disciplineId: "computer-science", keywords: ["networking", "tcp", "http", "dns", "latency", "protocol"] },
 ];
+
+export const TOPICS = [...BASE_TOPICS, ...EXTRA_TOPICS];
 
 export const ROLES: { id: string; name: string; keywords: string[]; disciplines: string[] }[] = [
   { id: "design-engineer", name: "Design engineer", keywords: ["design engineer", "product design", "mechanical design"], disciplines: ["mechanical", "aerospace", "materials", "biomedical", "industrial"] },

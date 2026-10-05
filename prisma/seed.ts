@@ -4,6 +4,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { SEED_QUESTIONS, buildRubric } from "../src/content/seed-questions";
+import { BANK } from "../src/content/bank";
 import { syncTaxonomy } from "./taxonomy";
 
 const DEMO_USER_EMAIL = "demo@interview-project.local";
@@ -50,7 +51,8 @@ async function main() {
 
     // Sample questions are ORIGINAL drafts. They are never auto-approved; the owner approves them in /admin.
     let created = 0;
-    for (const q of SEED_QUESTIONS) {
+    const ALL = [...SEED_QUESTIONS, ...BANK];
+    for (const q of ALL) {
       const exists = await db.question.findFirst({ where: { title: q.title, evidenceCategory: "original" } });
       if (exists) continue;
       const rubric = buildRubric(q);
@@ -76,7 +78,7 @@ async function main() {
       created++;
     }
 
-    console.log(`Taxonomy synced. ${created} draft question(s) created (${SEED_QUESTIONS.length} total in seed set).`);
+    console.log(`Taxonomy synced. ${created} draft question(s) created (${ALL.length} total in the bank).`);
     if (printed.length) {
       console.log("\nLocal demo accounts (development only; shown once):");
       for (const p of printed) console.log("  " + p);
