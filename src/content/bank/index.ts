@@ -15,6 +15,11 @@ import { biomedical } from "./biomedical";
 import { environmental } from "./environmental";
 import { computerEngineering } from "./computer-engineering";
 import { computerScience } from "./computer-science";
+import { investmentBankingDrills, consultingDrills } from "./numeric-finance";
+import { ibPart1 } from "./parts/ib-1";
+import { ibPart2 } from "./parts/ib-2";
+import { consultingPart1 } from "./parts/consulting-1";
+import { consultingPart2 } from "./parts/consulting-2";
 import { topupEnvironmental, topupBiomedical } from "./parts/topup-env-bio";
 import { topupIndustrial, topupComputerEngineering, topupMaterials, topupChemical, topupCivil } from "./parts/topup-rest";
 
@@ -30,6 +35,8 @@ const SOURCES: [string, Q[]][] = [
   ["biomedical", [...biomedical, ...topupBiomedical, ...biomedicalDrills()]],
   ["environmental", [...environmental, ...topupEnvironmental, ...environmentalDrills()]],
   ["computer-engineering", [...computerEngineering, ...topupComputerEngineering, ...computerEngineeringDrills()]],
+  ["investment-banking", [...ibPart1, ...ibPart2, ...investmentBankingDrills()]],
+  ["consulting", [...consultingPart1, ...consultingPart2, ...consultingDrills()]],
   ["computer-science", [...computerScience, ...computerScienceDrills()]],
 ];
 

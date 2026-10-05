@@ -87,6 +87,18 @@ const TOPIC_ROLES: Record<string, string[]> = {
   "web-apis": ["software-engineer"],
   "testing-reliability": ["software-engineer"],
   "machine-learning": ["software-engineer"],
+  "ib-accounting": ["ib-analyst"],
+  "ib-valuation": ["ib-analyst", "equity-research", "private-equity"],
+  "ib-ma": ["ib-analyst"],
+  "ib-lbo": ["private-equity", "ib-analyst"],
+  "ib-markets": ["markets-trader", "ib-analyst"],
+  "ib-fit": ["ib-analyst", "markets-trader", "equity-research", "private-equity"],
+  "case-structuring": ["business-analyst", "strategy-associate"],
+  "market-sizing": ["business-analyst", "strategy-associate"],
+  "case-strategy": ["business-analyst", "strategy-associate"],
+  "case-math": ["business-analyst", "strategy-associate"],
+  "brain-teasers": ["business-analyst", "strategy-associate"],
+  "consulting-fit": ["business-analyst", "strategy-associate"],
 };
 
 export function toSeed(discipline: string, q: Q): SeedQuestion {

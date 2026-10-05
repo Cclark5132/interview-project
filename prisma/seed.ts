@@ -27,12 +27,16 @@ async function main() {
     if (production) {
       const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
       const password = process.env.ADMIN_PASSWORD;
+      const owner = email ? await db.user.findUnique({ where: { email } }) : null;
+      if (owner?.role === "ADMIN" && !password) console.log(`Owner already exists: ${email} (password unchanged)`);
+      else {
       if (!email || !password || password.length < 12) throw new Error("Set ADMIN_EMAIL and ADMIN_PASSWORD (12+ characters) to bootstrap the owner account.");
       const passwordHash = await bcrypt.hash(password, 12);
       const existing = await db.user.findUnique({ where: { email } });
       if (existing) await db.user.update({ where: { email }, data: { passwordHash, role: "ADMIN" } });
       else await db.user.create({ data: { email, name: "Owner", role: "ADMIN", passwordHash } });
       console.log(`Owner account ready: ${email}`);
+      }
     }
     for (const [email, name, role, envKey] of production
       ? []
