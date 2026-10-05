@@ -54,7 +54,7 @@ export function OnboardingForm({
   const roleOptions = fits(roles, v.roleId);
   const companyOptions = fits(companies, v.companyId);
   const visibleTopics = topics.filter((t) => t.disciplineId === v.disciplineId || v.topicIds.includes(t.id));
-  const shown = disciplines.filter((d) => (fam === "all" || d.family === fam) && d.name.toLowerCase().includes(q.trim().toLowerCase()));
+  const shown = disciplines.filter((d) => (fam === "all" || d.family === fam) && d.name.toLowerCase().includes(q.trim().toLowerCase())).sort((a, b) => FAMILIES.findIndex((x) => x[0] === a.family) - FAMILIES.findIndex((x) => x[0] === b.family));
   const chosen = disciplines.find((d) => d.id === v.disciplineId);
 
   // Live count of published questions for the draft target.
