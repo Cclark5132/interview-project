@@ -17,7 +17,7 @@ export default async function HomePage() {
   const counts = Object.fromEntries(grouped.map((g) => [g.disciplineId, g._count]));
   return (
     <div className="mx-auto max-w-6xl">
-      <p className="rise font-mono text-[11px] uppercase tracking-[0.12em] text-accent">Engineering and computing interview practice</p>
+      <p className="rise font-mono text-[11px] uppercase tracking-[0.12em] text-accent">Engineering, computing, finance and consulting interview practice</p>
       <h1 className="rise mt-3 text-[44px] leading-[1.02] sm:text-[60px]" style={{ "--i": 1 } as React.CSSProperties}>What are you interviewing for?</h1>
       <p className="rise mb-10 mt-4 max-w-xl text-[16px] leading-relaxed text-muted" style={{ "--i": 2 } as React.CSSProperties}>
         Pick your discipline, narrow it if you like, and start. Each question is scored against a rubric you can read, and retries keep every attempt.
