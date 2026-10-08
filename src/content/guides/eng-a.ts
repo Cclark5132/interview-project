@@ -262,10 +262,12 @@ export const engA: CompanyGuide[] = [
           "Expect same questions for every candidate; answer completely rather than waiting for follow-ups.",
           "Check citizenship, export-control and clearance requirements on the posting.",
           "Have a concrete reason for the specific site and program you apply to.",
+          "Boeing's careers site says you are told if a role needs a standardized assessment and offers a downloadable interview-prep guide; ask your recruiter for it.",
         ],
       },
     ],
     sources: [
+      { label: "Boeing Careers: FAQ on interviews and assessments (official)", url: "https://jobs.boeing.com/faq" },
       { label: "Glassdoor: Boeing engineer interview questions", url: "https://static.glassdoor.com.au/Interview/Boeing-Engineer-Interview-Questions-EI_IE102.0,6_KO7,15.htm" },
       { label: "Glassdoor: Boeing interview report", url: "https://www.glassdoor.com.hk/Interview/Boeing-Interview-E102-RVW671804.htm" },
       { label: "Glassdoor: Boeing interview report", url: "https://www.glassdoor.sg/Interview/Boeing-Interview-E102-RVW12146705.htm" },
@@ -347,11 +349,13 @@ export const engA: CompanyGuide[] = [
           "Research the specific site, program and business area.",
           "Check citizenship and clearance language on the posting before applying.",
           "If targeting ELDP, review the official program page for current format and eligibility.",
+          "Lockheed's hiring page says interviews may be virtual or in person with recruiters, managers and team members, and it recommends STAR examples and your own questions.",
           "Prepare questions for the engineers at the end.",
         ],
       },
     ],
     sources: [
+      { label: "Lockheed Martin: Hiring process and interview tips (official)", url: "https://www.lockheedmartin.com/en-us/careers/why-lm/hiring-process.html" },
       { label: "Glassdoor: Lockheed Martin interview report", url: "https://static.glassdoor.com.au/Interview/Lockheed-Martin-Interview-E404-RVW64646492.htm" },
       { label: "Glassdoor: Lockheed Martin interview questions", url: "https://static.glassdoor.at/Interview/Lockheed-Martin-Interview-Questions-E404_P658.htm" },
       { label: "Glassdoor: Lockheed Martin interview report", url: "https://www.glassdoor.com/Interview/Lockheed-Martin-Interview-E404-RVW248046.htm" },
@@ -434,11 +438,14 @@ export const engA: CompanyGuide[] = [
           "Be ready to discuss citizenship and clearance eligibility.",
           "Use career fairs and referrals; they are reported to speed things up.",
           "Review the official Pathways page for current program details.",
+          "Follow Northrop's interviewing essentials: use STAR, explain your problem-solving approach, and note that AI tools and recording or transcribing are not allowed.",
           "Follow up politely; slow communication is a common complaint.",
         ],
       },
     ],
     sources: [
+      { label: "Northrop Grumman: Interviewing essentials (official)", url: "https://www.northropgrumman.com/careers/interviewing-essentials" },
+      { label: "Northrop Grumman: Interview prep tips (official)", url: "https://www.northropgrumman.com/careers/interview-prep-tips-for-success-northrop-grumman-candidates" },
       { label: "Glassdoor: Northrop Grumman interview reports", url: "https://static.glassdoor.at/Interview/Northrop-Grumman-Interview-Questions-E488_P68.htm" },
       { label: "Interview Query: Northrop Grumman software engineer", url: "https://www.interviewquery.com/guides/northrop-grumman-software-engineer" },
       { label: "Glassdoor: Northrop Grumman Palmdale report", url: "https://www.glassdoor.com.mx/Entrevista/Northrop-Grumman-Entrevista-E488-RVW88151678.htm" },
@@ -522,10 +529,12 @@ export const engA: CompanyGuide[] = [
           "Have clear, honest answers on citizenship and clearance eligibility.",
           "Review domain fundamentals for the specific role.",
           "Practice video-recorded responses if a HireVue step is likely.",
+          "RTX postings say the process includes phone screens, interviews, reference checks and offer, and that some steps may need to be in person even for remote roles.",
         ],
       },
     ],
     sources: [
+      { label: "RTX Careers: sample posting describing the hiring stages (official)", url: "https://careers.rtx.com/global/en/job/01875413/Software-Development-Intern-Summer-2027" },
       { label: "ResumeAdapter: RTX interview questions", url: "https://www.resumeadapter.com/blog/rtx-raytheon-interview-questions" },
       { label: "CleverPrep: RTX interview guide", url: "https://www.cleverprep.com/companies/rtx" },
       { label: "Glassdoor: RTX manufacturing engineer interviews", url: "https://static-pc.glassdoor.de/Interview/RTX-Manufacturing-Engineer-Interview-Questions-EI_IE561.0,3_KO4,26_IP3.htm" },
@@ -536,7 +545,7 @@ export const engA: CompanyGuide[] = [
   {
     companyId: "general-dynamics",
     summary:
-      "General Dynamics is a federation of businesses (Electric Boat, Gulfstream, Mission Systems, Land Systems and others), so processes vary by unit. Typical reports are a phone screen, a hiring-manager call and a panel or on-site, blending technical and behavioral questions over about 3-5 weeks. Clearance eligibility is a recurring theme. Evidence is thin and unit-specific data is scarce.",
+      "General Dynamics is a federation of businesses (Electric Boat, Gulfstream, Mission Systems, Land Systems and others), so processes vary by unit. Typical reports are a phone screen, a hiring-manager call and a panel or on-site, blending technical and behavioral questions over about 3-5 weeks. Clearance eligibility is a recurring theme. General Dynamics Mission Systems' careers pages (seen via search; direct fetch blocked) describe a recruiter-led process with phone screen or interview, behavioral-based questions and a no-AI-tools rule; other units' data is scarce.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -546,7 +555,7 @@ export const engA: CompanyGuide[] = [
         stages: [
           {
             name: "Application",
-            format: "Online application on the business unit's careers site",
+            format: "Online application on the business unit's careers site; a recruiter checks it against requirements (GDMS)",
             what: "Resume screen. Many defense roles require US citizenship and the ability to obtain a Secret-level clearance.",
           },
           {
@@ -607,10 +616,13 @@ export const engA: CompanyGuide[] = [
           "Review fundamentals for your discipline and basics of the systems engineering lifecycle.",
           "Prepare behavioral stories about teamwork and setbacks.",
           "Ask your recruiter whether a panel or technical round is included.",
+          "GDMS says interviews are behavioral-based and bans AI tools (possible disqualification); prepare your own stories and follow up with a thank-you email.",
         ],
       },
     ],
     sources: [
+      { label: "GD Mission Systems: Interview tips and possible questions (official)", url: "https://gdmissionsystems.com/careers/students-and-recent-graduates/interview-preparation" },
+      { label: "General Dynamics: FAQ for jobseekers (official)", url: "https://www.gd.com/careers/faq" },
       { label: "Glassdoor: General Dynamics interview report", url: "https://www.glassdoor.com.hk/Interview/General-Dynamics-Interview-E276-RVW97580049.htm" },
       { label: "Glassdoor: General Dynamics interview report", url: "https://www.glassdoor.ca/Interview/General-Dynamics-Interview-E276-RVW21805873.htm" },
       { label: "CleverPrep: General Dynamics systems engineer", url: "https://www.cleverprep.com/companies/general-dynamics/systems-engineer" },
@@ -621,9 +633,9 @@ export const engA: CompanyGuide[] = [
   {
     companyId: "ge-aerospace",
     summary:
-      "GE Aerospace early-career engineers often enter through the Edison Engineering Development Program (EEDP), a rotational program. Candidate reports describe an online test or behavioral recording, resume-based technical interviews, an HR round and sometimes a short presentation or group exercise. Evidence is sparse and mixed in location and year.",
+      "GE Aerospace's careers site describes a general sequence of application, recruiter conversation, hiring-manager conversation and a panel interview, recommends STAR answers, and bans AI tools in interviews. Candidate reports for the Edison Engineering Development Program (EEDP, not named on the official pages I read) add a recorded behavioral step, resume-based technical questions and sometimes a short presentation.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "engineering",
@@ -635,24 +647,19 @@ export const engA: CompanyGuide[] = [
             what: "Resume screen for the rotational program or a specific role. Check citizenship requirements for US roles.",
           },
           {
-            name: "Online test or recorded interview",
-            format: "Online assessment and behavioral questions on a video platform",
-            what: "Reported behavioral recording focused on STAR-style questions.",
+            name: "Recruiter conversation",
+            format: "Call with a recruiter (official step)",
+            what: "Fit, interests and logistics. Early-career candidates also report an online questionnaire or recorded behavioral prompts, which GE's pages mention for its LIFT summit.",
           },
           {
-            name: "Technical interview",
-            format: "Video or in person with engineers",
-            what: "Resume-based questions on coursework and projects, such as stress concentration, fracture and finite element methods for mechanical candidates.",
+            name: "Hiring manager conversation",
+            format: "Video or phone (official step)",
+            what: "Resume-based questions on coursework, projects and leadership; candidate reports mention topics like stress concentration, fracture and finite element methods for mechanical roles.",
           },
           {
-            name: "HR or leadership interview",
-            format: "Conversation with HR or program leaders",
-            what: "Career goals, why the program and conflict-handling examples.",
-          },
-          {
-            name: "Presentation or group exercise (sometimes)",
-            format: "Short self-introduction talk, about 5 minutes, or a brief group session",
-            what: "Reported time-limited presentation and a group element at the end of some processes.",
+            name: "Panel interview",
+            format: "Panel with engineers and leaders (official step); reports describe half-day or back-to-back sessions on campus visits",
+            what: "A mix of technical and behavioral questions plus career goals and why a development program. Some candidates report a short prepared presentation or group element.",
           },
           {
             name: "Offer",
@@ -693,7 +700,7 @@ export const engA: CompanyGuide[] = [
           { roleId: "quality-engineer", notes: "Prepare process control, root cause and data-driven problem-solving examples." },
         ],
         prep: [
-          "Check GE Aerospace's current early-career program page for format and eligibility.",
+          "Check GE Aerospace's current early-career program page for format and eligibility, and do not use AI tools during any interview (the official policy allows disqualification).",
           "Prepare STAR stories for leadership and team conflict.",
           "Be ready to justify analysis and methods on every resume item.",
           "Practice a 5-minute self-introduction in case of a timed presentation.",
@@ -703,6 +710,9 @@ export const engA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "GE Aerospace Careers: Tips for applying (official)", url: "https://careers.geaerospace.com/global/en/tips-for-applying" },
+      { label: "GE Aerospace Careers: US student FAQs (official)", url: "https://careers.geaerospace.com/global/en/us-student-faqs" },
+      { label: "GE Aerospace Careers: AI interview policy (official)", url: "https://careers.geaerospace.com/global/en/ai-interview-policy" },
       { label: "Glassdoor: GE Aerospace interview report (Cincinnati)", url: "https://www.glassdoor.com.ar/Entrevista/GE-Aerospace-Entrevista-E8674-RVW43200591.htm" },
       { label: "Glassdoor: GE Aerospace interview report", url: "https://www.glassdoor.fr/Entretien/GE-Aerospace-Entretien-E8674-RVW96266805.htm" },
       { label: "Glassdoor: GE Aerospace interview report", url: "https://www.glassdoor.com.mx/Entrevista/GE-Aerospace-Entrevista-E8674-RVW2361136.htm" },
@@ -712,7 +722,7 @@ export const engA: CompanyGuide[] = [
   {
     companyId: "anduril",
     summary:
-      "Anduril interviews are described as fast and mission-focused: a recruiter screen, a technical screen, then an on-site loop of about four sessions, with team matching sometimes at the end. Detailed sources cover software roles far better than hardware. Expect repeated questions about your projects and why defense.",
+      "Anduril interviews are described as fast and mission-focused: a recruiter screen, a technical screen, then an on-site loop of about four sessions, with team matching sometimes at the end. I found no official Anduril interview-process page; sources are prep sites and candidate reports, which cover software far better than hardware. Reported end-to-end time is a few weeks, longer with clearance. Expect repeated questions about your projects and why defense.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -769,7 +779,7 @@ export const engA: CompanyGuide[] = [
         roleNotes: [
           { roleId: "software-engineer", notes: "Coding rounds plus system design framed around domain tradeoffs; API-focused questions are reported recently." },
           { roleId: "firmware-engineer", notes: "No firmware-specific loop found in sources; expect embedded fundamentals and debugging discussion, and confirm with your recruiter." },
-          { roleId: "hardware-engineer", notes: "No hardware-specific reports found; likely domain questions and prototype walkthroughs, so verify with the recruiter." },
+          { roleId: "hardware-engineer", notes: "One Taro report for a mechanical role describes a presentation plus four separate 30 min interviews with whiteboard questions on dynamics, structures, materials and GD&T; a single report, so verify with the recruiter." },
         ],
         prep: [
           "Practice easy-to-medium coding problems and explain your reasoning carefully.",
@@ -778,6 +788,7 @@ export const engA: CompanyGuide[] = [
           "Think about which team interests you before the loop.",
           "Check US-person and clearance requirements on the posting.",
           "For hardware roles, ask the recruiter what the technical rounds cover.",
+          "Do not plan on using AI tools; one prep guide states they are prohibited in Anduril interviews, so confirm the policy with your recruiter.",
         ],
       },
     ],
@@ -788,6 +799,7 @@ export const engA: CompanyGuide[] = [
       { label: "Taro: Anduril software engineer intern experience", url: "https://www.jointaro.com/interviews/companies/anduril/experiences/software-engineerinternship-costa-mesa-ca-october-1-2024-no-offer-positive-8338b058/" },
       { label: "interviewing.io: Anduril interview questions", url: "https://interviewing.io/anduril-interview-questions" },
       { label: "Glassdoor: Anduril interview report", url: "https://static.glassdoor.be/Interview/Anduril-Interview-E3546800-RVW89957915.htm" },
+      { label: "Taro: Anduril engineer interview experience (mechanical)", url: "https://www.jointaro.com/interviews/companies/anduril/work-experiences/engineer-costa-mesa-ca-july-16-2022-5-b418a6df" },
     ],
   },
   {

@@ -9,7 +9,7 @@ export const ibC: CompanyGuide[] = [
   {
     companyId: "blackstone",
     summary:
-      "Blackstone's private equity associate hiring is commonly reported to run through headhunters and compressed on-cycle timing for banking analysts, with technical rounds on LBO mechanics and deal walk-throughs and a long final day that includes a case. On the analyst side, public reporting says most of the class comes from the summer internship. Details come mostly from prep sites and are not firm-confirmed.",
+      "Blackstone's careers pages describe campus hiring: full-time roles posted from about July with interviews August to October, summer internships applied for January to March, a first-round video interview, then face-to-face meetings. Private equity associate hiring is separately reported to run through headhunters and compressed on-cycle timing, with LBO technicals and a case; that part comes from prep sites, not the firm.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -79,7 +79,7 @@ export const ibC: CompanyGuide[] = [
           {
             roleId: "ib-analyst",
             notes:
-              "Blackstone has publicly said most of its analyst class comes from its summer internship, so the direct analyst route is mainly campus-driven; internship applications are reported for roughly January to March of junior year.",
+              "Blackstone has publicly said most of its analyst class comes from its summer internship. Its students page says internship roles post about January to March for juniors or first-year MBAs, full-time campus roles post from July with interviews August to October, and a first-round video interview precedes in-person meetings. A 2024 Business Insider piece also reports a game-style assessment and a short recorded video; confirm current steps.",
           },
         ],
         prep: [
@@ -93,6 +93,7 @@ export const ibC: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Blackstone: students and campus careers", url: "https://www.blackstone.com/careers/students/" },
       { label: "CleverPrep: Blackstone PE associate", url: "https://www.cleverprep.com/companies/blackstone/private-equity-associate" },
       { label: "Leland: How to ace your Blackstone PE interview", url: "https://joinleland.com/library/a/how-to-ace-your-blackstone-pe-interview" },
       { label: "Brandeis Global Careers: Blackstone interview", url: "https://globalcareers.brandeis.edu/blog/2026/04/30/how-to-ace-your-blackstone-interview/" },
@@ -104,7 +105,7 @@ export const ibC: CompanyGuide[] = [
   {
     companyId: "kkr",
     summary:
-      "KKR is commonly described as running headhunter-led, very fast on-cycle recruiting for banking analysts, with early technical interviews and a long in-person timed LBO modeling test at the final stage, followed by many short interviews with senior investors. Candidate reports are anonymous and vary by office and year.",
+      "KKR's student pages list summer analyst, MBA intern and full-time analyst programs without describing the rounds. For banking analysts moving to associate roles, reports describe fast headhunter-led on-cycle recruiting, technical interviews, a long in-person timed LBO modeling test, then short senior interviews. Candidate reports are anonymous and vary.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -174,7 +175,7 @@ export const ibC: CompanyGuide[] = [
           {
             roleId: "ib-analyst",
             notes:
-              "Most associate hires are reported to come from banking analyst classes via on-cycle headhunter processes, so your bank, group and deal experience matter at the resume stage.",
+              "Most associate hires are reported to come from banking analyst classes via on-cycle headhunter processes, so your bank, group and deal experience matter at the resume stage. KKR's student page lists a Summer Analyst Program, an MBA Internship Program and a Full Time Analyst Program, with recruiter videos on applying and interviewing; its separate KKR Collective program for liberal arts students uses about three live Zoom interviews.",
           },
         ],
         prep: [
@@ -188,6 +189,8 @@ export const ibC: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "KKR: student careers", url: "https://www.kkr.com/careers/student-careers" },
+      { label: "KKR Collective program", url: "https://www.kkr.com/careers/kkr-collective" },
       { label: "CleverPrep: KKR PE associate", url: "https://www.cleverprep.com/companies/kkr/private-equity-associate" },
       { label: "Glassdoor: KKR interview report", url: "https://www.glassdoor.co.uk/Interview/KKR-Interview-E2865-RVW93881251.htm" },
       { label: "Glassdoor: KKR interview report (older)", url: "https://static.glassdoor.nl/Interview/KKR-Interview-E2865-RVW43668001.htm" },
@@ -199,7 +202,7 @@ export const ibC: CompanyGuide[] = [
   {
     companyId: "apollo",
     summary:
-      "Evidence on Apollo's associate process is thin and mostly from prep sites. It is commonly described as a recruiter screen, first-round interviews and a case study or modeling test, with Apollo's credit-heavy platform suggesting questions on the capital structure as well as equity returns. Treat details as leads to verify.",
+      "Apollo's careers pages confirm fall-posted summer programs in New York, London and Mumbai but publish no interview steps. Prep sites describe a recruiter screen, interviews and a case or modeling test, with capital-structure questions given Apollo's credit focus. Treat details as leads to verify.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -267,7 +270,7 @@ export const ibC: CompanyGuide[] = [
           {
             roleId: "ib-analyst",
             notes:
-              "One guide says full-time analyst roles come mainly through the internship pipeline or from banking analysts with two to three years of experience; campus summer programs are posted in the fall.",
+              "Apollo's careers pages describe summer programs at analyst and associate level in New York, London and Mumbai, with roles posted in the fall. One guide says full-time roles come mainly through the internship or from banking analysts with two to three years of experience.",
           },
         ],
         prep: [
@@ -280,6 +283,8 @@ export const ibC: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Apollo careers: life at Apollo", url: "https://www.apollo.com/careers/life-at-apollo" },
+      { label: "Apollo careers portal", url: "https://careersatapollo.apollo.com/careers" },
       { label: "CleverPrep: Apollo PE associate", url: "https://www.cleverprep.com/companies/apollo/private-equity-associate" },
       { label: "Growth Equity Interview Guide: Apollo overview", url: "https://growthequityinterviewguide.com/?p=10488" },
       { label: "Wall Street Oasis: Apollo interview process", url: "https://www.wallstreetoasis.com/forum/private-equity/apollo-interview-process" },
@@ -357,7 +362,7 @@ export const ibC: CompanyGuide[] = [
           {
             roleId: "ib-analyst",
             notes:
-              "Summer analyst and two-year analyst programs exist in some offices per third-party postings, but details are dated; confirm on Carlyle's careers page.",
+              "No official description of Carlyle's analyst interview process was found. Third-party material is dated and unverified; check Carlyle's careers page and warnings about recruiter scams, which say interviews are not run by text message.",
           },
         ],
         prep: [
@@ -373,7 +378,8 @@ export const ibC: CompanyGuide[] = [
       { label: "CleverPrep: Carlyle PE associate", url: "https://www.cleverprep.com/companies/carlyle/private-equity-associate" },
       { label: "CleverPrep: Carlyle PE analyst", url: "https://www.cleverprep.com/companies/carlyle/private-equity-analyst" },
       { label: "Wall Street Oasis: Carlyle RE LBO", url: "https://www.wallstreetoasis.com/forum/real-estate/carlyle-re-lbo" },
-      { label: "Carlyle careers", url: "https://WWW.CARLYLE.COM/careers" },
+      { label: "Carlyle careers (US)", url: "https://www.carlyle.com/about-carlyle/careers/usa" },
+      { label: "Carlyle: information for applicants", url: "https://www.carlyle.com/information-applicants-carlyle" },
       { label: "Wall Street Oasis: HIG associate interview (format benchmark)", url: "https://www.wallstreetoasis.com/company/hig-capital/interview/associate-19" },
     ],
   },

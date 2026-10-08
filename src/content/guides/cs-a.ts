@@ -73,7 +73,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "I found little reliable public detail on ML-specific Google loops. Expect the coding rounds above plus team-dependent ML fundamentals; ask the recruiter which rounds replace a coding slot.",
+              "Google's ML-engineer postings list data structures and algorithms, deep learning frameworks and experience productionizing ML, and its Tech Dev Guide has an ML section with practice problems. A published ML-specific loop was not found, so ask the recruiter which rounds cover ML.",
           },
         ],
         prep: [
@@ -91,6 +91,7 @@ export const csA: CompanyGuide[] = [
       { label: "Google Careers: our hiring process", url: "https://www.google.com/about/careers/applications/how-we-hire/" },
       { label: "Google Careers: interview tips", url: "https://www.google.com/about/careers/applications/interview-tips" },
       { label: "Google Careers: preparing to apply", url: "https://www.google.com/about/careers/applications/stories/applying-to-google" },
+      { label: "Google Tech Dev Guide: machine learning", url: "https://techdevguide.withgoogle.com/resources/topics/machine-learning/" },
       { label: "Google re:Work: structured interviewing", url: "https://rework.withgoogle.com/intl/en/guides/a-guide-to-structured-interviewing-for-better-hiring-practices" },
       { label: "IGotAnOffer: Google team matching", url: "https://igotanoffer.com/en/advice/google-team-matching" },
       { label: "Blind: Google team match advice", url: "https://www.teamblind.com/post/google-team-match-advice-51srfcnq" },
@@ -163,7 +164,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "I did not find reliable public detail on Meta ML engineer loops. Expect the coding core plus team-specific ML or ML system design; ask the recruiter for the round list.",
+              "Prep guides (not Meta itself) say the ML loop adds ML fundamentals, often already in the screen, plus ML system design on pipelines and serving, with emphasis on product, data, scale and metrics. Expect to explain overfitting, regularization and evaluation. Confirm rounds with your recruiter.",
           },
         ],
         prep: [
@@ -180,6 +181,8 @@ export const csA: CompanyGuide[] = [
     sources: [
       { label: "Formation: what to expect in Meta SWE interviews", url: "https://formation.dev/blog/how-to-pass-meta-software-engineering-interviews" },
       { label: "Exponent: Meta software engineer interview", url: "https://www.tryexponent.com/guides/meta-software-engineer-interview" },
+      { label: "Exponent: Meta machine learning engineer interview", url: "https://tryexponent.com/guides/meta-machine-learning-engineer-interview" },
+      { label: "IGotAnOffer: Meta machine learning engineer interview", url: "https://igotanoffer.com/blogs/tech/facebook-machine-learning-engineer-interview" },
       { label: "Interview Query: Meta software engineer", url: "https://www.interviewquery.com/guides/meta-software-engineer" },
       { label: "1Point3Acres: Meta full-time SWE phone screen and onsite", url: "https://www.1point3acres.com/interview/thread/1155931" },
       { label: "1Point3Acres: Meta SWE virtual onsite", url: "https://www.1point3acres.com/interview/thread/1054018" },
@@ -191,16 +194,16 @@ export const csA: CompanyGuide[] = [
     summary:
       "Amazon software roles are commonly reported to start with a timed online assessment, then a loop of coding and behavioral interviews that includes a Bar Raiser from another team. Behavioral questions are tied to the Leadership Principles and carry heavy weight in every round. Amazon's own pages say technical roles spend roughly half the process on technical assessment.",
     asOf: "2026-10",
-    confidence: "medium",
+    confidence: "high",
     tracks: [
       {
         group: "computer-science",
         label: "Software development engineer",
         stages: [
           {
-            name: "Application and recruiter contact",
-            format: "Online application; recruiter email or short call",
-            what: "Resume screen against the job description. Referrals and campus events can help get noticed.",
+            name: "Application and initial screen",
+            format: "Online application, then a 30 to 45 minute recruiter or hiring manager call (per Amazon)",
+            what: "Amazon advises tailoring your resume to the job description and Leadership Principles. The call covers qualifications, role scenarios and behavioral questions, and candidates usually hear back within about a week.",
           },
           {
             name: "Online assessment",
@@ -214,13 +217,13 @@ export const csA: CompanyGuide[] = [
           },
           {
             name: "Interview loop",
-            format: "Virtual or onsite, commonly three to five interviews of about an hour, one with a Bar Raiser",
-            what: "Each interviewer pairs a coding or design topic with Leadership Principle questions. The Bar Raiser is a trained interviewer from outside the team who holds the hiring bar.",
+            format: "Four to six interviews of 45 to 60 minutes per Amazon, virtual or onsite, including a Bar Raiser",
+            what: "Interviewers include the hiring manager, team members and sometimes cross-functional partners. Each pairs a technical topic with Leadership Principle questions. The Bar Raiser is an objective interviewer from outside the team who helps hold the hiring standard.",
           },
           {
             name: "Debrief and decision",
-            format: "Interviewers submit written feedback; a debrief follows",
-            what: "The hiring team decides with strong input from the Bar Raiser. Level (such as SDE I versus II) is set here.",
+            format: "Panel debrief; Amazon says feedback typically follows within about five business days",
+            what: "The hiring team decides with input from the Bar Raiser. Level (such as SDE I versus II) is reported to be settled here.",
           },
         ],
         behavioral: {
@@ -253,7 +256,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "Amazon lists separate applied scientist and ML roles with ML-specific rounds; I did not verify the details for ML engineers, so check the posting and recruiter for an ML breadth or design round.",
+              "Amazon's interview guide only names Data Scientists among technical roles (about half technical) and does not describe ML engineer or applied scientist loops. Check the posting and your recruiter for ML breadth or design rounds.",
           },
         ],
         prep: [
@@ -367,7 +370,7 @@ export const csA: CompanyGuide[] = [
   {
     companyId: "apple",
     summary:
-      "Apple hiring is team-driven, so the process varies widely: commonly a recruiter call, one or more technical phone screens, then an onsite of several interviews with different engineers and the hiring manager. Apple publishes no official interview guide, and the reports I found span many years, so treat this as a loose pattern rather than a fixed format.",
+      "Apple hiring is team-driven, so the process varies widely: commonly a recruiter call, one or more technical phone screens, then an onsite of several interviews with different engineers and the hiring manager. No official Apple interview guide could be retrieved (the careers pages checked had none), and guides describe the process as decentralised with timelines from a few weeks to several months, so treat this as a loose pattern.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -430,7 +433,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "I did not find dependable public detail on Apple ML engineer loops. Expect team-specific ML fundamentals and coding; ask the recruiter and review the posting.",
+              "No dependable public detail on Apple ML engineer loops was found, and Apple's process is described as varying by role and team. Read the posting for the ML areas it names and ask the recruiter what each round covers.",
           },
         ],
         prep: [
@@ -444,6 +447,8 @@ export const csA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Exponent: Apple interview process", url: "https://tryexponent.com/blog/apple-interview-process" },
+      { label: "Final Round AI: what to expect in an Apple interview", url: "https://www.finalroundai.com/blog/what-to-expect-in-an-interview-with-apple-a-complete-overview" },
       { label: "Taro: Apple software engineer interview (2025)", url: "https://www.jointaro.com/interviews/companies/apple/work-experiences/software-engineer-new-york-ny-september-19-2025-5-7ac598dd/" },
       { label: "Taro: Apple software engineer interview (Oct 2025)", url: "https://www.jointaro.com/interviews/companies/apple/work-experiences/software-engineer-new-york-ny-october-21-2025-4-1e32aa93/" },
       { label: "Taro: Apple software engineer interview (2021)", url: "https://www.jointaro.com/interviews/companies/apple/work-experiences/software-engineer-new-york-ny-march-1-2021-5-f29c7826/" },
@@ -454,9 +459,9 @@ export const csA: CompanyGuide[] = [
   {
     companyId: "nvidia",
     summary:
-      "NVIDIA software hiring is commonly reported as a recruiter screen, one or two coding screens (sometimes on HackerRank), then a team-specific virtual onsite. C and C++ fluency, systems fundamentals and sometimes CUDA or parallelism awareness feature more than at typical web-focused employers. Evidence is mostly anecdotal and details vary a lot by team.",
+      "NVIDIA's own hiring page describes applying, then one or more interviews with the hiring manager and team members (an onsite is required before an offer), with a HackerRank coding exercise for some technical candidates. Candidate reports add C and C++ fluency, systems fundamentals and sometimes CUDA awareness. Beyond that outline, round details are anecdotal and vary by team.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "computer-science",
@@ -478,14 +483,14 @@ export const csA: CompanyGuide[] = [
             what: "Algorithms and data structures, often in C or C++, plus fundamentals questions.",
           },
           {
-            name: "Virtual onsite",
-            format: "Commonly four or five interviews",
-            what: "Coding, a domain deep dive based on the team (for example graphics, AI or CUDA), system or API design basics, and a conversation with a manager.",
+            name: "Interviews and onsite",
+            format: "NVIDIA says one or more interviews by phone, video or in person, and an onsite is required before an offer; candidates report four or five sessions",
+            what: "Interviewers include the hiring manager and team members. Reports describe coding, a team-based domain deep dive (for example graphics, AI or CUDA), design basics and a manager conversation. Finalists may be offered an optional chat with an employee resource group member.",
           },
           {
             name: "Team conversations and offer",
-            format: "Additional 30 to 45 minute calls with potential managers",
-            what: "Used to find the best fit among teams. Scheduling can be slow; one new-grad candidate reported about three months end to end.",
+            format: "NVIDIA aims to respond within a few weeks; candidates report extra calls with potential managers",
+            what: "The recruiter sends the offer if you are selected. Scheduling can be slow; one new-grad candidate reported about three months end to end.",
           },
         ],
         behavioral: {
@@ -517,7 +522,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "Teams around deep learning libraries and frameworks are reported to mix coding with CUDA and ML systems questions. Evidence is thin; confirm the loop with your recruiter.",
+              "No official ML-engineer loop is published. Candidate reports for deep learning library and framework teams mix coding with CUDA and ML systems questions; evidence is thin, so confirm the loop with your recruiter.",
           },
         ],
         prep: [
@@ -527,10 +532,12 @@ export const csA: CompanyGuide[] = [
           "Be ready to explain a systems or performance-related project in depth.",
           "Review operating system and concurrency fundamentals.",
           "Tell your recruiter which team areas interest you, since team matching drives the later rounds.",
+          "Do not use unapproved outside tools such as ChatGPT during interviews; NVIDIA says this can disqualify you. Bring physical photo ID for onsite visits.",
         ],
       },
     ],
     sources: [
+      { label: "NVIDIA Careers: how we hire", url: "https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/" },
       { label: "CleverPrep: NVIDIA software engineer", url: "https://www.cleverprep.com/companies/nvidia/software-engineer" },
       { label: "PlacementPapers: NVIDIA interview experience", url: "https://placementpapers.app/nvidia/interview-experience/" },
       { label: "Glassdoor: NVIDIA interview report", url: "https://www.glassdoor.sg/Interview/NVIDIA-Interview-E7633-RVW86838147.htm" },
@@ -782,7 +789,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "I could not retrieve reliable public detail on Uber ML engineer loops. Expect coding plus team-dependent ML questions and verify with the recruiter.",
+              "No reliable public detail on Uber ML engineer loops was found, and Uber's own interview blog post could not be retrieved. Expect coding plus team-dependent ML questions and verify with the recruiter.",
           },
         ],
         prep: [
@@ -796,6 +803,7 @@ export const csA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Final Round AI: Uber interview process", url: "https://www.finalroundai.com/blog/uber-interview-process" },
       { label: "Glassdoor: Uber new grad SWE interview questions", url: "https://static.glassdoor.ca/Interview/Uber-New-Graduate-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,35.htm" },
       { label: "Glassdoor: Uber interview report", url: "https://www.glassdoor.co.nz/Interview/Uber-Interview-E575263-RVW20451256.htm" },
       { label: "Glassdoor: Uber interview report 2", url: "https://www.glassdoor.co.nz/Interview/Uber-Interview-E575263-RVW29535346.htm" },
@@ -870,7 +878,7 @@ export const csA: CompanyGuide[] = [
           {
             roleId: "ml-engineer",
             notes:
-              "I did not find reliable public detail on Airbnb ML engineer loops. Expect coding plus team-specific ML and ranking or search questions; verify with the recruiter.",
+              "No official Airbnb page or reliable report on ML engineer loops was found (searches returned only general software reports). Expect the coding core plus team-specific ML questions; verify with the recruiter.",
           },
         ],
         prep: [
@@ -884,6 +892,8 @@ export const csA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Interview Query: Airbnb software engineer guide", url: "https://interviewquery.com/interview-guides/airbnb-software-engineer" },
+      { label: "Glassdoor: Airbnb interview report", url: "https://www.glassdoor.co.in/Interview/Airbnb-Interview-E391850-RVW7596840.htm" },
       { label: "TechPrep: Airbnb's interview process", url: "https://www.techprep.app/blog/airbnb-interview-process" },
       { label: "TechInterview: how Airbnb interviews engineers", url: "https://www.techinterview.org/post/3233476842/airbnb-interview-guide/" },
       { label: "Interview Kickstart: Airbnb software engineer process", url: "https://interviewkickstart.com/blogs/companies/airbnb-software-engineer-interview-process" },

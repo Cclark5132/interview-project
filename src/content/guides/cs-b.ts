@@ -184,7 +184,7 @@ export const csB: CompanyGuide[] = [
   {
     companyId: "anthropic",
     summary:
-      "Third-party guides and press coverage describe Anthropic's process as multi-stage: recruiter call, an online coding assessment, a hiring manager screen, a technical loop and a culture or values conversation, then references and team matching. Anthropic's own detail was not retrieved, so this is secondhand and varies by role.",
+      "Third-party guides and press coverage describe Anthropic's process as multi-stage: recruiter call, an online coding assessment, a hiring manager screen, a technical loop and a culture or values conversation, then references and team matching. Anthropic's own candidate AI guidance was retrieved and covers AI-use rules only, so stage detail is secondhand and varies by role.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -193,7 +193,7 @@ export const csB: CompanyGuide[] = [
         label: "Software engineer / ML engineer",
         stages: [
           { name: "Resume screen and recruiter call", format: "Online plus about 30 min call", what: "Motivation, background, role and level fit, and team interests." },
-          { name: "Online coding assessment", format: "About 90 min (commonly reported CodeSignal)", what: "Timed coding tasks. Reports say AI tools are generally not allowed unless a task says so." },
+          { name: "Online coding assessment", format: "About 90 min (commonly reported CodeSignal)", what: "Timed coding tasks. Anthropic's candidate guidance says take-home assessments should be done without AI unless the task says otherwise." },
           { name: "Hiring manager screen", format: "About 1 hour", what: "Experience, technical depth and how you approach problems." },
           { name: "Technical loop", format: "Reportedly 4-5 rounds of about 55 min", what: "Coding, design discussion, past-project deep dives and trade-off reasoning." },
           { name: "Culture / values interview", format: "Conversation, interviewer may come from any team", what: "Press coverage says it probes values, worldview and how seriously you take AI risks." },
@@ -227,12 +227,13 @@ export const csB: CompanyGuide[] = [
           "Rehearse explaining trade-offs and edge cases while coding.",
           "Form and be able to articulate your own considered view on AI safety, without scripted talking points.",
           "Prepare project stories with decisions, alternatives and measurable outcomes.",
-          "Write your own application materials; reports say generic AI-written text stands out poorly.",
+          "Write your own first draft of application materials; Anthropic encourages using Claude to refine and to practice, but not to invent experience, and says live interviews allow no AI unless stated.",
           "Expect a long timeline and stay in contact with your recruiter.",
         ],
       },
     ],
     sources: [
+      { label: "Anthropic: candidate AI guidance", url: "https://www.anthropic.com/candidate-ai-guidance" },
       { label: "IGotAnOffer: Anthropic software engineer interview", url: "https://igotanoffer.com/en/advice/anthropic-software-engineer-interview" },
       { label: "Exponent: Anthropic software engineer guide", url: "https://www.tryexponent.com/guides/anthropic-software-engineer-interview-guide" },
       { label: "1Point3Acres: Anthropic technical phone screen", url: "https://www.1point3acres.com/interview/thread/1157414" },
@@ -244,7 +245,7 @@ export const csB: CompanyGuide[] = [
   {
     companyId: "salesforce",
     summary:
-      "Salesforce new-grad hiring is commonly reported as an online assessment followed by a couple of 45-minute interviews, one technical and one behavioral tied to company values, with a final panel or techno-managerial round in some regions. Evidence is a small set of mostly Glassdoor reports, some dated, so treat it as indicative.",
+      "Salesforce new-grad hiring is commonly reported as an online assessment followed by a couple of 45-minute interviews, one technical and one behavioral tied to company values, with a final panel or techno-managerial round in some regions. Salesforce's university-recruiting page confirms phone and onsite formats and gives preparation tips, but no stage list; the stages here come from a small set of Glassdoor reports, some dated.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -279,7 +280,7 @@ export const csB: CompanyGuide[] = [
           "A techno-managerial or final round is reported to dig into your projects and how you work in a team. Know your tech choices and your own contribution.",
         roleNotes: [
           { roleId: "software-engineer", notes: "Platform, Slack, MuleSoft and Tableau teams may run slightly different loops; ask your recruiter." },
-          { roleId: "ml-engineer", notes: "No reliable ML-specific loop was found; expect the same coding screen plus team-dependent ML questions." },
+          { roleId: "ml-engineer", notes: "No official or reliable ML-specific loop was found in the pages checked; expect the same coding screen plus team-dependent ML questions, and ask your recruiter." },
         ],
         prep: [
           "Practice timed easy-to-medium problems on sliding window, hash maps and intervals.",
@@ -288,10 +289,12 @@ export const csB: CompanyGuide[] = [
           "Prepare three to four STAR stories on teamwork, conflict and customer impact.",
           "Expect a proctored assessment with camera and full-screen rules.",
           "Be ready to explain your projects end to end.",
+          "Salesforce suggests reviewing its values and products and exploring Trailhead; for phone interviews, have a quiet space, your resume and the job description at hand.",
         ],
       },
     ],
     sources: [
+      { label: "Salesforce: navigating your interview (university recruiting)", url: "https://www.salesforce.com/company/careers/university-recruiting/navigating-your-interview/" },
       { label: "Glassdoor: Salesforce interview review (2025 SF)", url: "https://www.glassdoor.co.nz/Interview/Salesforce-Interview-E11159-RVW99704702.htm" },
       { label: "Glassdoor: Salesforce new grad review", url: "https://www.glassdoor.com/Interview/Salesforce-Interview-E11159-RVW26132875.htm" },
       { label: "Glassdoor: Salesforce interview review", url: "https://www.glassdoor.com/Interview/Salesforce-Interview-E11159-RVW24400656.htm" },
@@ -360,7 +363,7 @@ export const csB: CompanyGuide[] = [
   {
     companyId: "oracle",
     summary:
-      "Oracle new-grad loops, especially Oracle Cloud Infrastructure (OCI), are commonly reported as a recruiter call, a CoderPad-style technical screen and a half- or full-day onsite of three to five rounds mixing coding and behavioral. Evidence is mostly older anonymous posts, and round counts vary by team and region.",
+      "Oracle new-grad loops, especially Oracle Cloud Infrastructure (OCI), are commonly reported as a recruiter call, a CoderPad-style technical screen and a half- or full-day onsite of three to five rounds mixing coding and behavioral. No official Oracle process page was retrieved; evidence is mostly older anonymous posts and prep guides, and round counts vary by team and region.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -394,7 +397,7 @@ export const csB: CompanyGuide[] = [
           "Recruiter and early rounds ask about classes and projects. Expect questions on what you built and the languages and concepts behind it.",
         roleNotes: [
           { roleId: "software-engineer", notes: "OCI teams are reported to have a longer onsite than other Oracle groups; one commenter said no system design for new grads, though a recent review mentions it." },
-          { roleId: "ml-engineer", notes: "No reliable evidence found for ML-specific loops; confirm with your recruiter." },
+          { roleId: "ml-engineer", notes: "No reliable evidence found for ML-specific loops; guides say Oracle interviews vary by team and role, so confirm the format with your recruiter." },
         ],
         prep: [
           "Practice easy-to-medium problems in a plain shared editor without autocomplete.",
@@ -407,6 +410,8 @@ export const csB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Exponent: Oracle interview process", url: "https://www.tryexponent.com/blog/oracle-interview-process" },
+      { label: "Final Round AI: Oracle interview process", url: "https://www.finalroundai.com/blog/oracle-interview-process" },
       { label: "LeetCode: Oracle OCI new grad experience", url: "https://leetcode.com/discuss/interview-experience/887983/oracle-oci-new-grad-experience-october-2020" },
       { label: "Blind: Oracle OCI round 1 phone screen", url: "https://www.teamblind.com/post/oracle-oci-round-1-phone-screen-7levki2n" },
       { label: "Blind: New grad onsite 5 rounds", url: "https://www.teamblind.com/post/new-grad-on-site-will-take-6-hours-5-rounds-break-vefok2ux" },
@@ -417,17 +422,17 @@ export const csB: CompanyGuide[] = [
   {
     companyId: "ibm",
     summary:
-      "IBM entry-level software hiring is commonly reported to start with resume screening and an online assessment (HackerRank-style coding, sometimes with a reasoning or game component), followed by technical and manager or HR interviews. The process differs a lot by country and business unit, and the evidence is mostly anonymous reviews.",
+      "IBM's career guidance page outlines application, expert screening, one or two online assessments (coding, video or English, depending on role), then phone, video, in-person or assessment-center interviews and a decision. Candidate reviews add HackerRank-style coding and technical plus manager or HR rounds. The process differs by country and business unit.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "computer-science",
         label: "Software engineer / entry level",
         stages: [
-          { name: "Application and resume screen", format: "Online", what: "Eligibility, skills and project review." },
-          { name: "Online assessment", format: "Timed, HackerRank-style; some add a cognitive or reasoning test", what: "Coding scored on hidden test cases; formats range from two problems in 45 minutes to longer sessions." },
-          { name: "First interview", format: "About 30-60 min", what: "Often a team manager or engineer call: your experience, basic coding and behavioral questions." },
+          { name: "Application and resume screen", format: "Online; status trackable in the candidate portal", what: "IBMers with expertise in your field review your application, skills and experience." },
+          { name: "Online assessment", format: "One or two assessments depending on role: coding, video or English language (per IBM); reviews describe HackerRank-style tests", what: "Reviews describe coding scored on hidden test cases, from two problems in 45 minutes to longer sessions." },
+          { name: "Interview", format: "Phone, video, in person or an assessment center, per IBM; reviews say about 30-60 min", what: "Interviews are structured around past behavior and outcomes. Reviews describe a team manager or engineer asking about experience, basic coding and behavior." },
           { name: "Technical interview(s)", format: "One or two rounds", what: "Data structures, OOP, databases, OS and project questions; some live coding." },
           { name: "HR / manager round", format: "Short call", what: "Fit, expectations and logistics." },
           { name: "Background check and offer", format: "Post-interview", what: "Reported as a standard step; total time varies from weeks to months." },
@@ -452,7 +457,7 @@ export const csB: CompanyGuide[] = [
           "Candidates report interviewers asking detailed questions about the resume and technologies used. Revise any language or tool you list.",
         roleNotes: [
           { roleId: "software-engineer", notes: "Interview structure differs by country; India campus and US/Canada reports look different, so check with your recruiter." },
-          { roleId: "ml-engineer", notes: "No reliable ML-specific loop found; expect the same assessment plus domain questions." },
+          { roleId: "ml-engineer", notes: "IBM's guidance does not describe an ML-specific loop, and none was found elsewhere; expect the same assessment steps plus domain questions and confirm with your recruiter." },
         ],
         prep: [
           "Practice HackerRank-style problems with hidden tests, including edge cases and performance.",
@@ -461,10 +466,13 @@ export const csB: CompanyGuide[] = [
           "Prepare to discuss every item on your resume in detail.",
           "Prepare STAR stories for teamwork and learning.",
           "Follow up with your recruiter, as communication is reportedly inconsistent.",
+          "Use AI for preparation such as mock interviews if you like, but IBM says it is not allowed during live interviews or assessments.",
+          "Be ready to discuss short-, mid- and long-term goals, as IBM lists this as a possible question.",
         ],
       },
     ],
     sources: [
+      { label: "IBM Careers: career guidance", url: "https://www.ibm.com/careers/career-guidance" },
       { label: "Glassdoor: IBM interview review", url: "https://www.glassdoor.co.nz/Interview/IBM-Interview-E354-RVW13126980.htm" },
       { label: "Glassdoor: IBM interview review (UK)", url: "https://www.glassdoor.co.uk/Interview/IBM-Interview-E354-RVW102026819.htm" },
       { label: "Glassdoor: IBM interview review (HackerRank)", url: "https://www.glassdoor.ie/Interview/IBM-Interview-E354-RVW94250228.htm" },
@@ -475,20 +483,18 @@ export const csB: CompanyGuide[] = [
   {
     companyId: "snowflake",
     summary:
-      "Snowflake is commonly reported to run a recruiter or hiring-manager screen, one or two coding screens (often CoderPad) and a virtual onsite of coding, system design and behavioral rounds. Sources are guides and mixed-level reports with no new-grad-specific loop confirmed, and structure differs by team.",
+      "Snowflake's careers site describes four engineering stages: a roughly 30 minute initial screen, 60 minute technical interviews on coding and/or system design, a panel of three to five 60 minute sessions, then a team debrief and decision. It says steps vary by team, and a new-grad-specific loop is not described. Candidate reports add CoderPad-style screens.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "high",
     tracks: [
       {
         group: "computer-science",
         label: "Software engineer",
         stages: [
-          { name: "Recruiter / hiring manager screen", format: "About 30 min call", what: "Background, interest in data infrastructure and role fit." },
-          { name: "Online assessment (some)", format: "Timed, online", what: "Some candidates report a skills test before interviews; check your posting." },
-          { name: "Technical phone screens", format: "One or two 45-60 min rounds, often CoderPad", what: "Data structure problems, commonly trees and graphs, medium to hard in some reports." },
-          { name: "Onsite: coding", format: "Up to two or three 60 min rounds", what: "More algorithm problems with complexity analysis expected in each." },
-          { name: "Onsite: system design", format: "60 min", what: "Reported in loops for experienced hires; unclear for new grads." },
-          { name: "Onsite: behavioral", format: "About 45-60 min", what: "Projects, collaboration and motivation." },
+          { name: "Initial screen", format: "About 30 min call with a recruiter and/or hiring manager (per Snowflake)", what: "Covers your technical skills. Snowflake says you may meet your future manager early, so use it to ask about the role and process." },
+          { name: "Technical interviews", format: "60 min each (per Snowflake); candidate reports often mention CoderPad", what: "Live coding and/or system design, plus assessments. Reports mention trees and graphs, medium to hard in some cases, with complexity analysis expected." },
+          { name: "Panel interviews", format: "Three to five 60 min sessions (per Snowflake); a 30 min tech talk may be included depending on level and role", what: "Meetings with several team members covering technical, expertise, system design, behavioral and collaboration topics." },
+          { name: "Decision", format: "Team debrief, usually within a few days of the final round (per Snowflake)", what: "Reference and background checks follow local labor law. Snowflake quotes two to four weeks overall; third-party guides say longer." },
         ],
         behavioral: {
           star: "helpful",
@@ -510,18 +516,20 @@ export const csB: CompanyGuide[] = [
           "Project discussion is likely in screens and the behavioral round, though sources give little detail. Prepare to explain your own contribution.",
         roleNotes: [
           { roleId: "software-engineer", notes: "The number and order of interviews are reported to differ from team to team." },
-          { roleId: "ml-engineer", notes: "No reliable evidence found for ML-specific loops; confirm with your recruiter." },
+          { roleId: "ml-engineer", notes: "Snowflake's page describes engineering roles generally, not ML-specific loops, and no reliable ML report was found; confirm with your recruiter." },
         ],
         prep: [
           "Drill tree and graph problems and state time and space complexity every time.",
           "Practice in CoderPad or a plain shared editor.",
           "Learn basic SQL and how a database or query engine works at a high level.",
           "Prepare a short, honest project story and an interest in data platforms.",
-          "Ask your recruiter whether your role includes a design round.",
+          "Ask your recruiter whether your role includes a design round or a tech talk.",
+          "Read Snowflake's guidance on when and how AI may be used in interviews before you start.",
         ],
       },
     ],
     sources: [
+      { label: "Snowflake Careers: get hired", url: "https://careers.snowflake.com/us/en/gethired" },
       { label: "interviewing.io: Snowflake interview process", url: "https://interviewing.io/snowflake-interview-questions" },
       { label: "Prepfully: Snowflake software engineer", url: "https://prepfully.com/interview-guides/snowflake-software-engineer-interview" },
       { label: "Glassdoor: Snowflake interview review", url: "https://www.glassdoor.com/Interview/Snowflake-Interview-E928471-RVW11045849.htm" },

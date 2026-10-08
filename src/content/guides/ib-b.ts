@@ -11,7 +11,7 @@ export const ibB: CompanyGuide[] = [
   {
     companyId: "jefferies",
     summary:
-      "Jefferies is a large independent investment bank with a strong leveraged finance and middle-market franchise. Candidates commonly report a short first round with a junior banker, sometimes preceded by an online video or assessment step, followed by a superday of several short interviews that lean heavily on fit and genuine interest in the firm.",
+      "Jefferies is a large independent investment bank with a strong leveraged finance and middle-market franchise. Its careers pages describe a 10-week summer program that feeds full-time offers and a selective, multi-round interview process ending in a Superday, but give no round-by-round detail. Round lengths and question content come from candidate reports and vary by office.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -46,6 +46,7 @@ export const ibB: CompanyGuide[] = [
         roleNotes: [
           { roleId: "ib-analyst", notes: "Groups and offices recruit separately, so tailor why-group answers; leveraged finance knowledge is a useful differentiator." },
           { roleId: "markets-trader", notes: "Sales and trading is a distinct recruiting track at Jefferies with market-focused questions; this guide covers banking only." },
+          { roleId: "equity-research", notes: "Equity research recruits separately; no official detail on its process was found." },
         ],
         prep: [
           NET,
@@ -53,12 +54,14 @@ export const ibB: CompanyGuide[] = [
           "Be able to walk through the three statements, DCF and a simple LBO without notes.",
           "Read up on leveraged finance and a few recent Jefferies-advised deals.",
           "Prepare for both heavily technical and heavily fit interviewers in the same superday.",
+          "Remember Jefferies says it looks for enthusiasm, strong academics, analytical skill and attention to detail, and apply only through its official careers site.",
           "Follow markets daily and form a view on rates, M&A activity and one sector.",
           "Ask your campus contact which format your office uses; reports vary.",
         ],
       }),
     ],
     sources: [
+      { label: "Jefferies: students and graduates", url: "https://www.jefferies.com/careers/students-and-graduates/" },
       { label: "Superday AI: Jefferies superday", url: "https://www.superdayai.com/banks/jefferies/superday" },
       { label: "Wall Street Oasis: Jefferies summer analyst IBD interview", url: "https://www.wallstreetoasis.com/company/jefferies-company/interview/summer-analyst-investment-banking-division" },
       { label: "Wall Street Oasis: Jefferies first year analyst interview", url: "https://www.wallstreetoasis.com/company/jefferies/interview/first-year-analyst" },
@@ -397,7 +400,7 @@ export const ibB: CompanyGuide[] = [
   {
     companyId: "houlihan-lokey",
     summary:
-      "Houlihan Lokey recruits into Corporate Finance, Financial Restructuring and Financial and Valuation Advisory through its campus portal. Candidate reports describe a screen, one or two technical rounds, then a superday that may include a live case or written accounting exam.",
+      "Houlihan Lokey's early-careers pages describe a written application, a telephone interview with a recruiter or the business, then in-person interviews over one or more days, with feedback for anyone reaching that stage. Those pages are strongest for Europe; the US interview technicals, live case and accounting test come from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -405,9 +408,9 @@ export const ibB: CompanyGuide[] = [
         label: "Investment banking analyst (corporate finance, financial restructuring)",
         stages: [
           { name: "Networking and application", format: "Campus portal application by segment", what: "Interns are placed in one of three segments; the internship is the main full-time pipeline per a guide." },
-          { name: "Screen", format: "About 30 min with a VP or associate", what: "Basic technicals and interest in the segment." },
+          { name: "Telephone interview", format: "HL says a recruiter or member of the business calls successful applicants; candidates report about 30 min with a VP or associate", what: "Basic technicals and interest in the segment." },
           { name: "First round", format: "30 to 45 min video", what: "DCF, accretion/dilution, LBO intuition; restructuring candidates get waterfall-style questions." },
-          { name: "Superday", format: "4 to 8 interviews of ~30 min, some two-on-one", what: "Technicals, fit, brainteasers; may include a case study or accounting test and a team event." },
+          { name: "In-person interviews / superday", format: "HL says a series of office interviews over one or several days; candidates report 4 to 8 interviews of ~30 min, some two-on-one", what: "Technicals, fit, brainteasers; candidates report a possible case study, accounting test and team event." },
           { name: "Offer", format: "Call", what: "Candidates report 1 to 3 weeks end to end." },
         ],
         behavioral: {
@@ -429,19 +432,22 @@ export const ibB: CompanyGuide[] = [
         projects:
           "Resume is discussed but technical preparation dominates; expect to discuss a distressed situation or deal if applying to RX.",
         roleNotes: [
-          { roleId: "ib-analyst", notes: "Corporate Finance, Financial Restructuring and Financial and Valuation Advisory recruit separately." },
+          { roleId: "ib-analyst", notes: "Corporate Finance, Financial Restructuring and Financial and Valuation Advisory recruit separately. HL says it uses its summer internship to assess talent, and strong interns may return for full-time analyst training in New York." },
         ],
         prep: [
           NET,
           "For RX, learn recovery waterfalls and Chapter 11 thoroughly.",
           "Practice quick three-statement projections and a simple DCF.",
           "Prepare why Houlihan with reference to its segments.",
-          "Expect a possible written test or case at the superday.",
+          "Expect a possible written test or case at the superday, per candidate reports.",
+          "Tailor your written application to HL; its pages say distinct individuals stand out.",
           "Follow a distressed credit story in the news.",
         ],
       }),
     ],
     sources: [
+      { label: "Houlihan Lokey: early careers", url: "https://hl.com/careers/early-careers/" },
+      { label: "Houlihan Lokey: how to apply", url: "https://hl.com/careers/early-careers/how-to-apply/" },
       { label: "Superday AI: Houlihan Lokey superday", url: "https://www.superdayai.com/banks/houlihan-lokey/superday" },
       { label: "Wall Street Oasis: Houlihan Lokey restructuring interview", url: "https://www.wallstreetoasis.com/company/houlihan-lokey/interview/houlihan-lokey-restructuring" },
       { label: "Road to Offer: Houlihan Lokey interview questions", url: "https://www.roadtooffer.com/blog/houlihan-lokey-interview-questions" },
@@ -452,7 +458,7 @@ export const ibB: CompanyGuide[] = [
   {
     companyId: "rothschild",
     summary:
-      "Rothschild and Co recruits into Global Advisory (M&A, restructuring, equity advisory). Reports describe a CV with written motivation questions in the UK, possible online tests, technical and market-knowledge rounds and a superday. Firm-specific motivation is weighted heavily.",
+      "Rothschild and Co's careers site describes a first-round interview on your experiences and motivation (online or in person), then an assessment centre with a senior interview, a group exercise and a case study. The summer analyst programme is a common route, with classroom training in accounting, valuation and modelling. That page is dated, and UK written and online steps come from third parties.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -462,8 +468,8 @@ export const ibB: CompanyGuide[] = [
           { name: "Application", format: "CV plus written motivation questions (UK)", what: "Why Rothschild, why banking, what an analyst does." },
           { name: "Online assessment", format: "Situational judgment and basic numerical", what: "Reported for London internships; other tests mentioned." },
           { name: "Group exercise (London)", format: "Online ~45 min group of four", what: "Commercial awareness and teamwork." },
-          { name: "Technical and market rounds", format: "Interviews with analysts to VPs", what: "Accounting, valuation, recent deals, market views." },
-          { name: "Superday", format: "About 4 to 5 interviews", what: "MDs and VPs; technical, behavioral and fit. Process reported at 3 weeks to 2 months." },
+          { name: "First-round interview", format: "Rothschild says online or in person at an office", what: "Experiences, skills and motivation; candidates report accounting, valuation, recent deals and market views." },
+          { name: "Assessment centre", format: "Rothschild describes a senior-colleague interview, a collaborative group exercise and a case study; candidates report about 4 to 5 interviews", what: "Tests analytical thinking, communication and teamwork. Third parties report MDs and VPs and a 3 week to 2 month process." },
         ],
         behavioral: {
           star: "helpful",
@@ -484,7 +490,7 @@ export const ibB: CompanyGuide[] = [
         projects:
           "Be ready on recent deals and your interest in a sector, and on your written application answers.",
         roleNotes: [
-          { roleId: "ib-analyst", notes: "Process differs significantly between London/Paris and New York; the UK has more written and online stages." },
+          { roleId: "ib-analyst", notes: "Process differs between London/Paris and New York; the UK has more written and online stages. The firm advises knowing high-profile deals in the news, including ones it works on, and a ready why-Rothschild answer." },
         ],
         prep: [
           NET,
@@ -492,11 +498,14 @@ export const ibB: CompanyGuide[] = [
           "Prepare a comparative why-Rothschild versus peers.",
           "Follow recent market news and a sector you can discuss.",
           "Practice DCF and valuation walk-throughs.",
-          "Prepare for online situational and numerical tests.",
+          "Prepare for online situational and numerical tests, a group exercise and a case study.",
+          "Prepare varied examples of skills, including from outside academics, as the firm recommends.",
         ],
       }),
     ],
     sources: [
+      { label: "Rothschild & Co: graduates", url: "https://www.rothschildandco.com/en/careers/students-and-graduates/graduates/" },
+      { label: "Rothschild & Co: internships", url: "https://www.rothschildandco.com/en/careers/students-and-graduates/internships/" },
       { label: "JobMentis: Rothschild interview", url: "https://www.jobmentis.com/en/interviews/rothschild" },
       { label: "PrepLounge: Rothschild & Co", url: "https://www.preplounge.com/en/blog/finance/investment-banking/firms/rothschild-co" },
       { label: "Wall Street Oasis: Rothschild interview questions", url: "https://www.wallstreetoasis.com/company/rothschild/interview" },
@@ -507,15 +516,15 @@ export const ibB: CompanyGuide[] = [
   {
     companyId: "william-blair",
     summary:
-      "William Blair is a Chicago-based independent firm with campus summer analyst programs across several offices. Evidence is thin and dated: reports describe a recruiter screen, one or two analyst or associate rounds, then a superday of up to several interviews with fit and moderate technicals.",
+      "William Blair's site describes a nine-week summer analyst program for students entering their final year, run in several offices, with rolling application review and placement directly into a sector or solutions group. Its applicant guidance names DCF, valuation methods and the three statements as the minimum. Interview rounds are known only from a few older candidate reports.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       ib({
         label: "Investment banking analyst",
         stages: [
-          { name: "Networking and application", format: "Campus recruiting application", what: "Summer program is for students entering their final year and can lead to a full-time offer; offices include Chicago, New York, Boston, San Francisco and others." },
-          { name: "Recruiter screen", format: "About 30 min call", what: "Mostly behavioral." },
+          { name: "Networking and application", format: "Campus recruiting application", what: "William Blair says the nine-week program (June start) is for students entering their final year, applications are reviewed on a rolling basis, schools it does not visit are still considered, and success can lead to a full-time offer. Offices include Atlanta, Boston, Charlotte, Chicago, London, Los Angeles, New York and San Francisco." },
+          { name: "Recruiter screen (reported)", format: "About 30 min call per candidate reports", what: "Mostly behavioral; not described on the firm's pages." },
           { name: "First round", format: "Phone or Zoom with an analyst or associate", what: "Motivation and basic technicals." },
           { name: "Superday", format: "Several interviews in the office, up to 8 in older reports", what: "Fit and technicals with the team; London candidates mention a case study." },
           { name: "Offer", format: "Call", what: "Timing commonly reported as varying by office." },
@@ -539,19 +548,22 @@ export const ibB: CompanyGuide[] = [
         projects:
           "Expect questions on market trends and companies or transactions you follow.",
         roleNotes: [
+          { roleId: "ib-analyst", notes: "The firm says analysts go straight into a sector, channel or solutions group rather than a generalist pool; in Chicago a placement process runs in the months before the internship, so group interest matters." },
           { roleId: "equity-research", notes: "William Blair is also known for equity research, which recruits separately from banking." },
         ],
         prep: [
           NET,
-          "Prepare for variation: study core technicals and LBO basics.",
+          "Study DCF, valuation methods and the three statements, which the firm names as the minimum, plus LBO basics.",
+          "Prepare a concise personal pitch and questions for interviewers, as the firm recommends.",
           "Have a specific why-William Blair tied to its sectors and platform.",
           "Follow deals in two sectors.",
-          "Verify the current format with the campus recruiting team.",
+          "Verify the current rounds with the campus recruiting team, since interview format is not published.",
         ],
       }),
     ],
     sources: [
-      { label: "William Blair: investment banking programs", url: "https://williamblair.com/investment-banking-careers/programs" },
+      { label: "William Blair: investment banking programs", url: "https://www.williamblair.com/investment-banking-careers/programs/" },
+      { label: "William Blair: what applicants need to know", url: "https://www.williamblair.com/Careers/Campus-Recruiting/Investment-Banking/What-Applicants-Need-to-Know.aspx" },
       { label: "William Blair: campus recruiting IB", url: "https://www.williamblair.com/Careers/Campus-Recruiting/Investment-Banking" },
       { label: "Glassdoor: William Blair interview report", url: "https://image4.glassdoor.co.in/Interview/William-Blair-Interview-E4537-RVW78188565.htm" },
       { label: "Dataford: William Blair financial analyst experiences", url: "https://dataford.io/interview-guides/william-blair/financial-analyst/experiences" },
@@ -560,17 +572,17 @@ export const ibB: CompanyGuide[] = [
   {
     companyId: "baird",
     summary:
-      "Baird is a Milwaukee-founded employee-owned middle-market advisory firm. Public evidence is limited to a small set of anonymous Glassdoor reports: an early screen, a first round, then a multi-interview superday blending behavioral and technical questions.",
+      "Baird is a Milwaukee-founded employee-owned middle-market advisory firm. Its careers site gives a dated US undergraduate calendar: sophomore networking, applications open about two weeks in late December, phone or campus interviews in January-February, and Super Days in late February. Question content comes from a few anonymous Glassdoor reports.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       ib({
         label: "Investment banking analyst",
         stages: [
-          { name: "Networking and application", format: "Online application and campus events", what: "Middle-market firm with regional offices; contacts help." },
-          { name: "Early screen", format: "Recruiter call, recorded video or virtual technical", what: "One report describes recorded answers to questions provided in advance." },
+          { name: "Networking and application", format: "Baird says sophomores often start conversations with bankers in Q4; applications open in late December for about two weeks via BairdCareers.com or Handshake", what: "Targets sophomores for a summer internship after junior year; MBA associate internship recruiting runs earlier (September application)." },
+          { name: "Phone or campus interview", format: "Baird says phone and/or campus interviews run in January-February; one report describes recorded answers to prepared questions", what: "Screens fit and basic knowledge." },
           { name: "First round", format: "About 30 min", what: "Behavioral with a VP or a split of technical and behavioral." },
-          { name: "Superday", format: "4 to 5 interviews of ~30 min, some two-on-one", what: "Associates, VPs, directors and an MD; some LBO-heavy." },
+          { name: "Super Day", format: "Baird says late February with 1-2 weeks notice; candidate reports describe 4 to 5 interviews of ~30 min, some two-on-one", what: "Associates, VPs, directors and an MD; some LBO-heavy per reports. Baird cites about 45 percent intern conversion on an older page, with no guarantee." },
           { name: "Other steps", format: "Personality test or writing exercise", what: "Reported occasionally." },
         ],
         behavioral: {
@@ -592,7 +604,7 @@ export const ibB: CompanyGuide[] = [
         projects:
           "Expect to explain sell-side process knowledge and any deal or transaction experience.",
         roleNotes: [
-          { roleId: "ib-analyst", notes: "Middle-market focus; sector and office fit matter." },
+          { roleId: "ib-analyst", notes: "Middle-market focus; sector and office fit matter. London and Frankfurt differ: London finalists get a Super Day with a case study and junior-banker time." },
           { roleId: "private-equity", notes: "Baird has a private equity arm but it is a separate process; this guide covers banking." },
         ],
         prep: [
@@ -601,11 +613,14 @@ export const ibB: CompanyGuide[] = [
           "Be able to describe a sell-side M&A process step by step.",
           "Have a real reason for choosing Baird and its region.",
           "Prepare a straight answer on hours and lifestyle.",
-          "Confirm format with your campus contact since evidence is thin.",
+          "Start networking in your sophomore fall and watch for the late-December application window.",
+          "Confirm the current dates and format with your campus contact since Baird's page may be dated.",
         ],
       }),
     ],
     sources: [
+      { label: "Baird careers: Global Investment Banking intern program (US)", url: "https://www.bairdcareers.com/internships/global-investment-banking-intern-program-us/" },
+      { label: "Baird careers: how we hire", url: "https://www.bairdcareers.com/how-we-hire/" },
       { label: "Glassdoor: Baird interview report 1", url: "https://www.glassdoor.co.uk/Interview/Baird-Interview-E19350-RVW54480449.htm" },
       { label: "Glassdoor: Baird interview report 2", url: "https://www.glassdoor.co.uk/Interview/Baird-Interview-E19350-RVW95262989.htm" },
       { label: "Glassdoor: Baird interview report 3", url: "https://www.glassdoor.ca/Interview/Baird-Interview-E19350-RVW79375003.htm" },
@@ -614,7 +629,7 @@ export const ibB: CompanyGuide[] = [
   {
     companyId: "guggenheim",
     summary:
-      "Guggenheim Securities posts summer analyst roles by group and city, typically with a written or phone screen followed by a superday. Third-party guides describe three to five short interviews mixing fit and technicals, but formats vary widely by office and year.",
+      "Guggenheim Securities posts summer analyst roles by group and city. Its own pages describe a sophomore FOCUS program that makes participants eligible for a job interview the following summer, and a restructuring group building a dedicated recruiting track. The screen-then-superday structure comes from third-party guides and varies by office and year.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -623,7 +638,7 @@ export const ibB: CompanyGuide[] = [
         stages: [
           { name: "Networking and application", format: "Postings by group and city, rolling review", what: "One guide says roles post around January with deadlines varying by posting." },
           { name: "Written assessment (some offices)", format: "Online", what: "Reported for Chicago." },
-          { name: "Phone screen", format: "10 to 30 min with recruiter, associate or MD", what: "Tell me about yourself plus finance technicals." },
+          { name: "Phone screen (reported)", format: "10 to 30 min with recruiter, associate or MD per third-party guides", what: "Tell me about yourself plus finance technicals." },
           { name: "Superday", format: "3 to 5 back-to-back ~30 min one-on-ones", what: "Mix of behavioral and technical; occasionally a reception the night before." },
           { name: "Offer", format: "Call", what: "Sources do not give reliable timelines." },
         ],
@@ -646,7 +661,7 @@ export const ibB: CompanyGuide[] = [
         projects:
           "Resume walk-through is expected. Tie your why-Guggenheim answer to a specific hub or product.",
         roleNotes: [
-          { roleId: "ib-analyst", notes: "Process runs separately by group and city; the internship supplies part of the full-time class per the firm's posting." },
+          { roleId: "ib-analyst", notes: "Process runs separately by group and city. Guggenheim runs a sophomore FOCUS program and early events whose participants are eligible for a summer interview; its restructuring group is launching a separate recruiting track for analysts and associates." },
         ],
         prep: [
           NET,
@@ -654,11 +669,12 @@ export const ibB: CompanyGuide[] = [
           "Review three-statement linkages and simple valuation.",
           "Prepare a specific why-Guggenheim answer.",
           "Practice quick deal-idea questions.",
-          "Check the exact posting for your group and city.",
+          "Check the exact posting for your group and city, and ask about the FOCUS program if you are a sophomore.",
         ],
       }),
     ],
     sources: [
+      { label: "Guggenheim: investment banking sophomore FOCUS program", url: "https://guggenheimpartners.com/firm/diversity-and-inclusion/investment-banking-sophomore-focus" },
       { label: "Exponent: Guggenheim IB summer analyst interview", url: "https://www.tryexponent.com/guides/guggenheim-securities-investment-banking-summer-analyst-interview" },
       { label: "Finbound: Guggenheim summer internship guide", url: "https://www.finbound.org/blog/guggenheim-summer-internship-application-guide" },
       { label: "Wall Street Oasis: Guggenheim IB summer analyst", url: "https://www.wallstreetoasis.com/company/guggenheim-partners/interview/investment-banking-summer-analyst-6" },

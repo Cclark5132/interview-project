@@ -3,7 +3,7 @@ import type { CompanyGuide } from "./types";
 export const engC: CompanyGuide[] = [
   {
     "companyId": "apple",
-    "summary": "Apple hires hardware engineers team by team, so the exact loop varies by discipline. Candidates commonly report a hiring-manager conversation followed by a long day of back-to-back technical sessions, with whiteboard fundamentals and a deep walk through past work. Public evidence is mostly anonymous and dated, so treat details as indicative.",
+    "summary": "Apple hires hardware engineers team by team, so the exact loop varies by discipline; Apple's own pages describe the hardware groups and the skills postings ask for (lab debugging, schematics, signal and power integrity) but not interview steps. Candidates commonly report a hiring-manager conversation then a long day of technical sessions. That stage detail is anonymous and dated, so treat it as indicative.",
     "asOf": "2026-10",
     "confidence": "medium",
     "tracks": [
@@ -100,6 +100,10 @@ export const engC: CompanyGuide[] = [
     ],
     "sources": [
       {
+        "label": "Apple careers: Hardware teams (official; no interview steps)",
+        "url": "https://www.apple.com/careers/us/hardware.html"
+      },
+      {
         "label": "Glassdoor Apple interview report (digital design, signal integrity, whiteboard)",
         "url": "https://www.glassdoor.ie/Interview/Apple-Interview-E1138-RVW15240281.htm"
       },
@@ -123,7 +127,7 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "nvidia",
-    "summary": "NVIDIA hardware hiring is team-driven and technical. Candidate reports for ASIC design, verification and physical design describe an online or written screen in campus pipelines, then one or more technical rounds on digital design, timing and architecture, followed by a short manager or HR conversation. Public evidence is anecdotal and often from India and Israel.",
+    "summary": "NVIDIA's university recruiting pages describe phone screens then virtual or in-person interviews with the hiring manager and team members (30 to 60 minutes each), phone-only for interns, and say technical candidates may do a coding exercise; those pages are dated, so confirm with your recruiter. Hardware topics (digital design, timing, architecture) come from candidate reports, often from India and Israel.",
     "asOf": "2026-10",
     "confidence": "medium",
     "tracks": [
@@ -214,11 +218,25 @@ export const engC: CompanyGuide[] = [
           "Know every line of every project on your resume.",
           "Practice talking through your reasoning when you do not know the answer.",
           "Learn the RTL-to-GDS flow at a high level even for front-end roles.",
-          "Check the specific posting, since NVIDIA postings list tool expectations such as VCS and Verdi."
+          "Check the specific posting, since NVIDIA postings list tool expectations such as VCS and Verdi.",
+          "Apply online even if you met NVIDIA at a career fair, include your graduation month and year, and talk through your reasoning on technical problems, as NVIDIA's recruiter tips advise.",
+          "Do not use outside tools such as AI assistants during an interview; NVIDIA's pages say this can lead to disqualification."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "NVIDIA careers: How we hire (official, dated)",
+        "url": "https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/"
+      },
+      {
+        "label": "NVIDIA careers: University recruiting and early-talent programs (official)",
+        "url": "https://www.nvidia.com/en-us/about-nvidia/careers/university-recruiting/"
+      },
+      {
+        "label": "NVIDIA blog: How to land an internship, tips from a recruiter (official)",
+        "url": "https://blogs.nvidia.com/blog/nvidia-life-linh-nguyen/"
+      },
       {
         "label": "Glassdoor NVIDIA interview (physical design, STA)",
         "url": "https://www.glassdoor.ca/Interview/NVIDIA-Interview-E7633-RVW80315143.htm"
@@ -483,7 +501,7 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "texas-instruments",
-    "summary": "TI has no published campus interview script, but candidate reports describe a consistent shape: a screen (sometimes a recorded video or online test), then technical and behavioral interviews with a panel of managers, often including a short presentation of a project or internship. Fundamentals of circuits and analog topics come up often.",
+    "summary": "TI's careers site says interns and new college graduates typically have two virtual interviews of 30 to 45 minutes mixing behavioral and technical questions, with on-site visits less common, and it recommends the STAR method. Candidate reports add online tests or recorded video at some sites, panels and project presentations, with circuit and analog fundamentals recurring.",
     "asOf": "2026-10",
     "confidence": "medium",
     "tracks": [
@@ -575,11 +593,21 @@ export const engC: CompanyGuide[] = [
           "Prepare behavioral stories about conflict and influence.",
           "Ask recruiters which team you are interviewing for, since the role may not be fixed.",
           "Learn TI's product areas and the difference between analog and embedded processing.",
-          "Practice sketching circuits while talking."
+          "Practice sketching circuits while talking.",
+          "List technical projects in detail on your resume, including class and personal work and the lab tools you used, as TI's resume guidance suggests.",
+          "Apply online before the career fair and prepare a 30 second pitch, per TI's career fair tips."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "TI careers: Hiring and interview process (official)",
+        "url": "https://careers.ti.com/hiring-interview-process-2/"
+      },
+      {
+        "label": "TI careers: How to land an interview (official)",
+        "url": "https://careers.ti.com/how-to-land-interview/"
+      },
       {
         "label": "Glassdoor TI interview report",
         "url": "https://www.glassdoor.com.mx/Entrevista/Texas-Instruments-Entrevista-E651-RVW17570742.htm"
@@ -604,9 +632,9 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "amd",
-    "summary": "AMD's hardware loops are described mostly through anonymous reports: an HR call, then technical interviews on digital design, architecture and Verilog/SystemVerilog, sometimes with Python or C coding and behavioral questions about past work. Formats vary across sites and years, so evidence is limited.",
+    "summary": "AMD's student pages say a recruiter reviews applications and arranges a screening call, followed by phone, video or onsite interviews with the hiring team, framed as a two-way conversation about your skills and achievements. The technical content (digital design, architecture, Verilog/SystemVerilog, some Python or C) comes from anonymous reports whose formats vary by site and year.",
     "asOf": "2026-10",
-    "confidence": "low",
+    "confidence": "medium",
     "tracks": [
       {
         "group": "engineering",
@@ -692,11 +720,21 @@ export const engC: CompanyGuide[] = [
           "Refresh Verilog/SystemVerilog and basic Python or C.",
           "Know setup, hold and clocking fundamentals.",
           "Prepare behavioral stories from academic or internship projects.",
-          "Check the posting for the team and tool stack, then adapt your examples."
+          "Check the posting for the team and tool stack, then adapt your examples.",
+          "Join AMD's university talent community and follow the regional application deadlines; recruiters do not give detailed interview feedback.",
+          "Follow AMD's AI-use rules: fine for preparation, but not for generating or reading answers during live interviews."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "AMD student programs (official)",
+        "url": "https://www.amd.com/en/corporate/careers/student-programs.html"
+      },
+      {
+        "label": "AMD careers FAQ (official)",
+        "url": "https://careers.amd.com/faq"
+      },
       {
         "label": "Glassdoor AMD DV interview report",
         "url": "https://www.glassdoor.com/Interview/AMD-Interview-E15-RVW19294052.htm"
@@ -717,7 +755,7 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "qualcomm",
-    "summary": "Qualcomm hardware interviews are reported to be technical and architecture-heavy, often beginning with a discussion of your projects. Campus pipelines add an online test and a written round, while experienced hires report multiple one-hour sessions across several days. Evidence is anecdotal and spans many years and locations.",
+    "summary": "Qualcomm's public pages describe internships as the main early-career route and mention an AI-assisted resume-matching tool, but no interview steps. Hardware interviews are reported by candidates to be technical and architecture-heavy, often starting from your projects, with an online test in campus pipelines and several one-hour sessions for experienced hires. Evidence is anecdotal, spans many years and locations.",
     "asOf": "2026-10",
     "confidence": "medium",
     "tracks": [
@@ -811,6 +849,14 @@ export const engC: CompanyGuide[] = [
     ],
     "sources": [
       {
+        "label": "Qualcomm careers FAQs and application advice (official; contents not fully read)",
+        "url": "https://www.qualcomm.com/company/careers/faqs"
+      },
+      {
+        "label": "Qualcomm internships and early-in-career opportunities (official)",
+        "url": "https://www.qualcomm.com/company/careers/internships-and-early-in-career-opportunities"
+      },
+      {
         "label": "Glassdoor Qualcomm interview (Hsinchu architecture)",
         "url": "https://www.glassdoor.sg/Interview/Qualcomm-Interview-E640-RVW51136658.htm"
       },
@@ -830,7 +876,7 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "medtronic",
-    "summary": "Medtronic engineering interviews are reported to lean behavioral, with panel or one-on-one conversations focused on your projects and motivation for medical devices. Some candidates also get role-specific technical questions. Evidence is anecdotal and often several years old.",
+    "summary": "Medtronic's engineering careers pages describe a telephone interview followed by possibly several interviews, with feedback after each round, and ask for authenticity, passion for the mission and questions of your own. Its US early-careers page lists first-round intern interviews in October and second rounds and offers in November and December. Behavioral emphasis and panels come from older anecdotal reports.",
     "asOf": "2026-10",
     "confidence": "medium",
     "tracks": [
@@ -921,11 +967,21 @@ export const engC: CompanyGuide[] = [
           "Know ISO 13485 and risk management concepts at a high level.",
           "Prepare a walkthrough of a capstone or lab project with testing and results.",
           "Practice a materials-selection reasoning example.",
-          "Research Medtronic business units and the specific team."
+          "Research Medtronic business units and the specific team.",
+          "Check the US early-careers page for intern application windows (reported as August to mid-October), since first-round interviews follow quickly.",
+          "Prepare your own questions about the role, manager and team; Medtronic invites them."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "Medtronic early careers (official)",
+        "url": "https://www.medtronic.com/en-us/our-company/careers/early-careers.html"
+      },
+      {
+        "label": "Medtronic: Engineer your career (official, Ireland)",
+        "url": "https://www.medtronic.com/en-ie/our-company/careers/engineering.html"
+      },
       {
         "label": "Glassdoor Medtronic interview (panel)",
         "url": "https://www.glassdoor.ca/Interview/Medtronic-Interview-E436-RVW1009063.htm"
@@ -946,9 +1002,9 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "johnson-and-johnson",
-    "summary": "J&J hiring commonly features structured behavioral interviewing anchored in the company Credo, and some pipelines add online assessments or recorded video interviews. Engineering candidates should expect technical questions on top of that, but public detail for MedTech engineering specifically is limited.",
+    "summary": "J&J's careers site says interviews are digital, either pre-recorded answers to questions it sends or a live video interview of roughly 30 to 60 minutes, usually with the hiring manager and sometimes team members, using behavioral and competency questions. It says hiring is guided by Our Credo and values authenticity. MedTech engineering technical content is not published and rests on candidate reports.",
     "asOf": "2026-10",
-    "confidence": "low",
+    "confidence": "medium",
     "tracks": [
       {
         "group": "engineering",
@@ -1034,11 +1090,25 @@ export const engC: CompanyGuide[] = [
           "Learn the design control framework at a high level.",
           "Learn the specific MedTech business area and product lines you are applying to.",
           "Prepare a project walkthrough with measurable results.",
-          "Verify the format with the recruiter, since it varies by business and location."
+          "Verify the format with the recruiter, since it varies by business and location.",
+          "Follow J&J's suggestion to prepare three stories: a challenge overcome, a setback learned from, and an accomplishment, told challenge first.",
+          "Note J&J's recruiting calendar: full-time student roles roughly August to November, interns and co-ops roughly December to January."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "J&J careers: Hiring and interview process (official)",
+        "url": "https://www.careers.jnj.com/en/how-we-hire/"
+      },
+      {
+        "label": "J&J careers: Application and interview tips (official)",
+        "url": "https://www.careers.jnj.com/en/how-we-hire/application-tips/"
+      },
+      {
+        "label": "J&J careers: Breaking down behavioral interview questions (official)",
+        "url": "https://www.careers.jnj.com/en/employee-stories/career-tips/breaking-down-behavioral-interview-questions-in-4-simple-steps/"
+      },
       {
         "label": "CleverPrep Johnson & Johnson guide",
         "url": "https://www.cleverprep.com/companies/johnson-johnson"
@@ -1059,9 +1129,9 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "abbott",
-    "summary": "Abbott entry-level engineering interviews are reported to be mostly behavioral with some technical questions at the end. Candidates describe a screening call, a hiring-manager conversation and a panel, with questions about teamwork, why Abbott and the details of your projects. Sample sizes are small.",
+    "summary": "Abbott's hiring-process page describes a recruiter call of roughly 15 to 45 minutes (an on-demand video for some high-volume roles), then one or more virtual or in-person interviews, with case discussions, presentations or skills exercises for some roles, and pre-employment verification after an offer. Reports of mostly behavioral panels with technical questions at the end are small-sample.",
     "asOf": "2026-10",
-    "confidence": "low",
+    "confidence": "medium",
     "tracks": [
       {
         "group": "engineering",
@@ -1142,11 +1212,20 @@ export const engC: CompanyGuide[] = [
           "Know your resume deeply, with specifics.",
           "Review design controls, validation and GMP basics.",
           "Prepare for hypothetical situation questions by thinking about safety and quality first.",
-          "Ask about the interview format and timeline."
+          "Ask about the interview format and timeline, and whether your role includes a case, presentation or skills exercise, as Abbott says some do.",
+          "Treat the interview as a problem-solving conversation, which is how Abbott describes it; Abbott also notes it cannot give individual feedback after a rejection."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "Abbott careers: Interview process (official)",
+        "url": "https://www.jobs.abbott/us/en/hiring-process"
+      },
+      {
+        "label": "Abbott careers: Prep for these 5 interview questions (official)",
+        "url": "https://www.abbott.com/en-us/careers/working-with-us/interview-prep"
+      },
       {
         "label": "Glassdoor Abbott interview report",
         "url": "https://www.glassdoor.com/Interview/Abbott-Interview-E12-RVW92763888.htm"
@@ -1167,9 +1246,9 @@ export const engC: CompanyGuide[] = [
   },
   {
     "companyId": "stryker",
-    "summary": "Stryker engineering interviews are commonly reported to include a recruiter chat, a hiring-manager conversation, a Gallup-style strengths assessment and then one or more team interviews, mostly behavioral with a STAR flavor. Technical depth varies by role, and public evidence is limited and mostly for quality roles.",
+    "summary": "Stryker's hiring page lays out the sequence: a recruiter call, a hiring manager call, a strengths assessment with a trained analyst, then a series of interviews with team members. It suggests applying two to three months before graduation. Candidates describe the later interviews as mostly behavioral; technical depth varies by role and evidence is limited, mostly for quality roles.",
     "asOf": "2026-10",
-    "confidence": "low",
+    "confidence": "high",
     "tracks": [
       {
         "group": "engineering",
@@ -1253,11 +1332,21 @@ export const engC: CompanyGuide[] = [
           "Learn design controls and ISO 13485 vocabulary.",
           "Describe any lab, GMP or documentation experience.",
           "Prepare to meet several interviewers on one day.",
-          "Ask the recruiter about steps and timeline."
+          "Ask the recruiter about steps and timeline.",
+          "Make required qualifications obvious on your resume; Stryker says it uses automated checks and AI scheduling in hiring.",
+          "Apply roughly two to three months before graduation, per Stryker's student guidance."
         ]
       }
     ],
     "sources": [
+      {
+        "label": "Stryker careers: Hiring at Stryker (official)",
+        "url": "https://careers.stryker.com/hiring-at-stryker"
+      },
+      {
+        "label": "Stryker careers: Students and graduates (official)",
+        "url": "https://careers.stryker.com/students-and-graduates"
+      },
       {
         "label": "Glassdoor Stryker interview (recruiter, Gallup)",
         "url": "https://www.glassdoor.co.uk/Interview/Stryker-Interview-E1918-RVW32511443.htm"

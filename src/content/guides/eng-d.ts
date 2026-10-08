@@ -64,7 +64,7 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "aecom",
     summary:
-      "AECOM graduate hiring commonly combines an HR screen, a technical interview tied to your projects, and a competency discussion, with online reasoning tests or an assessment day in some regions. Evidence is self-reported and varies a lot by country.",
+      "AECOM's graduate pages describe a staged process that varies by region: Americas and Australia list application review, an online strengths-based assessment, a one-way video interview, then an interview or assessment centre; the UK uses a behavioral and logical reasoning assessment then a technical interview or assessment day. Technical and competency detail comes from self-reported accounts.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -110,10 +110,14 @@ export const engD: CompanyGuide[] = [
           "Review core fundamentals in your discipline and any codes you cited in coursework.",
           "Study AECOM's current projects and sectors so your why-AECOM answer is specific.",
           "Ask your recruiter whether there is an assessment day and what it contains.",
+          "Keep your resume complete (graduation date, location, GPA where asked) and apply to only the roles that fit; AECOM's regional pages warn against over-applying.",
         ],
       },
     ],
     sources: [
+      { label: "AECOM Americas graduate recruitment process (official, archived)", url: "https://aecom.com/americas-graduate-careers-archive-2/our-recruitment-process/" },
+      { label: "AECOM Americas graduate careers (official)", url: "https://aecom.com/careers/graduates-and-early-careers/americas/" },
+      { label: "AECOM UK graduate application and assessment (official, archived)", url: "https://aecom.com/uk-ireland-graduate-careers-archive/uk-ireland-gdp-application-assessment/" },
       { label: "Glassdoor AECOM graduate engineer interviews", url: "https://static.glassdoor.ie/Interview/AECOM-Graduate-Engineer-Interview-Questions-EI_IE5632.0,5_KO6,23.htm" },
       { label: "Glassdoor AECOM interview report (UK)", url: "https://www.glassdoor.co.uk/Interview/AECOM-Interview-E5632-RVW6078724.htm" },
       { label: "Glassdoor AECOM interview report (AU)", url: "https://www.glassdoor.com.au/Interview/AECOM-Interview-E5632-RVW2526362.htm" },
@@ -123,7 +127,7 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "jacobs",
     summary:
-      "Jacobs graduate hiring, per limited candidate reports, uses an online or recorded screen, then group or panel work and a one-to-one competency interview with a couple of technical questions. Formats differ by office and country, and sample sizes are small.",
+      "Jacobs says interviews may be by phone, in person or on video and that each posting sets its own selection process; a UK graduate posting lists online application, a solo video assessment and an interview. Group exercises and competency-heavy interviews with a few technical questions come from limited, older candidate reports. Formats differ by office and country.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -167,11 +171,15 @@ export const engD: CompanyGuide[] = [
           "Prepare STAR stories on teamwork, innovation, time management and conflict.",
           "Be ready to collaborate and present in a short group task.",
           "Refresh discipline fundamentals for a couple of technical questions.",
-          "Check your office's process with the recruiter, since reports vary widely.",
+          "Check your office's process with the recruiter, since reports vary widely; read the selection steps on your specific posting.",
+          "Jacobs notes its process may use AI-assisted evaluation tools and lets you opt out; decide your preference when you apply.",
         ],
       },
     ],
     sources: [
+      { label: "Jacobs careers FAQs (official)", url: "https://careers.jacobs.com/faqs/" },
+      { label: "Jacobs UK graduate renewables consultant posting with selection steps (official)", url: "https://careers.jacobs.com/job/19217095/graduate-renewables-consultant-gb-nationwide/" },
+      { label: "Jacobs early careers (official)", url: "https://careers.jacobs.com/early-careers/" },
       { label: "Glassdoor Jacobs graduate engineer interviews", url: "https://api.glassdoor.com/Interview/Jacobs-Graduate-Engineer-Interview-Questions-EI_IE913.0,6_KO7,24.htm" },
       { label: "Glassdoor Jacobs interview report (UK)", url: "https://static.glassdoor.co.uk/Interview/Jacobs-Interview-E913-RVW19059171.htm" },
       { label: "Glassdoor Jacobs interview report", url: "https://www.glassdoor.ie/Interview/Jacobs-Interview-E913-RVW87200278.htm" },
@@ -180,7 +188,7 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "kiewit",
     summary:
-      "Kiewit hires heavily from campus career fairs and internships. Candidate reports describe a recruiter or video screen, a call with field leadership, and an in-person interview with project managers, focused on personality, resilience and basic construction knowledge. Most public reports are older.",
+      "Kiewit's hiring page says interviews are in person or virtual, recruiters contact selected applicants to discuss the role, and it advises reviewing the posting and market pages; it also says many careers start as internships. Candidate reports add a recorded or phone screen, a call with field leadership and an in-person interview on resilience and basic construction knowledge. Most reports are older.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -223,12 +231,15 @@ export const engD: CompanyGuide[] = [
           "Show interest in field work, travel and relocation, and say so plainly.",
           "Review basics: concrete, steel, earthwork, reading plans and quantity take-offs.",
           "Prepare stories about hard work, safety attitude and working with crews.",
-          "Research Kiewit's markets and recent projects.",
+          "Research Kiewit's markets and recent projects; its hiring page tells candidates to review the posting and market pages.",
+          "For virtual interviews, minimise distractions as Kiewit advises, and ask your recruiter about anything unclear after applying.",
           "Ask your school whether the FE/EIT exam is expected after hire.",
         ],
       },
     ],
     sources: [
+      { label: "Kiewit hiring process (official)", url: "https://kiewitcareers.kiewit.com/content/Kiewit-Hiring-Process/?locale=en_US" },
+      { label: "Kiewit students and recent graduates (official)", url: "https://www.kiewit.com/careers/students-and-recent-graduates/" },
       { label: "Glassdoor Kiewit interview report", url: "https://www.glassdoor.ie/Interview/Kiewit-Corporation-Interview-E2935-RVW831714.htm" },
       { label: "Glassdoor Kiewit interview report (UK)", url: "https://www.glassdoor.co.uk/Interview/Kiewit-Corporation-Interview-E2935-RVW831714.htm" },
       { label: "Glassdoor Kiewit interview report (Canada, FR)", url: "https://fr.glassdoor.ca/Entretien/Kiewit-Corporation-Entretien-E2935-RVW5328156.htm" },
@@ -238,7 +249,7 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "dow",
     summary:
-      "Dow recruits through campus career fairs and info sessions, with interviews that skew toward behavioral STAR questions plus some technical or research discussion. Onsite rounds for interns or new grads can include presentations and several one-to-one or panel conversations.",
+      "Dow's hiring page says a phone screen may come first, interviews are usually in person at the job site with HR and/or business interviewers, the whole process takes four to eight weeks and decisions follow in two to four weeks. Dow runs interview booths at career fairs. The behavioral-versus-technical split and presentations come from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -283,10 +294,13 @@ export const engD: CompanyGuide[] = [
           "Practice a 10 to 15 minute presentation of your research or internship, plus Q&A.",
           "Read Dow's stated values and connect answers to them.",
           "Be flexible on site and relocation; assignments may be at plants such as Midland or the Gulf Coast.",
+          "Complete your candidate profile before applying and bring a transcript if the posting asks for one, as some Dow campus postings do.",
         ],
       },
     ],
     sources: [
+      { label: "Dow hiring process (official)", url: "https://corporate.dow.com/en-us/careers/hiring-process.html" },
+      { label: "Dow interview tips (official)", url: "http://www.dow.com/en-us/careers/application-overview/career-tips/interview-tips" },
       { label: "Glassdoor Dow interview report (campus)", url: "https://www.glassdoor.com/Interview/Dow-Interview-E207-RVW2438369.htm" },
       { label: "Glassdoor Dow interview report (college)", url: "https://static.glassdoor.fr/Interview/Dow-Interview-E207-RVW12192539.htm" },
       { label: "Glassdoor Dow interview report (STAR, diagram)", url: "https://www.glassdoor.co.uk/Interview/Dow-Interview-E207-RVW41818747.htm" },
@@ -296,7 +310,7 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "exxonmobil",
     summary:
-      "ExxonMobil recruits mostly through universities. Reports describe campus interviews led by behavioral questions, then a callback with a sequence of interviews with managers and engineers, plus an aptitude assessment for some roles. Interviews emphasize individual contribution and communication.",
+      "ExxonMobil's pages say US student recruiting is mostly fall campus visits with openness to relocation expected; interviews are behavior-based, several people review a candidate, and a manager confirms the offer, followed by background checks. Some regions add aptitude tests or thesis presentations. Candidate reports describe campus interviews then a callback day with several interviews.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -346,6 +360,9 @@ export const engD: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "ExxonMobil internship opportunities (official)", url: "https://corporate.exxonmobil.com/careers/internship-opportunities" },
+      { label: "ExxonMobil Canada student opportunities (official)", url: "https://www-origin-careers.exxonmobil.com/en/How%20we%20hire/Student-Canada" },
+      { label: "ExxonMobil Bengaluru careers (official)", url: "https://corporate.exxonmobil.com/locations/india/careers-in-bengaluru" },
       { label: "Glassdoor ExxonMobil interview report", url: "https://www.glassdoor.co.nz/Interview/ExxonMobil-Interview-E237-RVW2333861.htm" },
       { label: "Glassdoor ExxonMobil interview report (CA)", url: "https://www.glassdoor.ca/Interview/ExxonMobil-Interview-E237-RVW1171567.htm" },
       { label: "Glassdoor ExxonMobil internship interviews", url: "https://static.glassdoor.co.nz/Interview/ExxonMobil-Internship-Interview-Questions-EI_IE237.0,10_KO11,21.htm" },
@@ -355,9 +372,9 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "chevron",
     summary:
-      "Chevron intern hiring is often fast: a career fair contact, then a short interview with engineers using STAR-style and resume questions. Public evidence is thin, with some roles reportedly including an aptitude test and central recruiting review.",
+      "Chevron's careers site says it recruits by major at select campuses, mostly in September to November. Staffing screens applicants, the hiring manager reviews qualified ones and interviews with a few team members, usually first on campus with behavioral questions, with extra testing for some roles; two to four weeks overall. Downstream and Chemicals summer interviews run January to February. Question detail is thin.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "engineering",
@@ -400,10 +417,15 @@ export const engD: CompanyGuide[] = [
           "Research Chevron's business segments and a recent project or initiative.",
           "Practice an aptitude test in case one is required.",
           "Highlight safety awareness and willingness to work at field sites or relocate.",
+          "Check Chevron's campus event list (mostly September to November) and arrange a career fair visit or an employee referral if your school is not on it.",
+          "Bring photo ID for site visits; Chevron's pages note security checks at large facilities.",
         ],
       },
     ],
     sources: [
+      { label: "Chevron careers: Hiring process (official)", url: "https://careers.chevron.com/how-we-hire" },
+      { label: "Chevron careers: Early career (official)", url: "https://careers.chevron.com/early-career" },
+      { label: "Chevron careers: Downstream and Chemicals summer internship (official)", url: "https://careers.chevron.com/students-and-graduates/internship-programs/downstream-chemicals-summer-internship" },
       { label: "Glassdoor Chevron interview report", url: "https://www.glassdoor.com/Interview/Chevron-Interview-E13524-RVW35974707.htm" },
       { label: "Glassdoor Chevron interview report (2)", url: "https://www.glassdoor.com/Interview/Chevron-Interview-E13524-RVW34948375.htm" },
       { label: "Glassdoor Chevron interview report (3)", url: "https://www.glassdoor.com/Interview/Chevron-Interview-E13524-RVW93037607.htm" },
@@ -412,7 +434,7 @@ export const engD: CompanyGuide[] = [
   {
     companyId: "procter-gamble",
     summary:
-      "P&G opens with online assessments, including a values-based situational test and timed reasoning screens, then interviews that are consistently behavioral, with a structured Context-Action-Result style. Plant roles add a site tour and final interview. Formal consulting-style cases are not clearly reported for engineering.",
+      "P&G's hiring page lists four steps: application, online assessments that usually decide whether you advance (a retake is allowed after 12 months), one-on-one or panel behavioral interviews of about 45 to 60 minutes with no fixed number of rounds, and an offer. It asks for a context-actions-results structure and bars AI help during assessments and interviews. Plant tours and engineering specifics come from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -459,10 +481,13 @@ export const engD: CompanyGuide[] = [
           "Rehearse concise answers; interviewers want focus, not long narrations.",
           "Expect to tour a plant and talk with site engineers; prepare plant-floor questions.",
           "Be flexible on location and openness to rotational assignments.",
+          "Complete assessments and interviews without AI or outside help; P&G states this is required.",
         ],
       },
     ],
     sources: [
+      { label: "P&G hiring process (official, US)", url: "https://www.pgcareers.com/us/en/hiring-process" },
+      { label: "P&G hiring FAQ (official)", url: "https://www.pgcareers.com/global/en/hiring-faq" },
       { label: "Glassdoor P&G interview report (reasoning tests)", url: "https://www.glassdoor.co.uk/Interview/Procter-and-Gamble-Interview-E544-RVW636862.htm" },
       { label: "Glassdoor P&G interview report (PEAK assessment)", url: "https://www.glassdoor.ie/Interview/Procter-and-Gamble-Interview-E544-RVW73017982.htm" },
       { label: "Glassdoor P&G interview report (2026)", url: "https://static.glassdoor.at/Interview/Procter-and-Gamble-Interview-E544-RVW56286572.htm" },

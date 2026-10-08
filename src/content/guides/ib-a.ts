@@ -281,7 +281,7 @@ export const ibA: CompanyGuide[] = [
   {
     companyId: "citi",
     summary:
-      "Citi is commonly reported to review applications on a rolling basis, screen with a timed video interview, then run one or two live rounds before a superday of about three interviews. Evidence is mostly from prep guides and Glassdoor reports, and regional offices run separate processes.",
+      "Citi's early-careers site describes applying through a Citi-specific Workday account, a first one-on-one conversation about your background and goals, and a final stage that depends on program and location: several interviews, an assessment or a case study. Anything finer, such as superday length or technical depth, comes from candidate reports and varies by office.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -289,10 +289,10 @@ export const ibA: CompanyGuide[] = [
         group: "investment-banking",
         label: "Investment banking analyst",
         stages: [
-          { name: "Online application", format: "Standard submission, rolling review", what: "Guides say most of the class is filled months before the formal deadline, so apply early." },
-          { name: "Video screen", format: "Timed recorded responses", what: "Reportedly scored before a banker sees your name; the exact format is not well documented for Citi." },
-          { name: "First-round interview", format: "About 30-45 minutes one-on-one with an analyst, associate or VP", what: "Mix of behavioral and technical questions." },
-          { name: "Superday", format: "Reports range from three 30-minute Zoom rooms to five or six round-robin interviews", what: "Interviewers from VP to MD level; one candidate described rotations of technical, leadership and behavioral segments." },
+          { name: "Online application", format: "Workday application using a Citi-specific account; summer analyst roles reportedly open around September of the prior year", what: "Citi says summer programs target penultimate-year students and a full-time analyst posting listed a 3.3 GPA minimum. Early ID programs give an expedited interview path." },
+          { name: "Video screen (reported)", format: "Timed recorded responses reported by candidates", what: "Not described on Citi's pages I saw; check your invitation." },
+          { name: "First-round interview", format: "One-on-one conversation (candidates report 30-45 minutes with an analyst, associate or VP)", what: "Citi says this explores your background and whether your goals fit Citi; candidates report a behavioral and technical mix." },
+          { name: "Final stage", format: "Citi says multiple interviews, an assessment or a case study depending on program and location; candidate reports range from three Zoom rooms to five or six interviews", what: "Interviewers from VP to MD level; one candidate described rotations of technical, leadership and behavioral segments." },
           { name: "Offer", format: "Not well documented", what: "Timing varies by office; confirm with your recruiter." },
         ],
         behavioral: {
@@ -312,9 +312,12 @@ export const ibA: CompanyGuide[] = [
           style: "Verbal questions; depth varies by interviewer.",
         },
         projects: "Know your resume deeply and be ready to discuss any experience with numbers and your role.",
+        roleNotes: [
+          { roleId: "ib-analyst", notes: "Citi's recruiters advise reading financial press regularly, testing your video setup, bringing a notebook and being yourself rather than guessing what assessors want." },
+        ],
         prep: [
-          "Apply as early as possible.",
-          "Ask current analysts or seniors about the superday format for your office.",
+          "Apply as early as possible through the Citi-specific Workday account.",
+          "Ask current analysts or seniors about the final-round format for your office.",
           "Learn Citi's global footprint and where its banking franchise is strongest.",
           "Prepare behavioral stories for leadership and teamwork.",
           "Review accounting and valuation basics.",
@@ -322,6 +325,8 @@ export const ibA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Citi early careers", url: "https://jobs.citi.com/early-careers" },
+      { label: "Citi: interview advice and tips", url: "https://careers.citigroup.com/students-and-graduates/interview-advice.html" },
       { label: "Exponent: Citigroup IB summer analyst interview", url: "https://www.tryexponent.com/guides/citigroup-investment-banking-summer-analyst-interview" },
       { label: "Glassdoor: Citi interview review", url: "https://clear.glassdoor.nl/Interview/Citi-Interview-E8843-RVW3668517.htm" },
       { label: "Glassdoor: Citi interview review (2)", url: "https://www.glassdoor.ca/Interview/Citi-Interview-E8843-RVW596194.htm" },
@@ -329,8 +334,9 @@ export const ibA: CompanyGuide[] = [
   },
   {
     companyId: "bank-of-america",
+    // stages 2-4 follow BofA's student application-process page
     summary:
-      "Bank of America recruiting is described as starting with networking, followed by a HireVue, sometimes a live filter round at certain schools, and then a superday. Evidence is anecdotal and varies by school and year. Applications reportedly open around December to January with most offers early.",
+      "Bank of America's student site says most applications have two parts, a resume with competency questions and a HireVue video interview, both due by the deadline, reviewed on a rolling basis. First and second rounds run by phone, on campus or in an office, then a business-area final round, sometimes with a group or presentation element. The 'superday' label and finer details are candidate-reported.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -339,10 +345,10 @@ export const ibA: CompanyGuide[] = [
         label: "Investment banking analyst",
         stages: [
           { name: "Networking", format: "Coffee chats and events", what: "One guide says bankers log conversations with notes, so chats can influence screening." },
-          { name: "Application and HireVue", format: "One-way video, about 30 seconds prep and 2-3 minutes per answer", what: "Behavioral and motivation, including why BofA." },
-          { name: "Filter round", format: "Live interview about a week later at some schools", what: "Not universal." },
-          { name: "Superday", format: "Reports range from 2-3 to 4-5 interviews of 30-45 minutes, on Zoom, Teams or in person", what: "Conversational but rigorous on technicals, plus fit." },
-          { name: "Offer", format: "Offers reportedly mostly in the first month, remaining seats fill through spring", what: "Rolling." },
+          { name: "Application and HireVue", format: "Resume with competency questions plus an on-demand HireVue video, both required by the deadline; BofA offers a practice question first", what: "Behavioral and motivation, including why BofA. Assessment often starts before the deadline, so apply early." },
+          { name: "First and second rounds", format: "BofA says these happen by phone, on campus or at an office, and some programs use on-demand video early; candidates report a live filter round at some schools", what: "Conducted by HR, business managers and possibly peers; not universal." },
+          { name: "Final round (superday)", format: "BofA describes a business-area round, typically competency-based, sometimes with a group or presentation exercise; candidates report 2-5 interviews of 30-45 minutes", what: "Conversational but rigorous on technicals, plus fit. Format varies by business." },
+          { name: "Decision", format: "BofA says to expect word in about two to four weeks depending on role and applicant volume", what: "Rolling; candidates report most offers early in the cycle." },
         ],
         behavioral: {
           star: "helpful",
@@ -366,11 +372,14 @@ export const ibA: CompanyGuide[] = [
           "Apply the week applications open.",
           "Prepare a why-BofA tied to its platform and sector strengths.",
           "Read market news and recent BofA-advised deals.",
-          "Practice HireVue answers on camera.",
+          "Practice HireVue answers on camera in a well-lit, quiet room, and use the practice question.",
+          "Only use BofA's approved interview platforms (HireVue, Teams, Webex, Zoom) as a scam check.",
         ],
       },
     ],
     sources: [
+      { label: "Bank of America: student application process", url: "https://careers.bankofamerica.com/en-us/students/application-process" },
+      { label: "Bank of America campus: joining the team", url: "https://campus.bankofamerica.com/content/bamlcampus/en/our-process.html" },
       { label: "SuperdayAI: Bank of America superday", url: "https://www.superdayai.com/banks/bank-of-america/superday" },
       { label: "Exponent: Bank of America IB summer analyst interview", url: "https://www.tryexponent.com/guides/bank-of-america-investment-banking-summer-analyst-interview" },
       { label: "Wall Street Oasis: BofA first-year analyst interview", url: "https://www.wallstreetoasis.com/company/bank-of-america-merrill-lynch/interview/first-year-analyst" },
@@ -381,7 +390,7 @@ export const ibA: CompanyGuide[] = [
   {
     companyId: "barclays",
     summary:
-      "Barclays is commonly reported to use an online assessment, a values-oriented video interview, then a superday of three or four short interviews. Candidates stress fit and motivation, with some conceptual technicals. Details differ by region.",
+      "Barclays' early-careers page describes three steps: a rolling application (one full-time or internship application per year globally), online assessments to finish within about five days, then an assessment centre of two or three stages including a motivational interview with a leader. Analyst-level interviews are scored on three to five competencies disclosed beforehand. Specific technicals come from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -389,10 +398,11 @@ export const ibA: CompanyGuide[] = [
         group: "investment-banking",
         label: "Investment banking analyst",
         stages: [
-          { name: "Online assessment", format: "Timed numerical, logical and situational tests in some regions", what: "Failing the cutoff reportedly ends the process; one candidate described a test heavy in corporate finance." },
-          { name: "Video interview", format: "Commonly 5-7 questions, about a minute of prep and 1-2 minutes to answer, one attempt", what: "Reportedly scored against firm values; not always required for banking." },
-          { name: "Superday", format: "Three or four 30-minute interviews with analysts to MDs", what: "Mix of behavioral, markets and conceptual technicals, such as DCF, LBO and a stock pitch." },
-          { name: "Offer", format: "Reported within a day or two to a few days after a good superday", what: "Overall process length from weeks to a couple of months." },
+          { name: "Application", format: "Rolling, first come first served; only your first application in a year is considered", what: "Barclays says applying early helps and that all schools are assessed against the same criteria." },
+          { name: "Online assessments", format: "Barclays suggests about 60 minutes and a five-calendar-day window, doable on a phone; practice tests available", what: "Candidate reports describe numerical, logical and situational tests; one described a test heavy in corporate finance. Failing reportedly ends the process." },
+          { name: "Video interview (reported)", format: "Candidates report 5-7 questions with about a minute of prep and one attempt", what: "Reportedly scored against firm values; not always required for banking." },
+          { name: "Assessment centre / superday", format: "Barclays says in person or virtual, two or three stages including a motivational interview with leadership; candidates report three or four 30-minute interviews", what: "Barclays says analyst-level candidates are assessed on 3-5 competencies announced beforehand, with part of the interview on role-specific skills. Candidates report DCF, LBO and stock-pitch questions." },
+          { name: "Offer", format: "Reported within days to a few days after a good final round", what: "Overall process length from weeks to a couple of months, per candidates." },
         ],
         behavioral: {
           star: "helpful",
@@ -412,8 +422,9 @@ export const ibA: CompanyGuide[] = [
         },
         projects: "Be ready to discuss your resume and a stock or deal you can pitch.",
         prep: [
-          "Check whether your program requires the online test or video.",
-          "Study Barclays' stated values and map your stories to them.",
+          "Check whether your program requires the online test or video, and finish within the five-day window.",
+          "Read Barclays' analyst competency framework and map a story to each competency listed for your interview.",
+          "Back examples with evidence; Barclays advises avoiding clichés and unprovable claims.",
           "Practice timed video answers.",
           "Prepare a stock pitch and a conceptual DCF/LBO walkthrough.",
           "Network with Barclays bankers to refine your group interest.",
@@ -421,6 +432,9 @@ export const ibA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Barclays: early careers application process", url: "https://search.jobs.barclays/internship-graduate-application" },
+      { label: "Barclays: hints and tips", url: "https://search.jobs.barclays/hints-and-tips" },
+      { label: "Barclays: analyst competency framework (PDF)", url: "https://home.barclays/content/dam/home-barclays/documents/careers/preparing-to-apply/Candidate-Competency-Guide-BA1-BA4.pdf" },
       { label: "Wall Street Oasis: Barclays IB summer analyst interview", url: "https://www.wallstreetoasis.com/company/barclays/interview/investment-banking-summer-analyst" },
       { label: "Wall Street Oasis: Barclays IB analyst FT interview", url: "https://www.wallstreetoasis.com/company/barclays-capital/interview/investment-banking-analyst-ft" },
       { label: "Intervyo: Barclays HireVue guide", url: "https://www.intervyo.co.uk/firms/barclays/hirevue" },
@@ -430,7 +444,7 @@ export const ibA: CompanyGuide[] = [
   {
     companyId: "ubs",
     summary:
-      "UBS is commonly reported to use a HireVue, a phone or video first round, then a superday whose format varies widely by year and office. Referrals and networking appear to matter. All evidence is anecdotal.",
+      "UBS's own pages describe CV-based rolling applications, online assessments (verbal, numerical, inductive and a Culture Match, due within seven days, no retakes), a pre-recorded video interview with no retakes, then final interviews with a future line manager and peers or senior leaders. Question content and superday length are only known from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -438,11 +452,11 @@ export const ibA: CompanyGuide[] = [
         group: "investment-banking",
         label: "Investment banking analyst",
         stages: [
-          { name: "Application and assessments", format: "Online; some candidates report personality or situational tests", what: "Initial screening." },
-          { name: "HireVue", format: "Reports of five to eight questions, about 30-90 seconds prep, 2 minutes each; some mention a week to complete", what: "Mainly behavioral with occasional market questions." },
-          { name: "First-round call", format: "About 40 minutes by phone", what: "Fit, why IB, basic technicals such as a DCF walk-through or comps." },
-          { name: "Superday", format: "Reported anywhere from three 20-minute interviews to six 30-minute interviews", what: "Mix varies from mostly behavioral to mostly technical; MDs often ask market questions." },
-          { name: "Offer", format: "Process commonly four to eight weeks", what: "Anecdotal." },
+          { name: "Application", format: "CV (usually no cover letter), reviewed on a rolling basis; US Graduate Talent Program allows at most three applications per academic year", what: "Show interests, achievements and experience; UBS recommends applying early." },
+          { name: "Online assessments", format: "Verbal, numerical and inductive reasoning plus UBS Culture Match depending on business area; seven days to finish, no retakes", what: "Must be done independently; UBS bars AI help on assessments and video answers." },
+          { name: "Pre-recorded video interview", format: "UBS says you may get a link after passing assessments; no retakes. Candidate reports describe five to eight timed questions", what: "Mainly behavioral with occasional market questions. UBS's page does not name the vendor." },
+          { name: "First-round call (reported)", format: "Candidates report about 40 minutes by phone", what: "Fit, why IB, basic technicals such as a DCF walk-through or comps; not described by UBS." },
+          { name: "Final interviews", format: "UBS says virtual or in person with your future line manager and possibly peers or senior leaders; candidate reports range from three 20-minute to six 30-minute interviews", what: "Mix varies from mostly behavioral to mostly technical; MDs often ask market questions." },
         ],
         behavioral: {
           star: "helpful",
@@ -462,13 +476,17 @@ export const ibA: CompanyGuide[] = [
         projects: "Prepare to discuss experiences and a news item in depth.",
         prep: [
           "Use alumni or contacts for referrals; several reports credit them.",
-          "Practice HireVue with a timer.",
+          "Learn UBS's core competencies and tell experiences as stories with examples, as UBS advises; use its practice assessments first.",
+          "Practice the video interview with a timer; there are no retakes.",
           "Review standard DCF and comps questions.",
           "Form views on current markets.",
         ],
       },
     ],
     sources: [
+      { label: "UBS: how we hire", url: "https://www.ubs.com/global/en/careers/how-we-hire.html" },
+      { label: "UBS: Graduate Talent Program", url: "https://www.ubs.com/global/en/careers/early-careers/graduate-talent-program.html" },
+      { label: "UBS: early careers FAQ", url: "https://www.ubs.com/global/en/careers/early-careers/faq.html" },
       { label: "Wall Street Oasis: UBS IB summer analyst interview", url: "https://www.wallstreetoasis.com/company/ubs/interview/investment-banking-summer-analyst" },
       { label: "Wall Street Oasis: UBS IB summer analyst (2)", url: "https://www.wallstreetoasis.com/company/ubs-ag/interview/investment-banking-summer-analyst-41" },
       { label: "Final Round AI: UBS interview process", url: "https://www.finalroundai.com/blog/ubs-interview-process" },
@@ -478,100 +496,7 @@ export const ibA: CompanyGuide[] = [
   {
     companyId: "deutsche-bank",
     summary:
-      "Deutsche Bank's process reportedly differs by region: UK and APAC candidates complete online tests and a recorded interview before a final assessment center, while US candidates reportedly go to a live division interview and a superday. Evidence is thin and partly dated.",
-    asOf: "2026-10",
-    confidence: "low",
-    tracks: [
-      {
-        group: "investment-banking",
-        label: "Investment banking analyst",
-        stages: [
-          { name: "Application", format: "Online", what: "Initial screening." },
-          { name: "Online test and recorded interview (UK/APAC)", format: "Situational test and recorded video, per one guide", what: "US candidates reportedly skip these." },
-          { name: "Live division interview (US)", format: "Interview with the hiring division", what: "Fit and light technicals." },
-          { name: "Superday / assessment center", format: "Superday in the US; in London a candidate described three 45-minute interviews covering competency, a case study and technicals", what: "Final decision." },
-        ],
-        behavioral: {
-          star: "helpful",
-          style: "A US candidate said interviews were mostly resume and fit, with why IB and why DB seen as the key questions.",
-          themes: ["Why DB", "Why IB", "Market awareness"],
-          examples: [
-            "Why investment banking?",
-            "Why Deutsche Bank?",
-            "How are banks doing at the moment?",
-          ],
-        },
-        technical: {
-          share: "Small to moderate; region-dependent",
-          topics: ["DCF and WACC", "CAPM", "Valuation limits for banks", "Rates impact on DCF", "Mental math"],
-          style: "Verbal; a guide notes interviewers like to test where a method breaks down.",
-        },
-        projects: "Evidence is limited; expect resume-based discussion.",
-        prep: [
-          "Confirm the process steps for your region.",
-          "Prepare strong why-IB and why-DB answers.",
-          "Know when a DCF or EV/EBITDA fails, such as for banks.",
-          "Practice mental math if applying in the UK.",
-          "Follow banking sector news.",
-        ],
-      },
-    ],
-    sources: [
-      { label: "Exponent: Deutsche Bank IB summer analyst interview", url: "https://www.tryexponent.com/guides/deutsche-bank-investment-banking-summer-analyst-interview" },
-      { label: "Glassdoor: Deutsche Bank interview review", url: "https://static.glassdoor.at/Interview/Deutsche-Bank-Interview-E3150-RVW6019091.htm" },
-      { label: "Glassdoor: Deutsche Bank interview review (2)", url: "https://static.glassdoor.ch/Interview/Deutsche-Bank-Interview-E3150-RVW2494027.htm" },
-    ],
-  },
-  {
-    companyId: "rbc-capital-markets",
-    summary:
-      "Public evidence on RBC Capital Markets analyst recruiting is thin. Reports suggest a multi-interview superday mixing valuation case work, behavioral and technical questions, with strong emphasis on why RBC and why a specific office or group.",
-    asOf: "2026-10",
-    confidence: "low",
-    tracks: [
-      {
-        group: "investment-banking",
-        label: "Investment banking analyst",
-        stages: [
-          { name: "Application", format: "Online application via careers site or campus portal", what: "Initial screening." },
-          { name: "Early screening", format: "Not well documented", what: "Check your invitation for assessments or a call." },
-          { name: "Superday", format: "One older report described three 40-minute interviews: valuation case, behavioral, technical/brainteaser", what: "Format may have changed." },
-          { name: "Decision", format: "One recent candidate described a one-week process", what: "Anecdotal." },
-        ],
-        behavioral: {
-          star: "helpful",
-          style: "Questions on why RBC, why the office and why IB.",
-          themes: ["Why RBC", "Why this group or city", "Why IB"],
-          examples: [
-            "Why RBC and this role?",
-            "Why this city or sector team?",
-            "Why investment banking?",
-          ],
-        },
-        technical: {
-          share: "Unclear; roughly a third is a fair assumption",
-          topics: ["DCF", "M&A", "LBO", "Comps", "Valuation case study"],
-          style: "Mix of conversation and a case; evidence is limited.",
-        },
-        projects: "Expect resume questions; prepare a sector view.",
-        prep: [
-          "Confirm office and group focus, such as energy in Houston.",
-          "Know basic DCF, comps, M&A and LBO.",
-          "Prepare a clear why-RBC.",
-          "Network with RBC bankers and alumni.",
-        ],
-      },
-    ],
-    sources: [
-      { label: "Wall Street Oasis: RBC IB summer analyst interview", url: "https://www.wallstreetoasis.com/company/rbc-capital-markets/interview/investment-banking-summer-analyst" },
-      { label: "Wall Street Oasis: RBC global markets superday thread", url: "https://www.wallstreetoasis.com/forum/trading/rbc-global-markets-superday" },
-      { label: "Glassdoor: RBC interview review", url: "https://www.glassdoor.co.in/Interview/RBC-Interview-E3358-RVW103400615.htm" },
-    ],
-  },
-  {
-    companyId: "wells-fargo",
-    summary:
-      "Wells Fargo is commonly reported to begin with a recorded behavioral interview, sometimes a short live call, then a superday of about three interviews, two technical and one behavioral. Reports call technicals fairly deep but less intense than elite boutiques. Evidence is anecdotal.",
+      "Deutsche Bank's own early-careers site lays out one structure for internships and graduate roles: a short application, online assessments, a virtual interview, a final assessment centre or super day, then an outcome. Details such as the pre-recorded video versus a live virtual interview depend on region and division.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -579,7 +504,112 @@ export const ibA: CompanyGuide[] = [
         group: "investment-banking",
         label: "Investment banking analyst",
         stages: [
-          { name: "HireVue", format: "Recorded behavioral round, about 4-7 questions with a deadline", what: "A major cut." },
+          { name: "Research and application", format: "Short online form with a CV; DB advises applying to a single role in one country", what: "You pick one division after researching how the bank is organised. Eligibility (for example penultimate-year students for internships) is checked first." },
+          { name: "Online assessments", format: "Situational judgement, behavioural questionnaire and ability tests, with roughly four days to finish each set", what: "DB recommends using the practice tests first. These tests act as a filter before any human interview." },
+          { name: "Virtual interview", format: "Pre-recorded video in the UK, Germany and APAC; elsewhere it may be a live virtual meeting with the hiring division", what: "You explain your motivation and the skills you would bring. DB states about six weeks can pass between applying and being invited." },
+          { name: "Assessment centre or super day", format: "Usually a full day, typically in person; the invitation email gives details", what: "DB describes competency assessments, case studies and a technical interview. One London candidate report mentions three 45-minute interviews on competency, a case and technicals." },
+          { name: "Outcome", format: "DB says it calls with the result within about a week, gives feedback, and allows two weeks to decide", what: "Early insight programmes can give early access to the internship process." },
+        ],
+        behavioral: {
+          star: "helpful",
+          style: "The video interview and competency interviews centre on motivation and examples of skills. DB points to its stated values and competencies, so structured stories fit well.",
+          themes: ["Why Deutsche Bank", "Why this division", "Competency examples", "Market awareness"],
+          examples: [
+            "Why investment banking and why Deutsche Bank?",
+            "Tell me about a time you worked in a team toward a deadline.",
+            "How are banks doing at the moment?",
+            "Why this division rather than another one at DB?",
+          ],
+        },
+        technical: {
+          share: "Moderate; a technical interview plus a case study at the final stage",
+          topics: ["DCF and WACC", "CAPM", "Valuation limits for banks", "Rates impact on DCF", "Case-study reasoning"],
+          style: "Verbal technical interview plus a case at the assessment centre. A third-party guide notes interviewers like to probe where a method breaks down.",
+        },
+        projects: "Expect resume and motivation discussion; the case study tests structured thinking more than prior projects.",
+        roleNotes: [
+          { roleId: "ib-analyst", notes: "The official process applies across divisions; confirm the exact assessments and video format for your region and division in the job description." },
+        ],
+        prep: [
+          "Apply to one role only and confirm the stages for your region on the DB early-careers FAQ.",
+          "Do the practice online tests before opening the real ones, and set aside quiet time inside the window.",
+          "Prepare strong why-IB and why-DB answers tied to a division.",
+          "Know when a DCF or EV/EBITDA fails, such as for banks, and practise a short case out loud.",
+          "Follow banking sector news.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Deutsche Bank early careers: your application", url: "https://careers.db.com/students-graduates/your-application/" },
+      { label: "Deutsche Bank early careers: FAQ", url: "https://careers.db.com/students-graduates/your-application/faq/" },
+      { label: "Deutsche Bank early careers: students and graduates", url: "https://careers.db.com/students-graduates/" },
+      { label: "Exponent: Deutsche Bank IB summer analyst interview", url: "https://www.tryexponent.com/guides/deutsche-bank-investment-banking-summer-analyst-interview" },
+      { label: "Glassdoor: Deutsche Bank interview review", url: "https://static.glassdoor.at/Interview/Deutsche-Bank-Interview-E3150-RVW6019091.htm" },
+    ],
+  },
+  {
+    companyId: "rbc-capital-markets",
+    summary:
+      "RBC Capital Markets' careers pages describe an online application, in some cases three online assessments, a roughly 30-minute first-round interview, then a final round in the office or virtually. Insight programmes can fast-track you. Public detail on the final round is thin, so rely on your invitation and campus contacts.",
+    asOf: "2026-10",
+    confidence: "medium",
+    tracks: [
+      {
+        group: "investment-banking",
+        label: "Investment banking analyst",
+        stages: [
+          { name: "Application", format: "Online resume (sometimes with a cover letter combined in one PDF)", what: "Screened for fit with the program, office and group; qualified applicants may be contacted to review the resume in more detail." },
+          { name: "Online assessments", format: "Three online assessments for some roles; UK Spring Insight route uses psychometric tests and a phone interview", what: "A filter before a first interview; not required for every program." },
+          { name: "First-round interview", format: "About 30 minutes by phone, video or in person", what: "RBC says this covers technical ability, interpersonal skills, long-term potential and cultural fit." },
+          { name: "Final round", format: "Back to the office or a virtual meeting for final assessments", what: "RBC's materials do not spell out the format. An older RBC-published piece refers to a 'Super Day'; one older candidate report described a valuation case, a behavioral and a technical interview." },
+        ],
+        behavioral: {
+          star: "helpful",
+          style: "First-round and final conversations weigh motivation and culture fit alongside technical ability.",
+          themes: ["Why RBC", "Why this group or city", "Why IB", "Interpersonal skills"],
+          examples: [
+            "Why RBC and this role?",
+            "Why this city or sector team?",
+            "Why investment banking?",
+          ],
+        },
+        technical: {
+          share: "Unclear; a share of the first round and final round",
+          topics: ["DCF", "M&A", "LBO", "Comps", "Valuation case study"],
+          style: "Conversation plus a possible valuation case; official sources give no format, so treat the case as a possibility.",
+        },
+        projects: "Expect resume questions; prepare a sector view tied to the group.",
+        roleNotes: [
+          { roleId: "ib-analyst", notes: "Recruiting is by program and office (for example Capital Markets programs in New York or Canada's analyst program with virtual first and in-person final rounds)." },
+        ],
+        prep: [
+          "Read the specific program page and posting for your office; processes differ by country.",
+          "Know basic DCF, comps, M&A and LBO.",
+          "Prepare a clear why-RBC and why-group answer.",
+          "Consider RBC's insight or advisory programs, which can fast-track you into the interview stage.",
+          "Network with RBC bankers and alumni.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "RBC Capital Markets: Discovery Day and Spring Insight programs", url: "https://www.rbccm.com/en/careers/discoveryprograms" },
+      { label: "RBC Capital Markets: full-time careers", url: "https://www.rbccm.com/en/careers/full-time" },
+      { label: "RBC jobs: RBC Analyst Program (Canada)", url: "https://jobs.rbc.com/ca/en/rbc-analyst-program" },
+      { label: "Wall Street Oasis: RBC IB summer analyst interview", url: "https://www.wallstreetoasis.com/company/rbc-capital-markets/interview/investment-banking-summer-analyst" },
+    ],
+  },
+  {
+    companyId: "wells-fargo",
+    summary:
+      "Wells Fargo's careers site gives only a generic four-step process (apply, review, interview, offer) and says interviews vary by group, with behavioral questions prepared using a situation-behavior-outcome method. The recorded-interview-then-superday pattern, with two technical rounds and one behavioral, comes from candidate reports and prep sites, not the firm.",
+    asOf: "2026-10",
+    confidence: "medium",
+    tracks: [
+      {
+        group: "investment-banking",
+        label: "Investment banking analyst",
+        stages: [
+          { name: "Recorded interview (reported)", format: "Candidates report a recorded behavioral round of about 4-7 questions with a deadline", what: "Reported as a major cut; not described on Wells Fargo's own pages." },
           { name: "First-round call", format: "Roughly 15-30 minutes, sometimes with two bankers", what: "Resume and motivation; skipped for some." },
           { name: "Superday", format: "Commonly three 30-minute interviews, two technical and one behavioral; some report four or five", what: "Virtual or in person." },
           { name: "Offer", format: "Process can finish within weeks", what: "A separate earlier summit track exists for some candidates." },
@@ -601,7 +631,8 @@ export const ibA: CompanyGuide[] = [
         },
         projects: "Be able to explain the bank's commercial banking tie to IB and your resume.",
         prep: [
-          "Prepare a strong HireVue.",
+          "Prepare behavioral answers using Wells Fargo's own situation-behavior-outcome structure, and prepare questions to ask.",
+          "Prepare a strong recorded interview if your invitation includes one.",
           "Be ready to build a basic DCF on paper.",
           "Know Wells Fargo's corporate and investment banking platform.",
           "Check for summit or early programs.",
@@ -609,6 +640,9 @@ export const ibA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Wells Fargo: our hiring process", url: "https://www.wellsfargojobs.com/en/life-at-wells-fargo/our-hiring-process/" },
+      { label: "Wells Fargo: prepare for a behavioral-based interview", url: "https://www.wellsfargojobs.com/en/resources/behavioral-based-interview/" },
+      { label: "Wells Fargo: early careers", url: "https://www.wellsfargojobs.com/en/early-careers/" },
       { label: "Exponent: Wells Fargo IB summer analyst interview", url: "https://www.tryexponent.com/guides/wells-fargo-investment-banking-summer-analyst-interview" },
       { label: "SuperdayAI: Wells Fargo superday", url: "https://www.superdayai.com/banks/wells-fargo/superday" },
       { label: "PrepLounge: Wells Fargo interview", url: "https://www.preplounge.com/en/articles/interview-wells-fargo" },

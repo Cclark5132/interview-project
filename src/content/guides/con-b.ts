@@ -5,7 +5,7 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "kearney",
     summary:
-      "Kearney is commonly described as running two interview rounds with two to three conversations each, mixing case and fit. Cases are reported to lean operational, and business analyst candidates in some offices report a written or Excel and slides exercise. Details vary by office and year.",
+      "Kearney's careers site offers advice for both case and behavioral interviews but publishes no global stage list. Its Belgium office describes three rounds of two interviews, rising from associate to manager to partner. Third-party reports add operational-leaning cases and, in some offices, a written exercise. Details vary by office and year.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -14,9 +14,9 @@ export const conB: CompanyGuide[] = [
         label: "Business analyst / consultant",
         stages: [
           { name: "Application and resume screen", format: "Online application, often via campus recruiting", what: "Resume shortlisting is selective; one report describes several hundred applicants cut to a few dozen for interviews." },
-          { name: "First-round interviews", format: "Commonly two interviews of about an hour, on video or in person", what: "Each typically opens with 10 to 15 minutes of fit and motivation, then a case of about 30 minutes, with time for your questions." },
-          { name: "Written or analytical case (some offices)", format: "Roughly 90 minutes including preparation, then a short presentation", what: "Some reports describe analysing data in Excel and building slides, then presenting findings to an interviewer." },
-          { name: "Final round with partners and directors", format: "Two to three interviews, fit plus case", what: "Senior interviewers test judgement, communication and whether they would want you on their team." },
+          { name: "First-round interviews", format: "Commonly two interviews of about an hour, on video or in person (Belgium page: first round with an associate-level interviewer)", what: "Candidate reports say each opens with 10 to 15 minutes of fit and motivation, then a case of about 30 minutes, with time for your questions." },
+          { name: "Written or analytical case (some offices)", format: "Roughly 90 minutes including preparation, then a short presentation", what: "Only candidate reports mention this: analysing data in Excel, building slides, then presenting findings. Not confirmed by Kearney." },
+          { name: "Later rounds with managers, principals and partners", format: "Kearney Belgium describes a manager or principal round, then a partner round, each with two interviews", what: "Senior interviewers test judgement, communication and whether they would want you on their team." },
           { name: "Offer", format: "Recruiter call", what: "Reported timelines range widely, from about one week to several weeks depending on office and cycle." },
         ],
         behavioral: {
@@ -56,6 +56,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Kearney: Interviewing at Kearney (official)", url: "https://www.kearney.com/careers/interviewing" },
+      { label: "Kearney: Crack the case (official)", url: "https://www.kearney.com/careers/interviewing/crack-the-case" },
+      { label: "Kearney Belgium careers (official; round structure)", url: "https://www.kearney.com/about/locations/belgium/careers" },
       { label: "Glassdoor: Kearney interview report (written case, partner round)", url: "https://www.glassdoor.ca/Interview/Kearney-Interview-E13437-RVW3487729.htm" },
       { label: "Glassdoor: Kearney interview report", url: "https://www.glassdoor.co.in/Interview/Kearney-Interview-E13437-RVW764834.htm" },
       { label: "My Consulting Offer: Kearney interview guide", url: "https://www.myconsultingoffer.org/case-study-interview-prep/at-kearney-interview" },
@@ -67,19 +70,19 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "roland-berger",
     summary:
-      "Roland Berger is a European-headquartered strategy firm. Prep sources describe a resume screen, sometimes an online reasoning test, then roughly two case interviews and a fit interview, finishing with senior interviewers. Hiring is run office by office, so format and timing differ.",
+      "Roland Berger is a European-headquartered strategy firm. Its own site describes an online application with CV and cover letter, an online analytics test for permanent-role candidates, a recruiting day of fit and case interviews, and a final conversation with a manager from your area. The firm puts application to contract at about six to eight weeks. Offices differ.",
     asOf: "2026-10",
-    confidence: "medium",
+    confidence: "high",
     tracks: [
       {
         group: "consulting",
         label: "Consultant / strategy associate",
         stages: [
-          { name: "Application and resume screen", format: "Online application with CV and cover letter", what: "Screening for academics, analytical track record and, per prep sites, a preference for international experience." },
-          { name: "Online reasoning test (some candidates)", format: "Timed numerical and logical test", what: "Used by some offices to filter before interviews; not every candidate reports it." },
-          { name: "First-round interviews", format: "Video or in person; commonly a fit interview plus a case", what: "Tests structuring, numeracy and personal fit with the firm." },
-          { name: "Second-round interviews", format: "Often two interviews back-to-back with principals or partners", what: "More cases plus fit, sometimes a written or group presentation depending on the office." },
-          { name: "Offer", format: "Call from recruiting", what: "Prep sources put the whole process at around six to eight weeks, though individual reports vary." },
+          { name: "Application and resume screen", format: "Online form with detailed CV and cover letter (no photo); the firm advises applying several months before your start date", what: "The firm says a specific cover letter matters. Expect a reply within a few weeks." },
+          { name: "Online analytics test (permanent roles)", format: "Timed online test", what: "Official FAQ: qualified permanent-role candidates are invited to take it; passing leads to a recruiting day. Interns skip to the recruiting day." },
+          { name: "Recruiting day: fit and case interviews", format: "Company presentation and Q&A, then personal interviews and cases; junior consultant candidates are asked to prepare a two to three minute self-presentation", what: "Fit covers motivation, strengths, handling feedback and numerical aptitude. Cases judge your structure, hypotheses and handling of uncertainty more than a perfect answer." },
+          { name: "Final interview with management", format: "Conversation with a manager from your future area; some offices add partner interviews or a written case", what: "Last check before an offer. Amsterdam's page mentions two partners and a written case study." },
+          { name: "Offer", format: "Call from recruiting", what: "The firm cites about six to eight weeks from application to contract." },
         ],
         behavioral: {
           star: "helpful",
@@ -118,6 +121,10 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Roland Berger: Selection process (official)", url: "https://www.rolandberger.com/en/Join/Your-Opportunity/Career-Starter/Selection-Process/" },
+      { label: "Roland Berger: Join Us FAQ (official)", url: "https://www.rolandberger.com/en/Join/Join-Us/FAQ/" },
+      { label: "Roland Berger: Tips & Tricks (official)", url: "https://www.rolandberger.com/en/Join/Join-Us/Start-Your-Journey/Tips-tricks.html" },
+      { label: "Roland Berger Netherlands careers (official)", url: "https://www.rolandberger.com/en/Locations/Netherlands/Career/" },
       { label: "Hacking the Case Interview: Roland Berger", url: "https://www.hackingthecaseinterview.com/pages/roland-berger-case-interview" },
       { label: "My Consulting Offer: Roland Berger interview guide", url: "https://www.myconsultingoffer.org/case-study-interview-prep/roland-berger-interview/" },
       { label: "IGotAnOffer: Roland Berger case interview", url: "https://igotanoffer.com/blogs/mckinsey-case-interview-blog/roland-berger-case-interview" },
@@ -128,7 +135,7 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "alvarez-marsal",
     summary:
-      "Alvarez & Marsal hires analysts into groups such as turnaround and restructuring, transaction advisory and disputes and investigations. Third-party sources describe two to three rounds mixing behavioral questions with candidate-led, finance-flavoured cases, with format varying by group and office.",
+      "Alvarez & Marsal hires analysts into groups such as turnaround and restructuring, transaction advisory and disputes and investigations. Its campus pages say interviews are behavioral-based, centred on projects you have done or led, and may add a case study, business plan or technical assessment. Interviews mostly run in the fall; third-party reports detail the case rounds.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -136,10 +143,10 @@ export const conB: CompanyGuide[] = [
         group: "consulting",
         label: "Analyst / consultant (restructuring and turnaround)",
         stages: [
-          { name: "Application and resume screen", format: "Online or campus application", what: "Screening for academics, finance or accounting exposure and interest in the specific practice." },
-          { name: "Recruiter or behavioral screen", format: "One or two interviews of 30 to 60 minutes by phone or video", what: "Motivation, background, and why A&M and this group." },
+          { name: "Application and resume screen", format: "Short online form; for the Corporate Performance Improvement analyst track you can preference a hub city", what: "A campus recruiter follows up. Official pages say most interviews are in the fall of junior or senior year, and the CPI practice states it does not hire people needing visa sponsorship." },
+          { name: "Recruiter or behavioral screen", format: "Round 1 interviews, listed as late September or early October for the analyst track; length reported as 30 to 60 minutes", what: "Behavioral-based: discuss projects you participated in, led or started, plus motivation and why A&M." },
           { name: "Online reasoning test (some offices)", format: "Numerical and verbal test", what: "Reported in some locations only." },
-          { name: "Main interview block", format: "Commonly three to six back-to-back interviews", what: "Blend of cases and behavioral questions with managers and directors; some candidates report a modeling test." },
+          { name: "Case interview day / main interview block", format: "Official timeline mentions case interview days in October for full-time candidates; candidates report three to six back-to-back interviews", what: "Blend of cases and behavioral questions with managers and directors; the firm says a case study, business plan or technical assessment may be used, and some candidates report a modeling test." },
           { name: "Senior round", format: "Partner or managing director interviews, possibly a meal", what: "Final fit and judgement check at some offices." },
         ],
         behavioral: {
@@ -179,6 +186,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "A&M: Corporate Performance Improvement campus recruiting (official)", url: "https://www.alvarezandmarsal.com/corporate-performance-improvement-campus-recruiting" },
+      { label: "A&M careers: campus recruiting FAQs (official)", url: "https://careers.alvarezandmarsal.com/search/job-requisition-type/campus-recruiting/jobs?ns_category=faq&page=2" },
+      { label: "A&M: ACE program (official)", url: "https://www.alvarezandmarsal.com/advancing-and-cultivating-emerging-leaders-ace-program" },
       { label: "Management Consulted: Alvarez & Marsal interview", url: "https://managementconsulted.com/alvarez-marsal-interview/" },
       { label: "Hacking the Case Interview: A&M case interview", url: "https://www.hackingthecaseinterview.com/pages/alvarez-marsal-case-interview" },
       { label: "Road to Offer: A&M case interview guide", url: "https://www.roadtooffer.com/blog/alvarez-marsal-case-interview-guide" },
@@ -189,7 +199,7 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "fti-consulting",
     summary:
-      "FTI Consulting hires into segments such as corporate finance and restructuring, forensic and litigation, economic consulting and strategic communications. Sources describe a screen (a recorded video for some US candidates) followed by an interview block of behavioral and case rounds; cases are reported to involve data and financial exhibits.",
+      "FTI Consulting hires into segments such as corporate finance and restructuring, forensic and litigation, economic consulting and strategic communications. Its careers site confirms year-round online applications, one application per role, and a multi-step recruitment process, but the step list sits in an image I could not read. Stage detail here comes from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -240,6 +250,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "FTI Consulting: early careers hiring process (official)", url: "https://www.fticonsulting.com/careers/early-careers#hiring-process" },
+      { label: "FTI Consulting: careers FAQs (official)", url: "https://www.fticonsulting.com/careers/faqs" },
+      { label: "FTI Consulting Australia: how to apply (official)", url: "https://www.fticonsulting.com/australia/careers/students/how-to-apply" },
       { label: "Management Consulted: FTI Consulting interview", url: "https://managementconsulted.com/fti-consulting-interview/" },
       { label: "PrepLounge: FTI Consulting interview guide", url: "https://www.preplounge.com/en/articles/interview-fti-consulting" },
       { label: "Interview Query: FTI business analyst", url: "https://www.interviewquery.com/guides/fti-consulting-business-analyst" },
@@ -250,7 +263,7 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "huron",
     summary:
-      "Huron is a consulting firm with a strong healthcare and higher-education footprint. Prep sources and candidate reports describe an HR screen, a manager conversation, and one or more case interviews, often with healthcare flavour and quantitative work. The sequence varies by office and practice.",
+      "Huron is a consulting firm with a strong healthcare and higher-education footprint. Its careers pages say interviews combine behavioral and case questions, in person or on video, with analyst recruiting mainly in the fall at select campuses, and offer case and behavioral workshops. Round counts are not published; the sequence below comes from candidate reports.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -300,6 +313,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Huron: Entry level careers (official)", url: "https://www.huronconsultinggroup.com/en/careers/entry-level-careers" },
+      { label: "Huron: Case interview workshop (official)", url: "https://www.huronconsultinggroup.com/events/2024-case-interview-workshop" },
+      { label: "Huron: Behavioral interview workshop (official)", url: "https://www.huronconsultinggroup.com/events/behavioral-interview-workshop" },
       { label: "Hacking the Case Interview: Huron case interview", url: "https://www.hackingthecaseinterview.com/pages/huron-case-interview" },
       { label: "Dataford: Huron business analyst experiences", url: "https://dataford.io/interview-guides/huron-consulting-group/business-analyst/experiences" },
       { label: "Fishbowl: Huron interview questions", url: "https://www.fishbowlapp.com/company/huron/interview-questions" },
@@ -310,19 +326,19 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "zs-associates",
     summary:
-      "ZS is a consulting and analytics firm focused on pharma, life sciences and healthcare. Reports from campus drives describe an online aptitude test, a data-heavy written case, then technical or puzzle interviews and an HR round. Most accounts are from India campuses between roughly 2018 and 2024, so US-office practice may differ.",
+      "ZS is a consulting and analytics firm focused on pharma, life sciences and healthcare. Its own interview page lists an online assessment for certain roles, a behavioral interview, a case interview and a subject-matter-expertise interview, typically two to four rounds depending on role, level and region. ZS also publishes practice cases. Campus-drive details come from India candidate reports.",
     asOf: "2026-10",
-    confidence: "medium",
+    confidence: "high",
     tracks: [
       {
         group: "consulting",
         label: "Business technology analyst / business analyst",
         stages: [
           { name: "Application or campus shortlist", format: "Online or on-campus", what: "Resume screening and eligibility checks." },
-          { name: "Aptitude test", format: "Timed online test, about 50 minutes in one report", what: "Quant, verbal, data interpretation, logic and computer fundamentals." },
-          { name: "Case study", format: "Roughly 12 to 20 pages of data and questions with limited time", what: "Interpret data, structure a messy problem and recommend." },
-          { name: "Technical or analytical interview", format: "Video or in person", what: "Case follow-ups, puzzles, guesstimates, resume probing; SQL or programming basics for technology roles." },
-          { name: "HR or final round", format: "Interview with a senior person", what: "Fit, values and long-term interest." },
+          { name: "Online assessment (certain roles)", format: "Timed online test; one candidate report says about 50 minutes", what: "ZS says it covers logical, quantitative and qualitative reasoning, plus big-data topics such as analytics and coding for some roles." },
+          { name: "Behavioral interview", format: "Conversations with a recruiter and other ZS staff; format varies by role", what: "Gets to know you and checks fit for the role." },
+          { name: "Case interview", format: "Realistic business problem, live with an interviewer; India campus reports also describe a written data pack of 12 to 20 pages", what: "ZS says it looks at how you structure the problem, respond to feedback and bring new ideas, with no single perfect answer." },
+          { name: "Subject matter expertise interview", format: "Discussion of past projects", what: "Probes your responsibilities, quality of work, time management, stakeholder communication and problem solving." },
         ],
         behavioral: {
           star: "helpful",
@@ -361,6 +377,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "ZS: Interview process (official)", url: "https://www.zs.com/careers/interview-process" },
+      { label: "ZS: Case interview practice (official)", url: "https://www.zs.com/careers/hiring-process/case-interview-practice" },
+      { label: "ZS: Campus Beats program (official)", url: "https://www.zs.com/careers/campus-beats" },
       { label: "GeeksforGeeks: ZS BTA on-campus experience", url: "https://www.geeksforgeeks.org/?p=489202" },
       { label: "GeeksforGeeks: ZS BTA virtual 2020 experience", url: "https://www.geeksforgeeks.org/?p=488028" },
       { label: "Interview Query: ZS Associates business analyst", url: "https://www.interviewquery.com/guides/zs-associates-business-analyst" },
@@ -371,7 +390,7 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "guidehouse",
     summary:
-      "Guidehouse serves public sector, healthcare and commercial clients. The public evidence is thin: candidate reports describe a recruiter call, two or three interviews that lean on fit and experience, and in some cases a case study or take-home exercise. Background checks, and clearances for government work, can add time.",
+      "Guidehouse serves public sector, healthcare and commercial clients. Its site outlines only the internship path (apply, a first interview on campus or virtual, a final round with teams, then an offer) and says its Life Sciences Gateway program uses one behavioral and one case interview. Full-time stages here come from thin candidate reports; clearances can add time.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -419,6 +438,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Guidehouse: Interning at Guidehouse (official)", url: "https://guidehouse.com/careers/internship" },
+      { label: "Guidehouse: Gateway to Guidehouse (official)", url: "https://guidehouse.com/careers/gateway-to-guidehouse" },
+      { label: "Guidehouse: Early career and internships (official)", url: "https://guidehouse.com/careers/early-career-and-internships" },
       { label: "Interview Query: Guidehouse business analyst", url: "https://www.interviewquery.com/guides/guidehouse-business-analyst" },
       { label: "Glassdoor: Guidehouse interview report", url: "https://www.glassdoor.com/Interview/Guidehouse-Interview-E2188107-RVW75099433.htm" },
       { label: "Glassdoor: Guidehouse interview report (second)", url: "https://www.glassdoor.com/Interview/Guidehouse-Interview-E2188107-RVW68057723.htm" },
@@ -429,9 +451,9 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "slalom",
     summary:
-      "Slalom is a business and technology consultancy that hires through local markets. Prep guides describe a recruiter screen, a behavioral and short-case round, a collaborative or take-home case, and a leader conversation, while older candidate reports describe three simpler rounds. Evidence conflicts, so confirm the process for your role.",
+      "Slalom is a business and technology consultancy that hires through local markets. A Slalom recruiter video (about three years old) describes a recruiter conversation, a technical or skill screen, then behavioral interviews, varying by team and role. Slalom bans AI use during live interviews and recording. Case and take-home details come from third-party guides, which conflict.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "consulting",
@@ -479,6 +501,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Slalom: Applying to Slalom and AI use (official)", url: "https://www.slalom.com/us/en/careers/applying-to-slalom-ai" },
+      { label: "Slalom: Preparing for your virtual interview (official, older)", url: "https://prev.slalom.com/preparing-your-virtual-interview-slalom" },
+      { label: "Slalom Careers (official)", url: "https://www.slalom.com/us/en/careers" },
       { label: "Hacking the Case Interview: Slalom", url: "https://www.hackingthecaseinterview.com/pages/slalom-case-interview" },
       { label: "Final Round AI: Slalom interview process", url: "https://www.finalroundai.com/blog/slalom-interview-process" },
       { label: "Glassdoor: Slalom interview report", url: "https://www.glassdoor.co.uk/Interview/Slalom-Interview-E31102-RVW19756664.htm" },
@@ -489,18 +514,18 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "capgemini-invent",
     summary:
-      "Capgemini Invent is the strategy, design and transformation arm of Capgemini. Public evidence is thin and comes from a small number of mostly European candidate reports: a recruiter or competency interview, then a case or group assessment day with a presentation, then one-to-one interviews. Formats differ by country and role.",
+      "Capgemini Invent is the strategy, design and transformation arm of Capgemini. Official pages show the process varies by country: the UK graduate programme uses an online application, a recorded digital interview and a half-day assessment centre (group exercise and strengths-based interview). Sweden and Australia use interviews with a case, and Australia a full assessment day. Experienced-hire detail is thinner.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "consulting",
         label: "Consultant / analyst",
         stages: [
-          { name: "Application", format: "Online application", what: "CV screen; some countries include online tests." },
-          { name: "Recruiter or competency interview", format: "Phone or video, up to an hour", what: "CV walk-through, motivation and competencies; English level checked in some countries." },
+          { name: "Application", format: "Online application with CV and optional cover letter; UK graduate form includes motivation questions and is reviewed first come, first served", what: "CV screen; some countries include online tests." },
+          { name: "Digital or recruiter interview", format: "UK graduates: recorded on-camera video answers (a mock demo is offered); elsewhere phone or video", what: "CV walk-through, motivation and competencies; English level checked in some countries." },
           { name: "Hiring manager discussion", format: "Short conversation, in some reports with portfolio or case introduction", what: "Skills match and early case discussion." },
-          { name: "Assessment day or case round", format: "Group case study and presentation in some London reports", what: "Observes teamwork and client-style presentation." },
+          { name: "Assessment day or case round", format: "UK graduate assessment centre is half a day with a group exercise, a 1:1 strengths-based interview and a short presentation; Australia uses a full day with interviews and cases", what: "Observes teamwork and structured problem solving. Capgemini describes consulting case interviews as guided and about 45 minutes." },
           { name: "One-to-one interview", format: "Often with a senior person; may include lunch with staff", what: "Review of case and presentation, plus competency questions." },
         ],
         behavioral: {
@@ -539,6 +564,10 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Capgemini: Recruitment process (official)", url: "https://www.capgemini.com/careers/join-capgemini/recruitment-process/" },
+      { label: "Capgemini Invent UK: Accelerate recruitment process (official)", url: "https://www.capgemini.com/gb-en/careers/career-paths/careers-at-capgemini-invent/accelerate-programme/accelerate-recruitment-process/" },
+      { label: "Capgemini USA: Interview tips (official)", url: "https://www.capgemini.com/us-en/careers/join-capgemini/interview-tips/" },
+      { label: "Capgemini Sweden: Recruitment process (official)", url: "https://www.capgemini.com/se-en/careers/join-capgemini/recruitment-process/" },
       { label: "Glassdoor: Capgemini Invent interview report (assessment day)", url: "https://www.glassdoor.co.uk/Interview/Capgemini-Invent-Interview-E589990-RVW14087932.htm" },
       { label: "Glassdoor: Capgemini Invent interview report", url: "https://www.glassdoor.com/Interview/Capgemini-Invent-Interview-E589990-RVW16585328.htm" },
       { label: "Glassdoor: Capgemini Invent interview report (recent)", url: "https://www.glassdoor.co.uk/Interview/Capgemini-Invent-Interview-E589990-RVW87055028.htm" },
@@ -548,9 +577,9 @@ export const conB: CompanyGuide[] = [
   {
     companyId: "west-monroe",
     summary:
-      "West Monroe is a Chicago-founded management and technology consultancy. Candidate reports describe a talent screen (a recorded video screen for some), behavioral interviews with several levels, and a case with a manager. Cases are reported as moderate, and the evidence base is small.",
+      "West Monroe is a Chicago-founded management and technology consultancy. Its careers pages describe an interview loop on Zoom/Teams or in person, with several interviewers in sequence, a roughly 45-minute story-based case from a real project, and values-based behavioral questions; a recruiter follows up after the team debrief. Earlier screening steps rely on candidate reports.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "consulting",
@@ -559,7 +588,7 @@ export const conB: CompanyGuide[] = [
           { name: "Application", format: "Online or campus application", what: "Resume screen; many early-career hires come through campus." },
           { name: "Talent acquisition screen or recorded video", format: "Call or HireVue-style video", what: "Background and motivation; one candidate heard back two to three weeks later." },
           { name: "Behavioral interviews", format: "Conversations with a senior consultant, senior manager and partner in one report", what: "Resume walk-through and experience questions." },
-          { name: "Case interview", format: "With a manager", what: "Moderate business case with quick math; one candidate described a conversational format." },
+          { name: "Case interview", format: "About 45 minutes per West Monroe; a story-based case drawn from a real project", what: "Judged on critical thinking, problem solving and communication rather than industry knowledge; the firm advises asking clarifying questions first. Candidates report quick math." },
           { name: "Decision", format: "Recruiter call", what: "Reported timelines range from about five weeks to two months." },
         ],
         behavioral: {
@@ -596,6 +625,9 @@ export const conB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "West Monroe: The interview process (official)", url: "https://www.westmonroe.com/career-insights/the-interview-process" },
+      { label: "West Monroe: How to ace your case study interview (official)", url: "https://www.westmonroe.com/career-insights/how-to-ace-your-case-study-interview" },
+      { label: "West Monroe: Values alignment instead of fit (official)", url: "https://www.westmonroe.com/careers/resources/point-of-view/why-we-focus-on-values-alignment-instead-of-fit-during-interviews" },
       { label: "Glassdoor: West Monroe interview report", url: "https://clear.glassdoor.nl/Interview/West-Monroe-Interview-E118343-RVW8847410.htm" },
       { label: "Glassdoor: West Monroe interview report (second)", url: "https://clear.glassdoor.nl/Interview/West-Monroe-Interview-E118343-RVW31849766.htm" },
       { label: "Glassdoor: West Monroe interview report (third)", url: "https://clear.glassdoor.nl/Interview/West-Monroe-Interview-E118343-RVW36204416.htm" },

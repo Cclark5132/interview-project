@@ -4,9 +4,9 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "tesla",
     summary:
-      "Tesla's engineering hiring is commonly reported as fast and team-driven: a short recruiter call, then one or more conversations with the hiring manager and engineers, sometimes with a presentation or panel. Technical fundamentals and in-depth discussion of your own projects carry most of the weight. No official process description was found, so details rest on candidate reports.",
+      "Tesla's public interview guide is general: recruiters reach out when they want to interview you, questions can be technical where relevant, and the interviewer may value your thought process over a correct answer. Stage-by-stage detail (recruiter call, hiring manager and engineer interviews, sometimes a panel) rests on candidate reports and varies by team.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "engineering",
@@ -15,7 +15,7 @@ export const engB: CompanyGuide[] = [
           {
             name: "Online application",
             format: "Resume submitted on the careers site, sometimes with a profile link",
-            what: "A resume screen against the posting. Candidates say teams vary widely, so tailor the resume to the specific group and its product.",
+            what: "A resume screen against the posting. Tesla's intern guidance says recruiters reach out when they want to interview you and cannot contact every applicant, so tailor the resume to the specific group and its product.",
           },
           {
             name: "Recruiter screen",
@@ -46,7 +46,7 @@ export const engB: CompanyGuide[] = [
         behavioral: {
           star: "helpful",
           style:
-            "Behavioral content is lighter than at traditional manufacturers and varies by interviewer. Some candidates report it only in the recruiter call, others in every round. Concise, specific stories work well.",
+            "Behavioral content varies by interviewer; candidates place it in the recruiter call or spread across rounds. Tesla's own prep guide suggests thinking through questions such as your hardest challenge and why Tesla. Concise, specific stories work well.",
           themes: ["Motivation for Tesla and the mission", "Hands-on problem solving", "Persistence under pressure", "Ownership and pace"],
           examples: [
             "Walk me through yourself and why this team interests you.",
@@ -60,7 +60,7 @@ export const engB: CompanyGuide[] = [
           share: "Most of the interview time for engineering roles, commonly reported",
           topics: ["Statics and strength of materials", "Fluids and thermodynamics basics", "Circuits and power electronics fundamentals", "Manufacturing and DFM", "Coding basics for test or software-leaning roles"],
           style:
-            "Conversational problem solving, often on a whiteboard or shared screen, with the interviewer pressing on reasoning. Fundamentals from your coursework are fair game.",
+            "Conversational problem solving with the interviewer pressing on reasoning. Tesla's guide says a compelling thought process can matter more than a correct answer and that vague questions may test whether you state assumptions. Fundamentals from coursework are fair game.",
         },
         projects:
           "Candidates say to expect detailed probing of resume projects: what you designed, your analysis, trade-offs and what failed. Student team work such as Formula SAE, solar car or robotics is directly relevant. Be ready to explain every line of your resume.",
@@ -74,13 +74,18 @@ export const engB: CompanyGuide[] = [
           "Prepare a two-minute and a ten-minute version of each major project, including numbers, trade-offs and failures.",
           "Research the specific team's product and recent public news so your interest sounds concrete.",
           "Have a crisp answer for why Tesla and why this team.",
-          "Think out loud and state assumptions; interviewers care about reasoning more than a perfect answer.",
+          "Think out loud and state assumptions; Tesla's own guide says reasoning can matter more than a perfect answer.",
+          "Read Tesla's interview preparation guide and tailor your resume to the job description.",
+          "Manufacturing Development Program applicants: Tesla describes information sessions and interviews, then a Trainee offer.",
           "Bring examples of real hands-on work such as builds, tests or debugging, not only coursework.",
           "Ask the recruiter what each round will cover, since formats differ by team.",
         ],
       },
     ],
     sources: [
+      { label: "Tesla: Preparing for your interview (official guide)", url: "https://digitalassets.tesla.com/tesla-contents/image/upload/preparing-for-your-interview_en" },
+      { label: "Tesla careers: Intern resources (official)", url: "https://www.tesla.com/careers/intern-resources" },
+      { label: "Tesla careers: Manufacturing Development Program (official)", url: "https://www.tesla.com/careers/manufacturing-development-program" },
       { label: "Glassdoor Tesla interview report", url: "https://www.glassdoor.com/Interview/Tesla-Interview-E43129-RVW100831001.htm" },
       { label: "Glassdoor Tesla interview report (2)", url: "https://www.glassdoor.com/Interview/Tesla-Interview-E43129-RVW74692593.htm" },
       { label: "EV Careers: Tesla interview processes", url: "https://ev.careers/blog/interview-questions-processes-at-tesla-motors" },
@@ -91,7 +96,7 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "rivian",
     summary:
-      "Rivian's engineering interviews are commonly reported as a recruiter screen, a technical screen, a hiring manager conversation and a final loop mixing technical and behavioral rounds. Past-project presentations and discussion of design decisions come up often for hardware roles. Evidence is mostly anonymous reports and prep-site guides, so treat the details as indicative.",
+      "Rivian's public candidate guidance describes a recruiter screen, team interviews (one-on-one, panel, presentation or group, varying by team) and a team debrief. Reports from candidates add a technical screen, a hiring manager conversation and a final loop, with project presentations common for hardware roles. The finer detail is anonymous and indicative.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -133,7 +138,7 @@ export const engB: CompanyGuide[] = [
         behavioral: {
           star: "expected",
           style:
-            "Reports describe structured behavioral questions tied to company values and team fit, especially for manufacturing roles. Preparing one example per value is a commonly given tip.",
+            "Reports describe structured behavioral questions tied to company values and team fit. Rivian's candidate guidance suggests framing answers as problem, solution and impact (what the challenge was, what you did, what resulted) and avoiding confidential details from past employers.",
           themes: ["Why electric vehicles and why Rivian", "Team fit", "Decision making on past projects", "Root-cause problem solving", "Values alignment"],
           examples: [
             "Why do you want to work on electric vehicles?",
@@ -160,13 +165,16 @@ export const engB: CompanyGuide[] = [
           "Build a 10 to 15 minute project talk with a clear problem, your contribution, analysis, results and lessons.",
           "Review DFM/DFA, tolerance basics and material selection for mechanical roles.",
           "Review MOSFET switching, amplifiers, and basic power electronics for electrical roles.",
-          "Prepare one STAR story for each major company value you can find on their site.",
+          "Structure stories as problem, solution, impact (Rivian's suggested format); STAR works the same way.",
+          "Ask your recruiter which interview formats your team uses; Rivian says they differ by role.",
           "Have a specific answer to why EVs and why Rivian beyond brand interest.",
           "Talk through reasoning aloud during technical rounds.",
         ],
       },
     ],
     sources: [
+      { label: "Rivian support: Careers (official)", url: "https://rivian.com/support/careers" },
+      { label: "Rivian careers site (official)", url: "https://careers.rivian.com/careers-home/" },
       { label: "DesignGurus: Rivian interview process", url: "https://www.designgurus.io/answers/detail/what-is-the-rivian-interview-process-like-round-by-round" },
       { label: "Blind: Rivian mechanical design engineer interview", url: "https://www.teamblind.com/post/rivian-mechanical-design-engineer-interview-doe05fj7" },
       { label: "CleverPrep: Rivian mechanical engineer", url: "https://www.cleverprep.com/companies/rivian/mechanical-engineer" },
@@ -177,7 +185,7 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "ford",
     summary:
-      "Ford recruits many engineers through campus career fairs and its College Graduate rotational program, with interns often converting. Candidate reports describe a short screen, then interviews with managers that mix behavioral and technical questions, sometimes with a Dearborn site visit. Evidence is anecdotal and dated in places.",
+      "Ford's careers site presents the College Graduate program as a rotational path of 24 to 36 months, and says exceptional interns may be offered a place in it. It does not publish interview steps; candidate reports describe a short screen, then manager interviews mixing behavioral and technical questions, sometimes with a Dearborn site visit. Those reports are anecdotal and dated in places.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -208,7 +216,7 @@ export const engB: CompanyGuide[] = [
           {
             name: "Offer / program placement",
             format: "Recruiter contact",
-            what: "Reported timelines range from days to several months. Program candidates (Ford College Graduate) rotate through multiple assignments over roughly two to three years.",
+            what: "Reported timelines range from days to several months. Ford's careers site describes the Ford College Graduate program as rotational assignments lasting 24 to 36 months depending on skill team.",
           },
         ],
         behavioral: {
@@ -248,6 +256,8 @@ export const engB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Ford careers: Students and graduates (official)", url: "https://www.careers.ford.com/students-graduates" },
+      { label: "Ford careers: Recent graduate programs (official)", url: "https://www.careers.ford.com/en/programs/recent-graduate-programs.html" },
       { label: "Jointaro: Ford PD engineer interview", url: "https://www.jointaro.com/interviews/companies/ford/work-experiences/pd-engineer-november-6-2017-4-821e31b1" },
       { label: "Jointaro: Ford mechanical engineer interview", url: "https://www.jointaro.com/interviews/companies/ford/work-experiences/mechanical-engineer-dearborn-mi-october-15-2014-4-074634f8/" },
       { label: "Glassdoor Ford interview report", url: "https://static.glassdoor.com.br/Interview/Ford-Motor-Company-Interview-E263-RVW5488194.htm" },
@@ -258,7 +268,7 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "gm",
     summary:
-      "GM early-career engineering hiring is commonly reported as a recruiter call, a recorded HireVue-style video interview, then live interviews with managers that are mostly behavioral and resume-based. Some paths end with a visit to the Detroit area. Technical depth varies by role and is often discussed through your experience.",
+      "GM's careers site says internship interviews are typically structured interviews with team leaders, sometimes with a skills assessment, and its TRACK rotational program typically uses one 60-minute interview with two business leaders (plus a technical assessment in some technical areas). Answers should use specific past examples in STAR form. Candidates additionally report recorded video interviews and site visits, which GM's pages did not confirm.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -329,11 +339,16 @@ export const engB: CompanyGuide[] = [
           "Know GM's recent vehicles, EV strategy and the business area you are applying to.",
           "Re-read your resume and be ready to explain each project and tool.",
           "Have a clear reason for choosing automotive and GM.",
-          "Confirm with the recruiter whether the final round is virtual or on site.",
+          "Confirm with the recruiter whether the final round is virtual or on site, and whether a skills assessment or recorded video step applies to your posting.",
+          "Read GM's How We Hire page and interview toolkit; the toolkit is from 2022, so check it against what your recruiter tells you.",
         ],
       },
     ],
     sources: [
+      { label: "GM careers: How we hire (official)", url: "https://search-careers.gm.com/en/how-we-hire/" },
+      { label: "GM careers: Early careers internship program (official)", url: "https://search-careers.gm.com/en/early-careers/internship-program/" },
+      { label: "GM careers: TRACK rotation program (official)", url: "https://search-careers.gm.com/en/early-careers/track-program/" },
+      { label: "GM interview preparation toolkit (official, 2022)", url: "https://search-careers.gm.com/media/euri3exg/gm-interview-toolkit-2022-translated.pdf" },
       { label: "VMI Career Services: Career Perspective, General Motors", url: "https://sites.vmi.edu/careerservices/?p=156" },
       { label: "Jointaro: GM validation engineer interview (2025)", url: "https://www.jointaro.com/interviews/companies/general-motors/work-experiences/validation-engineer-warren-mi-march-5-2025-3-ee0ac11a/" },
       { label: "Jointaro: GM manufacturing engineering interview", url: "https://www.jointaro.com/interviews/companies/general-motors/work-experiences/manufacturing-engineering-arlington-tx-june-2-2022-5-3b532631/" },
@@ -344,7 +359,7 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "caterpillar",
     summary:
-      "Caterpillar's entry-level engineering interviews are commonly reported as campus or phone screens followed by back-to-back manager interviews that are mostly behavioral. Technical questions tend to be practical and tied to your projects or internships. Evidence is anecdotal and varies by site and business unit.",
+      "Caterpillar's careers pages say interviews are behavioral (STAR style), with advice to prepare several examples and speak about your own contribution. Its UK early-careers postings list online application, online assessments, a video interview and an assessment centre. US entry-level reports describe campus or phone screens then manager interviews, mostly behavioral; these are anecdotal and vary by site.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -381,7 +396,7 @@ export const engB: CompanyGuide[] = [
         behavioral: {
           star: "expected",
           style:
-            "Reviewers say interviewers want STAR-format answers. Questions are straightforward but expect specific examples from internships and projects.",
+            "Caterpillar's recruiter guidance says it uses the STAR behavioral format, advises having several distinct examples, and asks you to say \"I\" rather than \"we\" so your own contribution is clear. Expect examples from internships and projects.",
           themes: ["Accountability of teammates", "Leadership of a project", "Innovation and process improvement", "Handling frustration or failure", "Why Caterpillar"],
           examples: [
             "A teammate was not delivering on time; what did you do?",
@@ -409,12 +424,17 @@ export const engB: CompanyGuide[] = [
           "Be ready to explain internship work in detail.",
           "Know Caterpillar's product lines and the business you are applying to.",
           "Practice answering to a panel, taking notes of who asked what.",
+          "Use \"I\" rather than \"we\" and keep several different examples ready, as Caterpillar's recruiters advise.",
+          "If you apply to a UK placement or graduate scheme, expect online assessments, a video interview and an assessment centre; check the posting.",
           "Review applied fundamentals for your field in the context of machinery.",
           "Prepare a genuine answer on why Caterpillar and the location.",
         ],
       },
     ],
     sources: [
+      { label: "Caterpillar careers: How to ace your Caterpillar interview (official)", url: "https://careers.caterpillar.com/en/life-at-caterpillar/career-blogs/how-to-ace-your-caterpillar-interview/" },
+      { label: "Caterpillar careers: How to ace your virtual interview (official)", url: "https://careers.caterpillar.com/en/life-at-caterpillar/career-blogs/how-to-ace-your-virtual-interview/" },
+      { label: "Caterpillar UK placement posting with selection steps (official)", url: "https://careers.caterpillar.com/en/jobs/r0000396146/design-and-development-engineering-12-month-placement-scheme/" },
       { label: "Glassdoor Caterpillar interview (South Milwaukee)", url: "https://www.glassdoor.co.in/Interview/Caterpillar-Interview-E137-RVW7596040.htm" },
       { label: "Glassdoor Caterpillar interview report", url: "https://www.glassdoor.co.uk/Interview/Caterpillar-Interview-E137-RVW661725.htm" },
       { label: "Glassdoor Caterpillar interview report (2)", url: "https://www.glassdoor.co.uk/Interview/Caterpillar-Interview-E137-RVW2328000.htm" },
@@ -425,7 +445,7 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "john-deere",
     summary:
-      "John Deere's interviews are commonly reported as a phone screen, a hiring manager conversation and a final round of one-hour competency-based behavioral interviews with two interviewers each. Evidence on engineering technical content was thin, so expect it to come through project discussion.",
+      "Deere's public pages say little about interview steps beyond noting that interviews may be face to face, by phone or by video and may include behavioral or technical assessments. Candidate reports describe a phone screen, a hiring manager conversation and one-hour competency-based behavioral interviews with two interviewers. Engineering technical content is poorly documented, so ask your recruiter.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -495,6 +515,9 @@ export const engB: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "John Deere careers FAQ (official; no stage detail)", url: "https://www.deere.com/en/our-company/john-deere-careers/faq/" },
+      { label: "John Deere recruiting privacy statement (official; mentions interview and assessment types)", url: "https://www.deere.com/assets/pdfs/common/our-company/careers/privacy-statement-canada-en.pdf" },
+      { label: "John Deere students and recent graduates (official)", url: "https://about.deere.com/en-us/careers/students-and-recent-graduates" },
       { label: "Glassdoor John Deere interview report", url: "https://www.glassdoor.co.uk/Interview/John-Deere-Interview-E195-RVW636605.htm" },
       { label: "Glassdoor John Deere interview (Waterloo, IA)", url: "https://www.glassdoor.es/Entrevista/John-Deere-Entrevista-E195-RVW94282808.htm" },
       { label: "Glassdoor John Deere interview (Dubuque, IA)", url: "https://www.glassdoor.es/Entrevista/John-Deere-Entrevista-E195-RVW77077841.htm" },
@@ -503,9 +526,9 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "boston-dynamics",
     summary:
-      "Boston Dynamics interviews are commonly reported as a recruiter call, one or more technical screens, and a multi-round loop with technical depth, a presentation of past work and behavioral questions. Robotics experience is clearly valued. Most detail covers software roles; mechanical evidence is limited to a few reports.",
+      "Boston Dynamics' own FAQ says the process is an online application, resume review, interviews and possibly technical assessments or presentations depending on role and level, taking a few weeks to a few months. Candidate reports fill in a recruiter call, technical screens and a multi-round loop with a work presentation. Most detail covers software roles; mechanical evidence is thin.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "engineering",
@@ -569,11 +592,14 @@ export const engB: CompanyGuide[] = [
           "Review C++ and Python basics if applying to software or firmware.",
           "Be ready to discuss a hardware-software integration bug you solved.",
           "Study the company's public robots and their design challenges.",
-          "Ask the recruiter for the exact structure for your team.",
+          "Ask the recruiter for the exact structure for your team; the company says assessments or presentations depend on position and level.",
+          "For internships, watch for postings in the new year (10 to 12 week internships or 6 month co-ops, per the careers page).",
         ],
       },
     ],
     sources: [
+      { label: "Boston Dynamics FAQ (official)", url: "https://bostondynamics.com/faq/" },
+      { label: "Boston Dynamics careers (official)", url: "https://bostondynamics.com/careers/" },
       { label: "TechPrep: Boston Dynamics interview process", url: "https://www.techprep.app/blog/boston-dynamics-interview-process" },
       { label: "DesignGurus: Boston Dynamics interview process", url: "https://www.designgurus.io/answers/detail/what-is-the-boston-dynamics-interview-process-like-round-by-round" },
       { label: "Blind: Boston Dynamics interview experience", url: "https://www.teamblind.com/post/interview-working-experience-at-boston-dynamics-8yedxrhy" },
@@ -664,9 +690,9 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "siemens",
     summary:
-      "Siemens graduate hiring is commonly described as an online application, an online assessment, technical interviews, a managerial or panel round and an HR round. Candidates also mention assessment centres. Most available evidence is from India and Europe, so US processes may differ.",
+      "Siemens' US pages say recruiters review applications, then interviews may be an on-demand recorded video, a scheduled video or phone call, or an on-site meeting, with online tests or an assessment day for some roles; the process takes several weeks. Its graduate programme adds CV screening, an interview and an assessment centre. Round-by-round detail (aptitude tests, panel, HR) comes from mostly non-US candidate reports.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "engineering",
@@ -728,12 +754,17 @@ export const engB: CompanyGuide[] = [
           "Know your final-year or capstone project thoroughly.",
           "Prepare a sincere why-Siemens answer tied to a specific business.",
           "Practice aptitude and logic tests.",
-          "Prepare STAR stories for assessment-centre style discussions.",
+          "Prepare STAR stories for assessment-centre style discussions; Siemens' software early-talent page recommends the STAR format.",
+          "Do not use AI to generate answers live; Siemens' guidelines permit AI for polishing and research but not during interviews or assessments.",
           "Check your country's graduate page for the exact stages, since sources here are mostly non-US.",
         ],
       },
     ],
     sources: [
+      { label: "Siemens US: How to apply (official)", url: "https://www.siemens.com/en-us/company/jobs/how-to-apply/" },
+      { label: "Siemens US: Frequently asked questions (official)", url: "https://www.siemens.com/en-us/company/jobs/faq/" },
+      { label: "Siemens US: Student and early career programs (official)", url: "https://www.siemens.com/us/en/company/jobs-careers/early-career-programs.html" },
+      { label: "Siemens Graduate Programs (official)", url: "https://www.siemens.com/en-us/company/jobs/growth-careers/siemens-graduate-program/" },
       { label: "Glassdoor Siemens interview report", url: "https://clear.glassdoor.nl/Interview/Siemens-Interview-E3510-RVW4508711.htm" },
       { label: "Glassdoor Siemens interview (Nuremberg, 2023)", url: "https://static.glassdoor.com.hk/Interview/Siemens-Interview-E3510-RVW103640656.htm" },
       { label: "CleverPrep: Siemens interview guide", url: "https://www.cleverprep.com/companies/siemens" },
@@ -743,9 +774,9 @@ export const engB: CompanyGuide[] = [
   {
     companyId: "3m",
     summary:
-      "3M interviews are commonly reported as a phone screen followed by manager or panel interviews that mix behavioral and technical questions, with campus interviews lighter and centered on your research or projects. Career fairs and internships are cited as key entry points. Most available reports cover experienced hires or older cycles.",
+      "3M's candidate pages describe an initial phone screen followed by one or more in-person interviews, one-on-one or panel, usually with the hiring manager and possibly peers, direct reports or HR. Behavioral \"tell me about a time\" questions are expected and the company stresses authenticity. Campus-specific and technical detail comes from older candidate reports.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "engineering",
@@ -806,13 +837,17 @@ export const engB: CompanyGuide[] = [
           "Prepare STAR stories on obstacles, difficult teammates and results.",
           "Be ready to present research or a major project clearly.",
           "Research 3M's business groups and product families.",
-          "Be authentic rather than guessing what interviewers want to hear.",
+          "Be authentic rather than guessing what interviewers want to hear; 3M recruiters call phrases like \"team player\" overused, so give a real example instead.",
+          "Quantify results, and ask the hiring manager whether to bring a presentation or work samples; bring photo ID for secured sites.",
           "Use career fairs and internships as the main route in.",
           "Prepare questions about the team and rotational opportunities.",
         ],
       },
     ],
     sources: [
+      { label: "3M careers: Application to interview, what the hiring process is like (official)", url: "https://www.3m.com/3M/en_US/careers-us/stay-connected/insights-for-candidates/full-story/?storyid=00d48a6b-b988-4b54-bc1c-c8cccaeca737" },
+      { label: "3M careers: Preparing for a 3M interview checklist (official)", url: "https://www.3m.com/3M/en_US/careers-us/stay-connected/insights-for-candidates/full-story/?storyid=a831acd3-1f70-4951-bdf7-2102a3c163df" },
+      { label: "3M careers: Bringing your authentic self to an interview (official)", url: "https://www.3m.com/3M/en_US/careers-us/stay-connected/insights-for-candidates/full-story/?storyid=d314f0a0-072a-4f5b-bb11-f9c80931a975" },
       { label: "Gradcracker: 3M blogs", url: "https://www.gradcracker.com/hub/17/3m/blogs" },
       { label: "Glassdoor 3M interview report", url: "https://www.glassdoor.co.uk/Interview/3M-Interview-E446-RVW269821.htm" },
       { label: "Glassdoor 3M interview (Saint Paul, 2011)", url: "https://www.glassdoor.sg/Interview/3M-Interview-E446-RVW7046525.htm" },

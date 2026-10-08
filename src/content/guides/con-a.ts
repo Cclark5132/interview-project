@@ -5,7 +5,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "mckinsey",
     summary:
-      "McKinsey screens with an application review and the Solve online game, then runs case-plus-experience interviews in two rounds. Each live interview commonly pairs a business case with a structured deep dive into your own past experiences. Details below are commonly reported by prep sources and vary by office.",
+      "McKinsey screens with an application review and the Solve online game, then runs case-plus-experience interviews in two rounds. Each live interview commonly pairs a business case with a structured deep dive into your own past experiences. McKinsey's own interviewing page confirms the personal experience plus problem-solving (case) pairing and lists Solve as a separate assessment; round counts, timings and weighting below come from third-party reports and vary by office.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -14,7 +14,7 @@ export const conA: CompanyGuide[] = [
         label: "Business analyst / associate",
         stages: [
           { name: "Application and resume screen", format: "Online application with resume (and cover letter in some offices)", what: "Academic record, leadership and impact, and evidence of problem-solving. Offices set their own cycles, so check your campus and office deadlines early." },
-          { name: "Solve (online game)", format: "Adaptive game with a few unpausable mini-scenarios; commonly reported at roughly 60 to 110 minutes total, with a deadline of several days after the invitation", what: "Decision-making, information gathering and analysis under time pressure. No business knowledge needed. Sources differ on exact games and length, and results are weighed with the rest of your application." },
+          { name: "Solve (online game)", format: "Adaptive game with a few unpausable mini-scenarios; length and deadline are not published on the pages checked; prep sources report roughly 60 to 110 minutes", what: "Decision-making, information gathering and analysis under time pressure. No business knowledge needed. Sources differ on exact games and length, and results are weighed with the rest of your application." },
           { name: "First-round interviews", format: "Commonly two interviews of about 30 to 45 minutes each, by video or in person, with consultants or managers", what: "Each interview typically combines a case and a personal-experience segment. Interviewers assess structuring, quantitative reasoning and communication." },
           { name: "Final-round interviews", format: "Commonly two or three further case-plus-experience interviews with partners or senior associate partners", what: "Harder or more open cases, deeper probing of your stories, and a read on judgment and how you would be with clients and teams." },
           { name: "Decision and offer", format: "Usually communicated within days of the final round", what: "Feedback on the Solve score and interviews may be offered; ask your recruiter." },
@@ -22,7 +22,7 @@ export const conA: CompanyGuide[] = [
         behavioral: {
           star: "helpful",
           style:
-            "The Personal Experience Interview is a dedicated segment of each interview in which the interviewer picks one experience and drills into it with follow-ups. It is commonly reported as a substantial share of each session, so treat it as roughly as important as the case.",
+            "The Personal Experience Interview is a dedicated segment of each interview in which the interviewer picks one experience and drills into it with follow-ups. McKinsey advises preparing two examples of impact for each area it assesses, with detail on the challenge and your own actions. Treat it as roughly as important as the case.",
           themes: ["Personal impact", "Leadership", "Entrepreneurial drive", "Inclusive teamwork", "Courage and resilience"],
           examples: [
             "Describe a time you led a group toward a goal when no one made you the leader.",
@@ -33,10 +33,10 @@ export const conA: CompanyGuide[] = [
           ],
         },
         technical: {
-          share: "About half of each interview is a case",
+          share: "A substantial part of each client-facing interview (exact split not published)",
           topics: ["Business structuring", "Mental math and charts", "Market sizing", "Hypothesis-driven problem solving", "Synthesis and recommendation"],
           style:
-            "Commonly described as interviewer-led: the interviewer poses a series of linked questions, asks you to structure, analyze exhibits and calculate, and finishes by asking for a concise recommendation. Practice reacting to questions, not only driving a self-built framework.",
+            "McKinsey describes the case as a business problem testing analytical thinking, and alumni on its blog stress breaking problems down over memorised frameworks. Prep sources describe it as interviewer-led: the interviewer poses a series of linked questions, asks you to structure, analyze exhibits and calculate, and finishes by asking for a concise recommendation. Practice reacting to questions, not only driving a self-built framework.",
         },
         projects:
           "Expect sustained follow-up questions on one story: your exact role, what you decided, what you would do differently, and the measurable result. Prepare three or four detailed stories from different settings and be ready to go several layers deep on each.",
@@ -45,7 +45,7 @@ export const conA: CompanyGuide[] = [
           { roleId: "strategy-associate", notes: "Associate (MBA or advanced-degree) hires commonly report the same case-plus-experience structure with more business context expected in your examples." },
         ],
         prep: [
-          "Practice Solve-style tasks only for familiarity; the firm says no prior knowledge is required, so focus on staying calm and methodical.",
+          "Treat Solve as a separate online step; check the official careers page and your recruiter for current format, and do not rely on forum details.",
           "Do cases with a partner who plays interviewer-led style and interrupts with the next question.",
           "Build a story bank of three or four experiences and rehearse deep follow-up probing on each, not just a polished first answer.",
           "Drill mental math, growth rates, percentages and reading charts quickly and accurately.",
@@ -56,6 +56,7 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "McKinsey careers: interviewing at McKinsey (official)", url: "https://www.mckinsey.com/careers/interviewing" },
       { label: "McKinsey careers blog: experience with the Problem Solving Game", url: "https://www.mckinsey.com/careers/meet-our-people/careers-blog/my-experience-with-the-mckinsey-problem-solving-game" },
       { label: "IGotAnOffer: McKinsey Solve guide", url: "https://igotanoffer.com/blogs/mckinsey-case-interview-blog/mckinsey-problem-solving-game" },
       { label: "Slidescience: McKinsey problem solving game", url: "https://slidescience.co/mckinsey-problem-solving-game/" },
@@ -66,7 +67,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "bcg",
     summary:
-      "BCG commonly screens candidates with online assessments, including the Casey chatbot case, before live interviews. Live rounds are usually case-led with a short fit segment, with the final round led by more senior leaders. Process details come mostly from third-party guides and vary by office.",
+      "BCG's official country pages confirm an online application, an online assessment that varies by region (in the US a roughly 30 to 35 minute career assessment, then an online case for some), and case-led interviews, with case workshops offered to prepare. Round structure and the fit segment come mostly from third-party guides and vary by office.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -75,7 +76,7 @@ export const conA: CompanyGuide[] = [
         label: "Business analyst / associate",
         stages: [
           { name: "Application and resume screen", format: "Online application with resume", what: "Academics, leadership, and evidence of impact. Recruiting follows office-specific cycles, so verify dates with your campus or office." },
-          { name: "Online assessment (Casey chatbot case)", format: "Chatbot-led case at home, commonly reported at about 30 to 35 minutes, with multiple-choice and open items; some reports mention a short recorded video recommendation", what: "Structuring, data analysis and reasoning. You usually cannot go back or ask clarifying questions. Some guides also describe a separate numerical or work-style assessment; confirm what your office uses." },
+          { name: "Online assessment (Casey chatbot case)", format: "Online assessment whose form depends on region; BCG US lists a roughly 30 to 35 minute assessment sent soon after applying, with a 48-hour window, and an online case of about 35 minutes for select candidates", what: "Structuring, data analysis and reasoning. UK, Switzerland and Australia/NZ pages describe numerical, cognitive or online case variants instead, so confirm what your office uses." },
           { name: "Recruiter or phone screen", format: "Short call, in some offices", what: "Motivation, resume walk-through and basic fit." },
           { name: "First round", format: "Commonly two interviews of about 45 minutes with consultants or managers", what: "Each is reported as a short fit segment of roughly 10 minutes followed by a candidate-led case of about 30 minutes." },
           { name: "Final round", format: "Commonly two or three interviews with principals, partners or managing directors; a written case appears in some US reports", what: "More demanding cases, deeper fit, and judgment under ambiguity and pressure." },
@@ -106,17 +107,20 @@ export const conA: CompanyGuide[] = [
           { roleId: "strategy-associate", notes: "Associate and MBA candidates commonly report the same interview structure; written case exercises are reported in some US final rounds." },
         ],
         prep: [
-          "Practice chatbot-style online cases with a timer; accuracy and speed matter because you cannot go back.",
+          "Practice timed online cases and numerical tests; the exact assessment depends on your region.",
           "Rehearse candidate-led cases where you drive the structure and ask for the data you need.",
           "Avoid reciting a framework; adapt the structure to the specific question.",
-          "Plan for several weeks of regular practice; guides suggest tens of hours.",
+          "Use BCG's case library and attend its case workshops or preparation calls where offered.",
           "Prepare a concise two-minute walk-through of your background and why BCG.",
           "Practice a short written or slide-based synthesis in case your final round includes one.",
-          "Confirm the current assessment lineup with your recruiter, since reports differ.",
+          "Check your country's BCG careers page for the current assessment and interview lineup.",
         ],
       },
     ],
     sources: [
+      { label: "BCG careers: application and interviews, Switzerland (official)", url: "https://careers.bcg.com/global/en/locations/switzerland/application-interviews" },
+      { label: "BCG careers: ANZ graduate recruitment (official)", url: "https://careers.bcg.com/global/en/locations/australia-new-zealand/associate-recruitment" },
+      { label: "BCG recruiting: candidate FAQs (official)", url: "https://recruiting.bcg.com/Talent_CandidateHelp/Candidate_FAQ.aspx" },
       { label: "Road to Offer: BCG case interview guide", url: "https://www.roadtooffer.com/blog/bcg-case-interview-guide" },
       { label: "Management Consulted: BCG online case", url: "https://managementconsulted.com/bcg-online-case/" },
       { label: "IGotAnOffer: BCG online case assessment", url: "https://igotanoffer.com/en/advice/bcg-online-case-assessment" },
@@ -128,7 +132,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "bain",
     summary:
-      "Bain says its process includes an application review, usually a recruiter call, and multiple interview rounds tailored to the role, which may include a questionnaire, behavioral interview and a case. Candidate reports describe a short fit conversation plus a candidate-led case in each interview, with partners in the final round. Online testing appears in some offices but is inconsistently reported.",
+      "Bain's careers page states that its process includes an application review, usually a recruiter call, and multiple interview rounds tailored to the role, which may include a questionnaire, behavioral interview and a case. Its page gives no timings or case format; candidate reports describe a short fit conversation plus a candidate-led case in each interview, with partners in the final round. Online testing appears in some offices but is inconsistently reported.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -140,7 +144,7 @@ export const conA: CompanyGuide[] = [
           { name: "Recruiter call or online test", format: "Short call; some candidates report a quantitative, cognitive or behavioral online test", what: "Motivation and basic fit. Reports about online tests differ by office and year, so confirm with your recruiter." },
           { name: "First round", format: "Commonly two interviews of about 30 to 45 minutes with consultants or managers", what: "Typically a few fit questions then a case in each session. Some offices report only one session with a fit focus." },
           { name: "Final round", format: "Commonly two or three interviews with managers and partners", what: "Harder cases, more senior fit evaluation, and in some countries a written case: analyze a document pack, build a few slides, then discuss them." },
-          { name: "Feedback and offer", format: "Decision shortly after final round", what: "Bain says candidates learn how interviews went afterward." },
+          { name: "Feedback and offer", format: "Decision shortly after final round", what: "Bain says you are told how each interview went. Bain also warns it never interviews over instant messaging or asks for payments." },
         ],
         behavioral: {
           star: "helpful",
@@ -188,9 +192,9 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "deloitte",
     summary:
-      "Deloitte's consulting hiring is reported as a mix of behavioral interviews and case exercises, sometimes in a multi-part superday that includes a case project and a presentation. Cases are commonly described as less intense than at the strategy elite firms. Evidence is mostly anonymous candidate reports that differ by office and practice.",
+      "Deloitte's US recruiting pages describe meeting the firm, applying, then typically two to three interview rounds (phone, video or in person) mixing behavioral, technical and case interviews depending on role, with offers usually in writing within about a week. Superday contents, case-project and presentation details come from anonymous candidate reports and vary by office and practice.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "consulting",
@@ -204,7 +208,7 @@ export const conA: CompanyGuide[] = [
         behavioral: {
           star: "helpful",
           style:
-            "Behavioral questions are a major part, often a standalone interview with a manager or partner, and generally described as conversational.",
+            "Deloitte's official tips recommend STAR-structured answers tied to your resume, with concrete examples and honest stories since interviewers probe follow-ups. Candidate reports describe a standalone behavioral interview with a manager or partner.",
           themes: ["Why consulting", "Why Deloitte over other firms", "Teamwork", "Client orientation", "Resume walk-through"],
           examples: [
             "Why consulting, and why Deloitte instead of another large firm?",
@@ -217,7 +221,7 @@ export const conA: CompanyGuide[] = [
           share: "Roughly half, varying widely by office",
           topics: ["Guesstimates and market sizing", "Basic profitability or operations cases", "Case project with analysis and slides", "Math (some reports heavy)"],
           style:
-            "Mix of short interview cases and, in some superdays, an hour-long case project followed by a client-style presentation. Practice both the verbal case and a brief structured presentation.",
+            "Deloitte's official case guidance says it assesses structured reasoning, not one right answer: clarify the problem, state assumptions, summarise issues, recommend, then give next steps, and treat the interviewer as a client. Candidate reports add short interview cases and, in some superdays, an hour-long case project followed by a client-style presentation. Practice both the verbal case and a brief structured presentation.",
         },
         projects:
           "Interviewers commonly ask you to walk through your resume. Know why you chose each activity and what you contributed. Offering-specific roles (for example technology or human capital) may probe relevant skills.",
@@ -227,7 +231,7 @@ export const conA: CompanyGuide[] = [
         ],
         prep: [
           "Prepare a clear, specific answer to why Deloitte versus other large firms.",
-          "Practice market sizing and short profitability cases; time flies, so be efficient.",
+          "Use Deloitte's own case and scenario interview tips; practise market sizing and short profitability cases while thinking aloud.",
           "Practice making a short presentation from a case pack and handling questions.",
           "Learn which Deloitte offering you are applying to and what it does.",
           "Ask your recruiter about format: video screen, group exercise and superday content vary.",
@@ -235,6 +239,8 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Deloitte US careers: recruiting tips (official)", url: "https://www.deloitte.com/us/en/careers/join-deloitte/recruiting-tips.html" },
+      { label: "Deloitte US careers: case and scenario interview tips (official)", url: "https://www.deloitte.com/us/en/careers/join-deloitte/recruiting-tips/case-and-scenario-interview-tips.html" },
       { label: "Glassdoor: Deloitte interview report (Canada)", url: "https://www.glassdoor.ca/Interview/Deloitte-Interview-E2763-RVW71027283.htm" },
       { label: "Glassdoor: Deloitte interview report", url: "https://www.glassdoor.com/Interview/Deloitte-Interview-E2763-RVW60116059.htm" },
       { label: "Glassdoor: Deloitte interview report (UK)", url: "https://www.glassdoor.co.uk/Interview/Deloitte-Interview-E2763-RVW39201853.htm" },
@@ -245,7 +251,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "pwc-strategy-and",
     summary:
-      "PwC consulting and Strategy& are described as using a four-step flow: resume screen, online assessment, first-round interviews and second-round interviews. Interviews pair behavioral questions with candidate-led cases, and some tracks add a video interview, group exercise or presentation. Sources are prep guides and a few candidate reports, so treat details as indicative.",
+      "Strategy&'s UK graduate page describes a CV and personal statement plus online assessment, then two back-to-back first-round interviews (an unstructured case that opens with background and motivation, and a structured case from a real project with a slide pack), then a second-round assessment day. The US MBA page lists a round of three case-plus-behavioral interviews. Other details come from prep guides. Interviews pair behavioral questions with candidate-led cases, and some tracks add a video interview, group exercise or presentation. Sources are prep guides and a few candidate reports, so treat details as indicative.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -255,7 +261,7 @@ export const conA: CompanyGuide[] = [
         stages: [
           { name: "Application and resume screen", format: "Online application with resume and sometimes a cover letter", what: "Described as the most selective filter; academics, leadership and relevant experience matter." },
           { name: "Online assessment", format: "Aptitude and reasoning tests; first-round may include a recorded video interview", what: "Numerical and logical reasoning, plus recorded answers to questions or short case prompts in some tracks." },
-          { name: "First-round interviews", format: "Commonly one or two interviews, each with a behavioral part (about 15 minutes) and a case", what: "Candidate-led case such as market sizing and profitability, plus fit." },
+          { name: "First-round interviews", format: "Commonly one or two interviews, each with a behavioral part (about 15 minutes) and a case", what: "UK first round per Strategy&: two roughly 45 minute cases, one unstructured with background questions and one structured with about 10 minutes to review slides. Prep sources add market sizing and profitability." },
           { name: "Second-round interviews", format: "Senior interviews, possibly with a group case or a prepared presentation", what: "Deeper case work and fit with managers and partners; Strategy& leans toward strategic cases." },
         ],
         behavioral: {
@@ -293,6 +299,8 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Strategy& UK: graduates and interns (official)", url: "https://www.strategyand.pwc.com/uk/en/careers/graduates-and-interns.html" },
+      { label: "Strategy& US: MBA careers (official)", url: "https://www.strategyand.pwc.com/us/en/careers/mba.html" },
       { label: "IGotAnOffer: Strategy& PwC case interview", url: "https://igotanoffer.com/blogs/mckinsey-case-interview-blog/strategy-pwc-case-interview" },
       { label: "My Consulting Offer: PwC and Strategy& case interview", url: "https://www.myconsultingoffer.org/case-study-interview-prep/pwc-case-interview-strategy/" },
       { label: "Glassdoor: Strategy& interview report", url: "https://www.glassdoor.co.uk/Interview/Strategy-and-Interview-E875965-RVW8287828.htm" },
@@ -302,7 +310,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "ey-parthenon",
     summary:
-      "EY-Parthenon is described as running two to three interview rounds mixing behavioral questions with candidate-led cases, and sometimes a written or group case in the final round. Cases commonly lean toward private equity, commercial due diligence and growth strategy with finance-flavored math. Evidence is mostly coaching-site guides.",
+      "EY's official pages show the process varies by country: the UK first round is two 25-minute consultant-led cases then a partner interview, the Netherlands adds a numerical test and three partner-level final interviews, and the US Associate Program mixes behavioral and case interviews with a decision typically within a week. Private equity and finance-flavored case emphasis comes from coaching sites.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -312,8 +320,8 @@ export const conA: CompanyGuide[] = [
         stages: [
           { name: "Application and resume screen", format: "Online application via EY careers", what: "Academics, leadership and relevant experience. Apply to EY-Parthenon specifically if you want strategy work rather than general advisory." },
           { name: "Recruiter or behavioral screen", format: "Often a phone or video conversation", what: "Motivation, resume and fit." },
-          { name: "Second-round interview", format: "Behavioral plus a candidate-led case of roughly 30 to 45 minutes", what: "Structuring, quantitative reasoning and communication." },
-          { name: "Final round", format: "Commonly about three interviews with managers and partners; a written or group case in some offices", what: "Harder cases, judgment and client readiness." },
+          { name: "Second-round interview", format: "Varies by country (UK: two 25-minute cases; Netherlands: recruiter interview plus two cases); prep sites report behavioral plus a 30 to 45 minute case in some offices", what: "Structuring, quantitative reasoning and communication." },
+          { name: "Final round", format: "Partner-level interviews (UK: one; Netherlands: three with associate partners or partners); prep sites report a written or group case in some offices", what: "Harder cases, judgment and client readiness." },
         ],
         behavioral: {
           star: "helpful",
@@ -350,6 +358,9 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "EY Netherlands: students and entry-level Parthenon (official)", url: "https://www.ey.com/en_nl/careers/parthenon/students-and-entry-level" },
+      { label: "EY US: EY-Parthenon Associate Program (official)", url: "https://www.ey.com/en_us/careers/parthenon/associate-program" },
+      { label: "EY US: interview tips (official)", url: "https://www.ey.com/en_us/careers/interview-tips" },
       { label: "IGotAnOffer: EY-Parthenon case interview", url: "https://igotanoffer.com/blogs/mckinsey-case-interview-blog/ey-parthenon-case-interview" },
       { label: "Casestar: EY-Parthenon consultant interview", url: "https://www.casestar.io/interviews/ey-parthenon/consultant" },
       { label: "Hacking the Case Interview: EY-Parthenon", url: "https://www.hackingthecaseinterview.com/pages/ey-parthenon-case-interview" },
@@ -360,9 +371,9 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "kpmg",
     summary:
-      "KPMG graduate consulting hiring varies by country and practice. Reports describe an online application and assessment, sometimes a group or presentation exercise, a case interview, and a final senior or culture-fit interview. Evidence is thin and mostly anecdotal.",
+      "KPMG graduate consulting hiring varies by country and practice. KPMG member-firm pages (Sweden, Australia, Turkey, Nigeria, Cambodia) show a common pattern of online tests, an HR or manager interview, sometimes a case-study or group assessment day, and a final partner interview, but stages differ by country, unit and level. Consulting-specific case details come from prep sites.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "consulting",
@@ -408,6 +419,9 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "KPMG Sweden: preparing for your application and interview (official)", url: "https://kpmg.com/se/en/insights/career/prepare-for-your-job-application-and-interview.html" },
+      { label: "KPMG Australia: graduate and student careers (official)", url: "https://kpmg.com/au/en/careers/graduates.html" },
+      { label: "KPMG Cambodia: selection process (official)", url: "https://kpmg.com/kh/en/home/careers/2021-kpmg-graduate-recruiment-program1/our-selection-process.html" },
       { label: "PrepLounge: KPMG consulting firm profile", url: "https://www.preplounge.com/en/blog/consulting/firms/kpmg" },
       { label: "PrepLounge: KPMG interview", url: "https://www.preplounge.com/en/articles/interview-kpmg" },
       { label: "PrepLounge: KPMG case interview", url: "https://www.preplounge.com/en/articles/kpmg-case-interview" },
@@ -418,9 +432,9 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "accenture",
     summary:
-      "Accenture analyst and consulting hiring is commonly described as an online assessment, behavioral interviews and a case interview, sometimes with a group exercise. Technology-oriented roles add technical assessments and a technical interview. Sources disagree on exact stages and vary by region and program.",
+      "Accenture's careers pages say the usual first step is a phone screen and the rest depends on the role: phone, video or in-person interviews, sometimes an online skills or decision-making activity. It recommends STAR for behavioral interviews and describes case interviews as 45 to 60 minutes judged on structure and communication. Technology roles use a timed online coding assessment. Other stage details vary by region and come from prep sites.",
     asOf: "2026-10",
-    confidence: "low",
+    confidence: "medium",
     tracks: [
       {
         group: "consulting",
@@ -435,7 +449,7 @@ export const conA: CompanyGuide[] = [
         behavioral: {
           star: "expected",
           style:
-            "Guides recommend STAR-formatted answers and reflecting adaptability and innovation. Behavioral content is a meaningful part of the process.",
+            "Accenture's own guidance recommends STAR answers and practised, thoughtful responses. Behavioral content is a meaningful part of the process.",
           themes: ["Adaptability", "Innovation", "Teamwork", "Why Accenture", "Client orientation"],
           examples: [
             "Tell me about a time you adapted to a major change.",
@@ -448,7 +462,7 @@ export const conA: CompanyGuide[] = [
           share: "Varies by role; the case is described as the key stage for consulting roles",
           topics: ["Market sizing and estimation", "Business case analysis", "Data interpretation", "Technical topics for technology roles (coding, cloud, networking)"],
           style:
-            "Consulting roles use a business case judged on structure and recommendation. Technology roles can include a technical assessment and a separate technical interview.",
+            "Accenture says case success depends on defining the problem, logical structure and communication rather than a single answer, and publishes a case workbook for practice. Technology roles can include a technical assessment and a separate technical interview.",
         },
         projects:
           "Interviewers ask about prior experience and why you want the role. Technology-track candidates should be ready to discuss projects and tools used.",
@@ -486,17 +500,20 @@ export const conA: CompanyGuide[] = [
         technical: {
           share: "Large for technology tracks",
           topics: ["Coding or pseudocode", "Networking, security and cloud basics", "Common applications"],
-          style: "Online technical assessment followed by a technical interview; format differs by region.",
+          style: "Accenture describes a timed online coding assessment (about 30 to 90 minutes, no outside AI tools unless built in) followed by interviews; format differs by region.",
         },
         projects: "Be ready to discuss projects, tools and your exact contribution in detail.",
         prep: [
           "Review fundamentals for your chosen technology area.",
-          "Practice a brief coding or pseudocode exercise.",
+          "Practise in the HackerRank environment Accenture points to for its coding assessment.",
           "Prepare to explain one project end to end.",
         ],
       },
     ],
     sources: [
+      { label: "Accenture careers: recruiting and hiring process (official)", url: "https://www.accenture.com/us-en/careers/explore-careers/area-of-interest/journey-to-accenture" },
+      { label: "Accenture careers: how to prepare for a behavioral interview (official)", url: "https://www.accenture.com/us-en/blogs/blogs-careers/how-to-prepare-for-a-behavioral-interview" },
+      { label: "Accenture case interview workbook (official PDF)", url: "https://www.accenture.com/content/dam/accenture/final/a-com-migration/manual/r2-2-r2-3/pdf/careers/pdf-14/Accenture-FY19-Case-Workbook.pdf" },
       { label: "PrepLounge: Accenture interview", url: "https://www.preplounge.com/en/articles/interview-accenture" },
       { label: "PrepLounge: Accenture application process", url: "https://www.preplounge.com/en/articles/accenture-application-process" },
       { label: "PrepLounge: Accenture firm profile", url: "https://www.preplounge.com/en/blog/consulting/firms/accenture" },
@@ -507,7 +524,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "oliver-wyman",
     summary:
-      "Oliver Wyman is commonly described as a resume screen, a first round with a case and a fit interview, and a final round with additional cases, a fit interview and sometimes a case presentation. Cases are candidate-led and skew toward financial services. Whether an online numerical test applies is reported inconsistently.",
+      "Oliver Wyman's careers pages describe a conversational fit interview about your background and goals plus interactive case interviews, and publish practice cases with hints and evaluation criteria. Its Latin America page lists a short fit interview then two rounds of two case interviews. Financial-services emphasis, numerical tests and case presentations come from third-party reports and vary by office.",
     asOf: "2026-10",
     confidence: "medium",
     tracks: [
@@ -523,7 +540,7 @@ export const conA: CompanyGuide[] = [
         behavioral: {
           star: "helpful",
           style:
-            "The firm calls its fit part a conversational interview centered on your experiences and the traits they show. It is a dedicated interview in each round rather than only an opener.",
+            "The firm describes the fit part as a conversation about your accomplishments, experiences, interests and career goals, where you can also ask questions. Reports suggest it is a dedicated interview rather than only an opener.",
           themes: ["Resume depth", "Why consulting", "Leading through difficulty", "Team conflict", "Resilience"],
           examples: [
             "Tell me about yourself and why consulting.",
@@ -536,7 +553,7 @@ export const conA: CompanyGuide[] = [
           share: "Roughly half or more of the process",
           topics: ["Candidate-led cases", "Financial services topics (net interest margin, loss and combined ratios, return on equity)", "Market sizing", "Math and exhibit interpretation", "Case presentation (some candidates)"],
           style:
-            "Candidate-led cases similar in style to other strategy firms. Oliver Wyman provides sample cases on its website for practice. Learn basic financial-services vocabulary in advance.",
+            "Candidate-led cases similar in style to other strategy firms. Oliver Wyman advises treating the interviewer as a client, collaborating, spotting priority issues quickly and opening your recommendation with a clear answer in 30 to 60 seconds. It provides sample cases on its website. Learn basic financial-services vocabulary in advance.",
         },
         projects:
           "Fit interviews are experience-driven and often start from the resume. Prepare detailed accounts of leadership and difficult moments, including your own decisions.",
@@ -545,7 +562,7 @@ export const conA: CompanyGuide[] = [
           { roleId: "strategy-associate", notes: "Associate candidates face a similar case-and-fit structure, with financial services and industry exposure helpful." },
         ],
         prep: [
-          "Work through the firm's published sample cases.",
+          "Work through the firm's published sample cases (dairy farm, oil and gas pricing, supermarket pharmacy, autism device) and practise a 30 to 60 second recommendation.",
           "Learn core financial-services metrics before your first interview.",
           "Practice candidate-led cases and quick math.",
           "Prepare experience-based stories about adversity, leadership and team conflict.",
@@ -555,6 +572,9 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "Oliver Wyman careers: interview preparation (official)", url: "https://www.oliverwyman.com/jp/careers/entry-level/interview-preparation.html" },
+      { label: "Oliver Wyman careers: dairy farm practice case (official)", url: "https://www.oliverwyman.com/careers/entry-level/interview-preparation/dairy-farm-case-interview.html" },
+      { label: "Oliver Wyman careers: Latin America entry-level (official)", url: "https://www.oliverwyman.com/careers/entry-level/latin-america.html" },
       { label: "IGotAnOffer: Oliver Wyman case interview", url: "https://igotanoffer.com/blogs/mckinsey-case-interview-blog/oliver-wyman-case-interview" },
       { label: "Hacking the Case Interview: Oliver Wyman", url: "https://www.hackingthecaseinterview.com/pages/oliver-wyman-case-interview" },
       { label: "Final Round AI: Oliver Wyman interview process", url: "https://www.finalroundai.com/blog/oliver-wyman-interview-process" },
@@ -565,7 +585,7 @@ export const conA: CompanyGuide[] = [
   {
     companyId: "lek",
     summary:
-      "L.E.K. says selected candidates attend several rounds mixing case studies and questions about your background, varying by region and level. Candidate and coach reports describe a digital assessment added around 2020, then rounds of case-plus-fit interviews with market sizing and a candidate-led case. Public evidence is limited and partly dated.",
+      "L.E.K. says selected candidates attend several rounds mixing case studies and questions about your background, varying by region and level. L.E.K.'s interview preparation page says rounds mix experiential and case interviews, with quantitative and strategic cases both possible, and advises restating assumptions, structuring and stating hypotheses. Associate blog accounts mention psychometric or math tests. Round counts and the digital assessment come from older or third-party reports.",
     asOf: "2026-10",
     confidence: "low",
     tracks: [
@@ -612,6 +632,8 @@ export const conA: CompanyGuide[] = [
       },
     ],
     sources: [
+      { label: "L.E.K. careers: interview preparation (official)", url: "https://www.lek.com/careers/apply/interview-preparation" },
+      { label: "L.E.K. blog: London interview process (official)", url: "https://www.lek.com/careers/life-lek-blog/london-lek-interview-process-tom-adams" },
       { label: "L.E.K. Consulting: apply", url: "https://www.lek.com/apply" },
       { label: "Case Interview: L.E.K. profile", url: "https://caseinterview.com/lek-consulting" },
       { label: "PrepLounge: L.E.K. consulting thread", url: "https://www.preplounge.com/en/consulting-forum/lek-consulting-9684" },
