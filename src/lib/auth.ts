@@ -3,10 +3,13 @@ import { getServerSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
+import { rateLimit, resetLimit } from "@/server/ratelimit";
 
-// Light in-process throttle against password guessing (per email). Production would use a shared store.
-const failures = new Map<string, { n: number; until: number }>();
-const MAX_FAILS = 6;
+// Password-guess throttle in the shared database, keyed by network address (and address + email), never by email
+// alone: otherwise anyone could lock the owner out by guessing their address. Cleared on a successful sign-in.
+const LOGIN_WINDOW = 15 * 60_000;
+const MAX_PER_EMAIL = 6;
+const MAX_PER_IP = 30;
 const DUMMY_HASH = bcrypt.hashSync("not-a-real-password", 12);
 
 export const authOptions: NextAuthOptions = {
@@ -16,21 +19,26 @@ export const authOptions: NextAuthOptions = {
     Credentials({
       name: "Email and password",
       credentials: { email: {}, password: {} },
-      async authorize(creds) {
+      async authorize(creds, req) {
         const email = String(creds?.email ?? "").trim().toLowerCase();
         const password = String(creds?.password ?? "");
         if (!email || !password) return null;
-        const f = failures.get(email);
-        if (f && f.n >= MAX_FAILS && f.until > Date.now()) return null;
+        const h = req?.headers as Record<string, string | string[] | undefined> | undefined;
+        const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+        const ip = first(h?.["x-real-ip"])?.trim() || first(h?.["x-forwarded-for"])?.split(",")[0]?.trim() || "unknown";
+        const emailKey = `login:${ip}:${email}`;
+        try {
+          await rateLimit(`login-ip:${ip}`, MAX_PER_IP, LOGIN_WINDOW);
+          await rateLimit(emailKey, MAX_PER_EMAIL, LOGIN_WINDOW);
+        } catch {
+          return null;
+        }
         const user = await db.user.findUnique({ where: { email } });
         // Compare against a dummy hash when the user is unknown to keep timing similar.
         const hash = user?.passwordHash ?? DUMMY_HASH;
         const ok = await bcrypt.compare(password, hash);
-        if (!user || !ok) {
-          failures.set(email, { n: (f?.n ?? 0) + 1, until: Date.now() + 5 * 60_000 });
-          return null;
-        }
-        failures.delete(email);
+        if (!user || !ok) return null;
+        await resetLimit(emailKey);
         return { id: user.id, email: user.email, name: user.name };
       },
     }),

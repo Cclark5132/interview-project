@@ -203,3 +203,12 @@ model CaseRun {
 
   @@index([userId, questionId, createdAt])
 }
+
+// Shared fixed-window counters and short locks. Serverless instances do not share memory, so throttles live here.
+model RateLimit {
+  key     String   @id
+  count   Int      @default(1)
+  resetAt DateTime
+
+  @@index([resetAt])
+}

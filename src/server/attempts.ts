@@ -3,11 +3,19 @@ import { parseJson } from "@/lib/json";
 import { gradeAnswer, GradingError, getProvider, type GradeProvider, type GradeResult } from "@/lib/grading";
 import { loadRubric } from "./questions";
 import { HttpError } from "./access";
+import { acquireLock, rateLimit, releaseLock } from "./ratelimit";
 
 export const LIMITS = { minChars: 20, maxChars: 6000, windowMs: 10 * 60_000, maxPerWindow: 24 };
 
-// Per-process guard against double-click / parallel submissions for the same user + question.
-const inFlight = new Set<string>();
+const DAY_MS = 24 * 60 * 60_000;
+const DAILY_PER_USER = 120;
+const DAILY_GLOBAL = Number(process.env.GRADING_DAILY_CAP) || 3000;
+
+/** Daily spend guards on paid grading calls: per user and site-wide (shared across serverless instances). */
+export async function assertGradingBudget(userId: string) {
+  await rateLimit(`grade:day:${userId}`, DAILY_PER_USER, DAY_MS, "Daily practice limit reached. Come back tomorrow.");
+  await rateLimit("grade:day:all", DAILY_GLOBAL, DAY_MS, "Grading is at capacity for today. Please try again tomorrow.");
+}
 
 export type AttemptView = {
   id: string;
@@ -75,9 +83,9 @@ export async function submitAttempt(
   const recent = await db.attempt.count({ where: { userId, createdAt: { gte: new Date(now.getTime() - LIMITS.windowMs) } } });
   if (recent >= LIMITS.maxPerWindow) throw new HttpError(429, "Too many submissions. Take a short break and try again in a few minutes.");
 
-  const lockKey = `${userId}:${questionId}`;
-  if (inFlight.has(lockKey)) throw new HttpError(409, "This answer is already being evaluated.");
-  inFlight.add(lockKey);
+  await assertGradingBudget(userId);
+  const lockKey = `lock:attempt:${userId}:${questionId}`;
+  if (!(await acquireLock(lockKey, 90_000))) throw new HttpError(409, "This answer is already being evaluated.");
   try {
     const reveal = await db.idealReveal.findUnique({ where: { userId_questionId: { userId, questionId } } });
     const assisted = Boolean(reveal);
@@ -124,7 +132,7 @@ export async function submitAttempt(
     });
     return { attempt: toView(saved), duplicate: false };
   } finally {
-    inFlight.delete(lockKey);
+    await releaseLock(lockKey);
   }
 }
 

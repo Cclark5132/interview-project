@@ -294,3 +294,40 @@ describe("guest access (no sign-up)", () => {
     expect(await listAttempts(other.id, id)).toHaveLength(0);
   });
 });
+
+describe("shared rate limits and locks", () => {
+  it("counts per window across calls, resets, and clears", async () => {
+    const { hit, rateLimit, resetLimit } = await import("@/server/ratelimit");
+    const key = `t:${Date.now()}`;
+    expect(await hit(key, 60_000)).toBe(1);
+    expect(await hit(key, 60_000)).toBe(2);
+    await expect(rateLimit(key, 2, 60_000)).rejects.toMatchObject({ status: 429 });
+    await resetLimit(key);
+    expect(await hit(key, 60_000)).toBe(1);
+    const short = `${key}:short`;
+    await hit(short, 1);
+    await new Promise((r) => setTimeout(r, 30));
+    expect(await hit(short, 60_000)).toBe(1);
+  });
+
+  it("locks are exclusive until released or expired", async () => {
+    const { acquireLock, releaseLock } = await import("@/server/ratelimit");
+    const key = `lock:t:${Date.now()}`;
+    expect(await acquireLock(key, 60_000)).toBe(true);
+    expect(await acquireLock(key, 60_000)).toBe(false);
+    await releaseLock(key);
+    expect(await acquireLock(key, 60_000)).toBe(true);
+    const k2 = `${key}:exp`;
+    expect(await acquireLock(k2, 1)).toBe(true);
+    await new Promise((r) => setTimeout(r, 30));
+    expect(await acquireLock(k2, 60_000)).toBe(true);
+  });
+
+  it("enforces the per-user daily grading budget", async () => {
+    const { assertGradingBudget } = await import("@/server/attempts");
+    const g = (await import("@/server/guest")).createGuestUser;
+    const u = await g();
+    for (let i = 0; i < 120; i++) await assertGradingBudget(u.id);
+    await expect(assertGradingBudget(u.id)).rejects.toMatchObject({ status: 429 });
+  });
+});

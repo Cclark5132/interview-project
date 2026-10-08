@@ -52,6 +52,6 @@ If Vercel displays different values for your project, use those instead. DNS usu
 
 ## Operational notes
 - Updates: push to `main` → Vercel redeploys and runs migrations.
-- Login throttling and in-flight locks are per serverless instance; database-counted attempt limits (12 per 10 minutes per user) are global.
+- Rate limits, login throttling and grading locks live in the `RateLimit` table, so they hold across serverless instances. Limits: 24 gradings per 10 min and 120 per day per user, 60 per hour per IP, `GRADING_DAILY_CAP` site-wide per day (default 3000), 8 new guest sessions per hour per IP, plus caps on transcription and job-description parsing.
 - Voice uploads are limited to 4 MB (Vercel request limit).
 - Backups: Neon free tier keeps limited point-in-time history; export periodically (`pg_dump` with the direct string) before major changes.

@@ -4,7 +4,8 @@ import { gradeAnswer, GradingError, getProvider, type GradeProvider, type GradeR
 import { buildRubric } from "@/content/seed-questions";
 import type { CaseStage } from "@/content/cases/types";
 import { HttpError } from "./access";
-import { LIMITS } from "./attempts";
+import { assertGradingBudget, LIMITS } from "./attempts";
+import { acquireLock, releaseLock } from "./ratelimit";
 
 /** Math stages cannot score above this when the final number is outside tolerance. */
 export const WRONG_NUMBER_CAP = 60;
@@ -43,8 +44,6 @@ export type CaseView = {
   overall: number | null;
   gradingMode: string | null;
 };
-
-const inFlight = new Set<string>();
 
 function stagesOf(json: string | null): CaseStage[] {
   const stages = parseJson<CaseStage[]>(json ?? "[]", []);
@@ -211,9 +210,9 @@ export async function answerCaseStage(
   const recent = await db.attempt.count({ where: { userId, createdAt: { gte: new Date(Date.now() - LIMITS.windowMs) } } });
   if (recent >= LIMITS.maxPerWindow) throw new HttpError(429, "Too many submissions. Take a short break and try again in a few minutes.");
 
-  const lock = `${runId}:${idx}`;
-  if (inFlight.has(lock)) throw new HttpError(409, "This stage is already being evaluated.");
-  inFlight.add(lock);
+  await assertGradingBudget(userId);
+  const lock = `lock:case:${runId}:${idx}`;
+  if (!(await acquireLock(lock, 90_000))) throw new HttpError(409, "This stage is already being evaluated.");
   try {
     const revealed = new Set(parseJson<string[]>(run.revealed, []));
     const half = Math.ceil(st.c.length / 2);
@@ -281,6 +280,6 @@ export async function answerCaseStage(
     });
     return viewFor(questionId, runId, userId);
   } finally {
-    inFlight.delete(lock);
+    await releaseLock(lock);
   }
 }
