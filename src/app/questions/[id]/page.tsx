@@ -26,7 +26,10 @@ export default async function QuestionPage({ params }: { params: Promise<{ id: s
       <div>
         <div className="flex items-center justify-between">
           <Link href="/library" className="font-mono text-[11px] uppercase tracking-[0.09em] text-muted hover:text-ink">← Library</Link>
-          <Link href="/practice" className="font-mono text-[11px] uppercase tracking-[0.09em] text-accent hover:underline">Skip to next →</Link>
+          <span className="flex items-center gap-4">
+            <Link href="/briefing" className="font-mono text-[11px] uppercase tracking-[0.09em] text-muted hover:text-ink">Interview guide</Link>
+            <Link href="/practice" className="font-mono text-[11px] uppercase tracking-[0.09em] text-accent hover:underline">Skip to next →</Link>
+          </span>
         </div>
         <h1 className="mt-3 text-[40px] leading-[1.05]">{q.title}</h1>
       </div>

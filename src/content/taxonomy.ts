@@ -16,6 +16,7 @@ export const DISCIPLINES = [
 ] as const;
 
 import { EXTRA_TOPICS } from "./topics-extra";
+import { MORE_COMPANIES, MORE_ROLES } from "./companies-more";
 import { FINANCE_COMPANIES, FINANCE_ROLES, FINANCE_TOPICS } from "./topics-finance";
 
 const BASE_TOPICS: { id: string; name: string; disciplineId: string; keywords: string[] }[] = [
@@ -54,6 +55,7 @@ export const TOPICS = [...BASE_TOPICS, ...EXTRA_TOPICS, ...FINANCE_TOPICS];
 
 export const ROLES: { id: string; name: string; keywords: string[]; disciplines: string[] }[] = [
   ...FINANCE_ROLES,
+  ...MORE_ROLES,
   { id: "design-engineer", name: "Design engineer", keywords: ["design engineer", "product design", "mechanical design"], disciplines: ["mechanical", "aerospace", "materials", "biomedical", "industrial"] },
   { id: "thermal-engineer", name: "Thermal engineer", keywords: ["thermal engineer", "thermal analyst", "thermal design"], disciplines: ["mechanical", "aerospace", "electrical", "chemical"] },
   { id: "propulsion-engineer", name: "Propulsion engineer", keywords: ["propulsion engineer", "engine engineer"], disciplines: ["aerospace", "mechanical"] },
@@ -68,6 +70,7 @@ export const ROLES: { id: string; name: string; keywords: string[]; disciplines:
 
 export const COMPANIES: { id: string; name: string; disciplines: string[] }[] = [
   ...FINANCE_COMPANIES,
+  ...MORE_COMPANIES,
   { id: "spacex", name: "SpaceX", disciplines: ["aerospace", "mechanical", "electrical", "computer-engineering", "computer-science", "materials"] },
   { id: "tesla", name: "Tesla", disciplines: ["mechanical", "electrical", "computer-engineering", "computer-science", "industrial", "materials", "chemical"] },
   { id: "boeing", name: "Boeing", disciplines: ["aerospace", "mechanical", "materials", "industrial", "electrical"] },

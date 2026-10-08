@@ -58,7 +58,11 @@ async function main() {
     const ALL = [...SEED_QUESTIONS, ...BANK];
     for (const q of ALL) {
       const exists = await db.question.findFirst({ where: { title: q.title, evidenceCategory: "original" } });
-      if (exists) continue;
+      if (exists) {
+        // Keep role tags current for questions seeded earlier (new roles are added over time).
+        if (q.roles.length) await db.questionRole.createMany({ data: q.roles.map((roleId) => ({ questionId: exists.id, roleId })), skipDuplicates: true });
+        continue;
+      }
       const rubric = buildRubric(q);
       const total = rubric.reduce((s, c) => s + c.weight, 0);
       if (total !== 100) throw new Error(`Seed rubric for "${q.title}" totals ${total}`);

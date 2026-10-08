@@ -7,9 +7,10 @@ import { LEVELS } from "@/lib/ranking";
 type Opt = { id: string; name: string };
 type Disc = Opt & { family: string };
 const FIELDS: { id: string; name: string; blurb: string; families: string[] }[] = [
-  { id: "engineering", name: "Engineering", blurb: "Mechanical, electrical, civil, chemical and more. Fundamentals, design and troubleshooting.", families: ["engineering"] },
-  { id: "computing", name: "Computing", blurb: "Algorithms, systems design, databases and the software interview loop.", families: ["computing"] },
-  { id: "business", name: "Business & finance", blurb: "Investment banking technicals, consulting cases, market sizing and fit.", families: ["finance", "business"] },
+  { id: "engineering", name: "Engineering", blurb: "Mechanical, aerospace, electrical, civil, chemical and more. Fundamentals, design and troubleshooting.", families: ["engineering"] },
+  { id: "computer-science", name: "Computer science", blurb: "Algorithms, systems design, databases and the software interview loop.", families: ["computing"] },
+  { id: "investment-banking", name: "Investment banking", blurb: "Accounting, valuation, M&A, LBOs and fit for analyst and markets roles.", families: ["finance"] },
+  { id: "consulting", name: "Consulting", blurb: "Case interviews, market sizing, case math and fit.", families: ["business"] },
 ];
 type Fit = Opt & { disciplineIds: string[] };
 type Topic = Opt & { disciplineId: string };
@@ -50,6 +51,7 @@ export function OnboardingForm({
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [q, setQ] = useState("");
+  const [cq, setCq] = useState("");
   const fieldOf = (id: string) => FIELDS.find((f) => f.families.includes(disciplines.find((d) => d.id === id)?.family ?? ""))?.id ?? "";
   const [field, setField] = useState(fieldOf(initial.disciplineId));
   const [match, setMatch] = useState<{ inDiscipline: number; matching: number } | null>(null);
@@ -59,8 +61,10 @@ export function OnboardingForm({
   const roleOptions = fits(roles, v.roleId);
   const companyOptions = fits(companies, v.companyId);
   const visibleTopics = topics.filter((t) => t.disciplineId === v.disciplineId || v.topicIds.includes(t.id));
+  const companyShown = companyOptions.filter((c) => c.name.toLowerCase().includes(cq.trim().toLowerCase()) || c.id === v.companyId);
   const fieldDef = FIELDS.find((f) => f.id === field);
   const shown = disciplines.filter((d) => fieldDef?.families.includes(d.family) && d.name.toLowerCase().includes(q.trim().toLowerCase()));
+  const multiMajor = shown.length > 1;
   const chosen = disciplines.find((d) => d.id === v.disciplineId);
 
   // Live count of published questions for the draft target.
@@ -133,7 +137,7 @@ export function OnboardingForm({
       setSaving(false);
       return setError(j.error ?? "Could not save.");
     }
-    router.push("/practice");
+    router.push("/briefing");
   }
 
   const toggle = (id: string) => setV((s) => ({ ...s, topicIds: s.topicIds.includes(id) ? s.topicIds.filter((x) => x !== id) : [...s.topicIds, id] }));
@@ -145,7 +149,7 @@ export function OnboardingForm({
       <div className="space-y-10">
         <section aria-labelledby="disc-h">
           <h2 id="field-h" className="label !mb-3">1 · What are you interviewing in?</h2>
-          <div className="grid gap-2.5 sm:grid-cols-3" role="radiogroup" aria-labelledby="field-h">
+          <div className="grid gap-2.5 sm:grid-cols-2" role="radiogroup" aria-labelledby="field-h">
             {FIELDS.map((f, i) => {
               const on = field === f.id;
               const total = disciplines.filter((d) => f.families.includes(d.family)).reduce((n, d) => n + (counts[d.id] ?? 0), 0);
@@ -169,9 +173,9 @@ export function OnboardingForm({
           </div>
         </section>
 
-        {field && (
+        {field && shown.length > 1 && (
           <section key={field} aria-labelledby="disc-h" className="rise">
-            <h2 id="disc-h" className="label !mb-3">2 · {field === "business" ? "Your track" : "Your major"}</h2>
+            <h2 id="disc-h" className="label !mb-3">2 · Your major</h2>
             <div className="overflow-hidden rounded-[10px] border border-line bg-surface">
               {shown.length > 6 && (
                 <div className="border-b border-line p-2.5">
@@ -198,49 +202,66 @@ export function OnboardingForm({
         )}
 
         {v.disciplineId && (
-          <section key={v.disciplineId} aria-labelledby="refine-h" className="rise space-y-7">
-            <h2 id="refine-h" className="label !mb-0">3 · Narrow it down <span className="normal-case tracking-normal text-muted/70">(all optional)</span></h2>
+          <section key={v.disciplineId} aria-labelledby="pos-h" className="rise space-y-6">
+            <h2 id="pos-h" className="label !mb-0">{multiMajor ? "3" : "2"} · Position and company</h2>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className="label" htmlFor="r">Role</label>
-                <select id="r" className="input" value={v.roleId} onChange={(e) => setV({ ...v, roleId: e.target.value })}>
-                  <option value="">Any role</option>
-                  {roleOptions.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
-                </select>
-              </div>
-              <div>
-                <label className="label" htmlFor="c">Company</label>
-                <select id="c" className="input" value={v.companyId} onChange={(e) => setV({ ...v, companyId: e.target.value })}>
-                  <option value="">{companyOptions.length === 0 ? "None for this discipline yet" : "No specific company"}</option>
-                  {companyOptions.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
-                </select>
+            <div>
+              <div className="label" id="role-l">Position / role</div>
+              <div className="flex flex-wrap gap-2" role="radiogroup" aria-labelledby="role-l">
+                <button type="button" role="radio" aria-checked={v.roleId === ""} onClick={() => setV({ ...v, roleId: "" })} className={chip(v.roleId === "")}>Any role</button>
+                {roleOptions.map((r) => (
+                  <button key={r.id} type="button" role="radio" aria-checked={v.roleId === r.id} onClick={() => setV({ ...v, roleId: r.id })} className={chip(v.roleId === r.id)}>{r.name}</button>
+                ))}
               </div>
             </div>
 
-            <fieldset>
-              <legend className="label">Level</legend>
-              <div className="inline-flex flex-wrap gap-2" role="radiogroup">
-                {LEVELS.map((l) => (
-                  <label key={l.id} className={chip(v.level === l.id)}>
-                    <input type="radio" name="level" className="sr-only" checked={v.level === l.id} onChange={() => setV({ ...v, level: l.id })} />
-                    {l.name}
-                  </label>
-                ))}
+            <div>
+              <div className="flex flex-wrap items-end justify-between gap-2">
+                <div className="label !mb-0" id="co-l">Company <span className="normal-case tracking-normal text-muted/70">({companyOptions.length} to choose from)</span></div>
+                {companyOptions.length > 8 && (
+                  <input type="search" value={cq} onChange={(e) => setCq(e.target.value)} placeholder="Search companies..." aria-label="Search companies" className="input !h-8 !w-52 !py-0 text-[13px]" />
+                )}
               </div>
-            </fieldset>
+              <div className="mt-2 flex max-h-56 flex-wrap gap-2 overflow-y-auto pr-1" role="radiogroup" aria-labelledby="co-l">
+                <button type="button" role="radio" aria-checked={v.companyId === ""} onClick={() => setV({ ...v, companyId: "" })} className={chip(v.companyId === "")}>No specific company</button>
+                {companyShown.map((c) => (
+                  <button key={c.id} type="button" role="radio" aria-checked={v.companyId === c.id} onClick={() => setV({ ...v, companyId: c.id })} className={chip(v.companyId === c.id)}>{c.name}</button>
+                ))}
+                {companyShown.length === 0 && <span className="py-1.5 text-sm text-muted">No company matches.</span>}
+              </div>
+              <p className="mt-2 text-[12.5px] text-muted">Pick a company and you will get its interview process briefing before the technical prep.</p>
+            </div>
 
-            <fieldset>
-              <legend className="label">Focus topics</legend>
-              <div className="flex flex-wrap gap-2">
-                {visibleTopics.map((t) => (
-                  <label key={t.id} className={chip(v.topicIds.includes(t.id))}>
-                    <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle(t.id)} />
-                    {t.name}
-                  </label>
-                ))}
+            <details className="card group">
+              <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-3.5 text-sm font-medium">
+                Fine-tune: level and focus topics <span className="text-muted/70">(optional)</span>
+                <span aria-hidden className="font-mono text-muted transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <div className="space-y-6 border-t border-line p-5">
+                <fieldset>
+                  <legend className="label">Level</legend>
+                  <div className="inline-flex flex-wrap gap-2" role="radiogroup">
+                    {LEVELS.map((l) => (
+                      <label key={l.id} className={chip(v.level === l.id)}>
+                        <input type="radio" name="level" className="sr-only" checked={v.level === l.id} onChange={() => setV({ ...v, level: l.id })} />
+                        {l.name}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend className="label">Focus topics</legend>
+                  <div className="flex flex-wrap gap-2">
+                    {visibleTopics.map((t) => (
+                      <label key={t.id} className={chip(v.topicIds.includes(t.id))}>
+                        <input type="checkbox" className="sr-only" checked={v.topicIds.includes(t.id)} onChange={() => toggle(t.id)} />
+                        {t.name}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
               </div>
-            </fieldset>
+            </details>
           </section>
         )}
 
@@ -280,7 +301,7 @@ export function OnboardingForm({
         )}
         {error && <p role="alert" className="mt-4 rounded-[6px] bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>}
         <button className="btn btn-primary mt-5 w-full !min-h-11 !text-sm" disabled={saving || !v.disciplineId} onClick={start}>
-          {saving ? "Starting…" : "Start practicing →"}
+          {saving ? "Starting…" : v.companyId ? "See the interview guide →" : "Continue →"}
         </button>
         {hasTarget && <button type="button" className="btn mt-2 w-full" onClick={() => router.push("/library")}>Browse the library</button>}
         <p className="mt-4 font-mono text-[11px] leading-relaxed text-muted">No account needed. Company only boosts questions reviewed for it; that is not a claim the company asks them.</p>
